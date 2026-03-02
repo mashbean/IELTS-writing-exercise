@@ -252,38 +252,512 @@ const TASK1_PROMPTS = [
       unit: "million",
     },
   },
+  {
+    id: "t1-bar-internet",
+    type: "Bar Chart",
+    title: "Internet Access by Age Group",
+    prompt:
+      "The bar chart compares the percentage of people in five age groups who had access to the internet in 2008 and 2024.",
+    restatement:
+      "The bar chart compares the proportions of people in five age groups who had internet access in 2008 and 2024.",
+    overview:
+      "Overall, internet access increased across all age groups, and younger people consistently recorded the highest figures.",
+    overview2:
+      "The sharpest rise occurred among the oldest groups, although their percentages still remained below those of younger adults.",
+    focusA:
+      "Among people aged 18 to 34, access was already high in 2008 and climbed further to almost universal levels by 2024.",
+    focusB:
+      "By contrast, the 65-plus group started from the lowest base but experienced the most dramatic growth over the period.",
+    visual: {
+      kind: "bar",
+      categories: ["18-24", "25-34", "35-49", "50-64", "65+"],
+      series: [
+        { label: "2008", color: "#1f6d67", values: [82, 79, 64, 48, 22] },
+        { label: "2024", color: "#bd5d38", values: [98, 97, 91, 84, 68] },
+      ],
+      unit: "%",
+    },
+  },
+  {
+    id: "t1-line-tourism",
+    type: "Line Graph",
+    title: "International Tourist Arrivals",
+    prompt:
+      "The line graph shows the number of international tourists visiting three island destinations between 2010 and 2025.",
+    restatement:
+      "The line graph illustrates the numbers of international tourists who visited three island destinations from 2010 to 2025.",
+    overview:
+      "Overall, visitor numbers rose in all three destinations, but Island A saw by far the strongest growth.",
+    overview2:
+      "Island C remained the least popular throughout the period despite a gradual upward trend.",
+    focusA:
+      "Island A climbed sharply from 0.8 million visitors in 2010 to around 3.6 million in 2025, overtaking the other islands early on.",
+    focusB:
+      "Meanwhile, Islands B and C increased more steadily, with Island C staying at the bottom across the whole period.",
+    visual: {
+      kind: "line",
+      labels: ["2010", "2013", "2016", "2019", "2022", "2025"],
+      series: [
+        { label: "Island A", color: "#bd5d38", values: [0.8, 1.3, 2.0, 2.7, 3.2, 3.6] },
+        { label: "Island B", color: "#1f6d67", values: [1.1, 1.4, 1.8, 2.1, 2.3, 2.5] },
+        { label: "Island C", color: "#bd8a2e", values: [0.5, 0.7, 0.9, 1.1, 1.2, 1.4] },
+      ],
+      unit: "million",
+    },
+  },
+  {
+    id: "t1-table-smartphone",
+    type: "Table",
+    title: "Smartphone Ownership",
+    prompt:
+      "The table compares smartphone ownership rates among adults in six countries in 2012 and 2024.",
+    restatement:
+      "The table compares the percentages of adults who owned a smartphone in six countries in 2012 and 2024.",
+    overview:
+      "Overall, smartphone ownership rose markedly in every country, with Country F recording the highest figure in 2024.",
+    overview2:
+      "Although Country A had the lowest starting point, it also registered one of the most substantial increases.",
+    focusA:
+      "In 2024, the leading countries posted ownership rates of over 90%, which was far higher than their already significant levels in 2012.",
+    focusB:
+      "At the lower end, Country A and Country B began well below the others but narrowed the gap considerably by the end of the period.",
+    visual: {
+      kind: "table",
+      columns: ["Country", "2012", "2024"],
+      rows: [
+        ["A", "28", "76"],
+        ["B", "34", "81"],
+        ["C", "49", "88"],
+        ["D", "53", "91"],
+        ["E", "57", "93"],
+        ["F", "61", "95"],
+      ],
+    },
+  },
+  {
+    id: "t1-pie-water",
+    type: "Pie Chart",
+    title: "Household Water Use",
+    prompt:
+      "The pie charts show how household water was used in a city in 1990 and 2025.",
+    restatement:
+      "The pie charts compare the proportions of household water use devoted to different purposes in 1990 and 2025.",
+    overview:
+      "Overall, bathroom use remained the largest category in both years, while garden use accounted for a smaller share in 2025.",
+    overview2:
+      "By contrast, the proportion used for kitchens rose slightly, indicating a modest redistribution of water consumption.",
+    focusA:
+      "Bathroom use represented the largest share in both years, slipping only slightly from 42% in 1990 to 39% in 2025.",
+    focusB:
+      "Garden watering, on the other hand, fell noticeably, whereas kitchen use and other domestic purposes became marginally more prominent.",
+    visual: {
+      kind: "pies",
+      pies: [
+        {
+          title: "1990",
+          values: [
+            { label: "Bathroom", value: 42, color: "#1f6d67" },
+            { label: "Kitchen", value: 21, color: "#bd5d38" },
+            { label: "Laundry", value: 17, color: "#bd8a2e" },
+            { label: "Garden", value: 14, color: "#7e8d94" },
+            { label: "Other", value: 6, color: "#a4ab90" },
+          ],
+        },
+        {
+          title: "2025",
+          values: [
+            { label: "Bathroom", value: 39, color: "#1f6d67" },
+            { label: "Kitchen", value: 24, color: "#bd5d38" },
+            { label: "Laundry", value: 18, color: "#bd8a2e" },
+            { label: "Garden", value: 10, color: "#7e8d94" },
+            { label: "Other", value: 9, color: "#a4ab90" },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "t1-process-coffee",
+    type: "Process Diagram",
+    title: "Coffee Production",
+    prompt:
+      "The diagram illustrates the process of producing coffee from beans to packaged products.",
+    restatement:
+      "The process diagram illustrates how coffee is produced from harvested beans to the final packaged product.",
+    overview:
+      "Overall, coffee production is a linear process involving harvesting, treatment, roasting and packaging.",
+    overview2:
+      "The beans are processed in several stages before being prepared for sale.",
+    focusA:
+      "Initially, ripe coffee cherries are harvested and the beans are separated, dried and cleaned.",
+    focusB:
+      "The processed beans are then roasted, ground if necessary and finally packed for distribution.",
+    visual: {
+      kind: "process",
+      steps: ["Harvest", "Separate", "Dry", "Clean", "Roast", "Grind", "Package"],
+    },
+  },
+  {
+    id: "t1-map-park",
+    type: "Map",
+    title: "City Park Renovation",
+    prompt:
+      "The maps show the layout of a city park in 2005 and after redevelopment in 2025.",
+    restatement:
+      "The maps compare the layout of a city park in 2005 with its appearance after redevelopment in 2025.",
+    overview:
+      "Overall, the park was modernised extensively, with more recreational facilities and improved paths.",
+    overview2:
+      "Several open areas were reorganised to accommodate new amenities for visitors.",
+    focusA:
+      "The original central lawn was reduced in size to make room for a cafe, a playground and additional seating areas.",
+    focusB:
+      "Meanwhile, the park became easier to navigate thanks to new walkways and a clearer entrance arrangement.",
+    visual: {
+      kind: "mapCompare",
+      panels: [
+        {
+          title: "2005",
+          items: [
+            { label: "Lawn", x: 20, y: 18, w: 92, h: 50, color: "#7ea592" },
+            { label: "Lake", x: 136, y: 20, w: 78, h: 46, color: "#8db6c8" },
+            { label: "Trees", x: 26, y: 80, w: 60, h: 28, color: "#729268" },
+            { label: "Path", x: 108, y: 76, w: 18, h: 44, color: "#d8c9b7" },
+          ],
+        },
+        {
+          title: "2025",
+          items: [
+            { label: "Cafe", x: 20, y: 18, w: 58, h: 28, color: "#d99c79" },
+            { label: "Playground", x: 20, y: 56, w: 70, h: 30, color: "#f0c49a" },
+            { label: "Lake", x: 140, y: 20, w: 74, h: 46, color: "#8db6c8" },
+            { label: "Seats", x: 102, y: 76, w: 44, h: 24, color: "#c6b199" },
+            { label: "Paths", x: 156, y: 76, w: 18, h: 44, color: "#d8c9b7" },
+          ],
+        },
+      ],
+    },
+  },
+  {
+    id: "t1-bar-enrolment",
+    type: "Bar Chart",
+    title: "University Enrolment by Faculty",
+    prompt:
+      "The bar chart compares the numbers of students enrolled in four university faculties in 2015 and 2025.",
+    restatement:
+      "The bar chart compares student enrolment in four university faculties in 2015 and 2025.",
+    overview:
+      "Overall, enrolment increased in most faculties, and Business remained the largest department in both years.",
+    overview2:
+      "Arts was the smallest faculty throughout the period, despite experiencing a moderate rise in student numbers.",
+    focusA:
+      "Business attracted the highest number of students in both years, increasing from 8,000 to about 10,500.",
+    focusB:
+      "By comparison, Arts enrolled the fewest students, while Engineering also recorded solid growth over the decade.",
+    visual: {
+      kind: "bar",
+      categories: ["Business", "Engineering", "Science", "Arts"],
+      series: [
+        { label: "2015", color: "#1f6d67", values: [8.0, 6.5, 5.8, 4.1] },
+        { label: "2025", color: "#bd5d38", values: [10.5, 8.3, 6.2, 4.8] },
+      ],
+      unit: "thousand students",
+    },
+  },
+  {
+    id: "t1-line-energymix",
+    type: "Line Graph",
+    title: "Electricity Mix",
+    prompt:
+      "The line graph shows the percentage of electricity generated from coal, gas and renewable sources in one country between 2000 and 2025.",
+    restatement:
+      "The line graph illustrates the proportions of electricity produced from coal, gas and renewable energy in one country from 2000 to 2025.",
+    overview:
+      "Overall, coal became much less important, whereas renewables expanded steadily across the period.",
+    overview2:
+      "Gas fluctuated moderately and ended the period as the largest single source of electricity generation.",
+    focusA:
+      "Coal started as the dominant source at around 48%, but its share declined sharply to roughly 18% by 2025.",
+    focusB:
+      "Renewables moved in the opposite direction, rising continuously from about 10% to nearly 35%, while gas changed less dramatically.",
+    visual: {
+      kind: "line",
+      labels: ["2000", "2005", "2010", "2015", "2020", "2025"],
+      series: [
+        { label: "Coal", color: "#a5372f", values: [48, 44, 37, 29, 23, 18] },
+        { label: "Gas", color: "#1f6d67", values: [29, 31, 33, 35, 36, 37] },
+        { label: "Renewables", color: "#bd8a2e", values: [10, 13, 18, 24, 30, 35] },
+      ],
+      unit: "%",
+    },
+  },
+  {
+    id: "t1-mixed-museum",
+    type: "Mixed Charts",
+    title: "Museum Visitors and Feedback",
+    prompt:
+      "The bar chart compares visitor numbers at four museums in 2024, while the pie chart shows visitors' main reasons for attending.",
+    restatement:
+      "The bar chart compares the numbers of visitors to four museums in 2024, and the pie chart illustrates the main reasons why people attended.",
+    overview:
+      "Overall, the History Museum attracted the largest number of visitors, and education was the most common reason for attending.",
+    overview2:
+      "The smallest museum still received a substantial audience, while leisure and tourism together accounted for a significant share of visits.",
+    focusA:
+      "The History Museum topped the list with about 620,000 visitors, compared with only 310,000 at the Science Museum.",
+    focusB:
+      "In the pie chart, education made up 35% of responses, while leisure and tourism together accounted for just over two-fifths.",
+    visual: {
+      kind: "mixed",
+      bar: {
+        categories: ["History", "Art", "Natural", "Science"],
+        series: [{ label: "Visitors", color: "#1f6d67", values: [620, 540, 430, 310] }],
+        unit: "thousand",
+      },
+      pie: {
+        title: "Visit Reasons",
+        values: [
+          { label: "Education", value: 35, color: "#bd5d38" },
+          { label: "Leisure", value: 24, color: "#1f6d67" },
+          { label: "Tourism", value: 18, color: "#bd8a2e" },
+          { label: "Events", value: 13, color: "#7e8d94" },
+          { label: "Other", value: 10, color: "#a4ab90" },
+        ],
+      },
+    },
+  },
+  {
+    id: "t1-table-airline",
+    type: "Table",
+    title: "Airline Performance",
+    prompt:
+      "The table compares the on-time arrival rate, average ticket price and passenger numbers for five airlines in 2024.",
+    restatement:
+      "The table compares five airlines in terms of on-time arrival rates, average ticket prices and passenger numbers in 2024.",
+    overview:
+      "Overall, the airline with the highest punctuality did not have the largest number of passengers, and ticket prices varied considerably.",
+    overview2:
+      "Airline D served the most passengers, while Airline B charged the highest average fare.",
+    focusA:
+      "Airline D carried 28 million passengers, clearly ahead of the others, even though its punctuality was only moderate at 83%.",
+    focusB:
+      "By contrast, Airline B had the most expensive tickets and the highest on-time rate, but its passenger total was comparatively modest.",
+    visual: {
+      kind: "table",
+      columns: ["Airline", "On-time %", "Avg Fare", "Passengers"],
+      rows: [
+        ["A", "81", "$210", "18m"],
+        ["B", "89", "$285", "14m"],
+        ["C", "77", "$198", "16m"],
+        ["D", "83", "$230", "28m"],
+        ["E", "85", "$240", "20m"],
+      ],
+    },
+  },
+  {
+    id: "t1-process-cement",
+    type: "Process Diagram",
+    title: "Cement Manufacturing",
+    prompt:
+      "The diagram shows how cement is manufactured for use in concrete production.",
+    restatement:
+      "The process diagram illustrates how cement is produced for use in making concrete.",
+    overview:
+      "Overall, cement production is a multi-stage industrial process that ends with grinding, after which the product can be mixed with other materials to make concrete.",
+    overview2:
+      "The raw materials are crushed and heated before the final product is prepared.",
+    focusA:
+      "First, limestone and clay are crushed into powder and then transferred to a mixer before entering a rotating heater.",
+    focusB:
+      "The heated material is subsequently ground to make cement, which can then be combined with gravel, sand and water in a concrete mixer.",
+    visual: {
+      kind: "process",
+      steps: ["Crush", "Mix", "Heat", "Grind", "Cement", "Mix Additives", "Concrete"],
+    },
+  },
+  {
+    id: "t1-map-town",
+    type: "Map",
+    title: "Town Centre Changes",
+    prompt:
+      "The maps show changes to a town centre between 1995 and the present day.",
+    restatement:
+      "The maps compare the layout of a town centre in 1995 with its current arrangement.",
+    overview:
+      "Overall, the town centre has become more commercialised and pedestrian-friendly than it was in 1995.",
+    overview2:
+      "Several old facilities disappeared, while shopping and transport infrastructure expanded.",
+    focusA:
+      "A former car park and small market area were replaced by a shopping complex and a larger public square.",
+    focusB:
+      "At the same time, the road system was reorganised, resulting in better pedestrian access and a clearer bus route.",
+    visual: {
+      kind: "mapCompare",
+      panels: [
+        {
+          title: "1995",
+          items: [
+            { label: "Market", x: 20, y: 18, w: 68, h: 30, color: "#d99c79" },
+            { label: "Car Park", x: 20, y: 58, w: 68, h: 38, color: "#c6b199" },
+            { label: "Main Road", x: 102, y: 16, w: 18, h: 104, color: "#d8c9b7" },
+            { label: "Shops", x: 136, y: 18, w: 86, h: 78, color: "#7ea592" },
+          ],
+        },
+        {
+          title: "Now",
+          items: [
+            { label: "Mall", x: 20, y: 18, w: 74, h: 42, color: "#7ea592" },
+            { label: "Square", x: 20, y: 68, w: 74, h: 28, color: "#f0c49a" },
+            { label: "Bus Lane", x: 102, y: 16, w: 18, h: 104, color: "#d8c9b7" },
+            { label: "Cafe Row", x: 136, y: 18, w: 86, h: 28, color: "#d99c79" },
+            { label: "Shops", x: 136, y: 56, w: 86, h: 40, color: "#7ea592" },
+          ],
+        },
+      ],
+    },
+  },
 ];
 
 const TASK2_PROMPTS = [
   {
     id: "t2-education",
+    mode: "Discussion + Opinion",
     title: "University and Employment",
     prompt:
       "Some people believe that university education should prepare students for employment, while others think it should focus on knowledge for its own sake. Discuss both views and give your opinion.",
   },
   {
     id: "t2-technology",
+    mode: "Advantages / Disadvantages",
     title: "AI in Daily Life",
     prompt:
       "Artificial intelligence is becoming part of daily life. Do the advantages of this trend outweigh the disadvantages?",
   },
   {
     id: "t2-environment",
+    mode: "Discussion + Opinion",
     title: "Individual vs Government Action",
     prompt:
       "Some people think environmental problems should be solved by individuals, while others believe governments and large companies should take responsibility. Discuss both sides and give your opinion.",
   },
   {
     id: "t2-work",
+    mode: "Problems / Benefits",
     title: "Remote Work Culture",
     prompt:
       "Many employees now work from home. What are the main benefits and drawbacks of remote working?",
   },
   {
     id: "t2-health",
+    mode: "Agree / Disagree",
     title: "Public Health Policy",
     prompt:
       "In order to improve public health, governments should impose higher taxes on unhealthy food. To what extent do you agree or disagree?",
+  },
+  {
+    id: "t2-transport",
+    mode: "Agree / Disagree",
+    title: "Free Public Transport",
+    prompt:
+      "Some people think public transport should be free in cities. To what extent do you agree or disagree?",
+  },
+  {
+    id: "t2-children-screen",
+    mode: "Causes / Solutions",
+    title: "Children and Screen Time",
+    prompt:
+      "Many children spend too much time using smartphones and tablets. What problems can this cause, and what measures could be taken to address them?",
+  },
+  {
+    id: "t2-tourism",
+    mode: "Discussion + Opinion",
+    title: "Tourism and Culture",
+    prompt:
+      "Some people believe tourism benefits local culture, while others think it damages traditional ways of life. Discuss both views and give your opinion.",
+  },
+  {
+    id: "t2-crime",
+    mode: "Discussion + Opinion",
+    title: "Longer Prison Sentences",
+    prompt:
+      "Some people believe that longer prison sentences are the best way to reduce crime, while others think there are more effective alternatives. Discuss both views and give your opinion.",
+  },
+  {
+    id: "t2-advertising",
+    mode: "Advantages / Disadvantages",
+    title: "Advertising to Children",
+    prompt:
+      "Advertising aimed at children should be strictly controlled. Do the advantages of this policy outweigh the disadvantages?",
+  },
+  {
+    id: "t2-history",
+    mode: "Agree / Disagree",
+    title: "History vs Science",
+    prompt:
+      "Schools should spend more time teaching science and less time teaching history. To what extent do you agree or disagree?",
+  },
+  {
+    id: "t2-city-life",
+    mode: "Problems / Solutions",
+    title: "Life in Large Cities",
+    prompt:
+      "Living in large cities creates many problems for people. What are the main problems, and how can these be solved?",
+  },
+  {
+    id: "t2-space",
+    mode: "Agree / Disagree",
+    title: "Space Exploration Spending",
+    prompt:
+      "Governments spend too much money on space exploration when there are more urgent needs on Earth. To what extent do you agree or disagree?",
+  },
+  {
+    id: "t2-aging",
+    mode: "Discussion + Opinion",
+    title: "An Aging Population",
+    prompt:
+      "An increasing proportion of the population in many countries is elderly. Some people think this creates problems for society, while others believe there are benefits. Discuss both views and give your opinion.",
+  },
+  {
+    id: "t2-food",
+    mode: "Direct Question",
+    title: "Imported Food",
+    prompt:
+      "Many countries import large amounts of food from other parts of the world. Why is this happening, and is this a positive or negative development?",
+  },
+  {
+    id: "t2-books",
+    mode: "Discussion + Opinion",
+    title: "Printed Books and E-books",
+    prompt:
+      "Some people think printed books will never disappear, while others believe digital reading will replace them. Discuss both views and give your opinion.",
+  },
+  {
+    id: "t2-uniform",
+    mode: "Agree / Disagree",
+    title: "School Uniforms",
+    prompt:
+      "All students should be required to wear school uniforms. To what extent do you agree or disagree?",
+  },
+  {
+    id: "t2-sports",
+    mode: "Discussion + Opinion",
+    title: "Funding Elite Sports",
+    prompt:
+      "Some people think governments should spend money on elite sports, while others believe it should be used to encourage ordinary people to exercise. Discuss both views and give your opinion.",
+  },
+  {
+    id: "t2-online-learning",
+    mode: "Advantages / Disadvantages",
+    title: "Online Learning",
+    prompt:
+      "More students are choosing to study online rather than attend classes in person. Do the advantages of this trend outweigh the disadvantages?",
+  },
+  {
+    id: "t2-jobsat",
+    mode: "Causes / Solutions",
+    title: "Job Satisfaction",
+    prompt:
+      "Many people are unhappy with their jobs. Why is this the case, and what can employers do to improve job satisfaction?",
   },
 ];
 
@@ -415,11 +889,25 @@ const DEFAULT_STATE = {
 };
 
 const state = loadState();
+const runtime = {
+  ai: {
+    available: false,
+    configured: false,
+    model: "gpt-5.2",
+    reasoningEffort: "high",
+  },
+};
 
 const elements = {
   nextReminder: document.getElementById("next-reminder"),
   liveWordCount: document.getElementById("live-word-count"),
   task2Status: document.getElementById("task2-status"),
+  task1BankSize: document.getElementById("task1-bank-size"),
+  task2BankSize: document.getElementById("task2-bank-size"),
+  currentTask1Type: document.getElementById("current-task1-type"),
+  currentTask1Title: document.getElementById("current-task1-title"),
+  currentTask2Title: document.getElementById("current-task2-title"),
+  currentTask2Mode: document.getElementById("current-task2-mode"),
   reminderForm: document.getElementById("reminder-form"),
   reminderTime: document.getElementById("reminder-time"),
   reminderEnabled: document.getElementById("reminder-enabled"),
@@ -461,12 +949,14 @@ function init() {
   hydrateForm();
   renderPromptCards();
   renderWritingFlow();
+  renderDashboardStats();
   renderTask2Lock();
   bindEvents();
   updatePreview();
   updateReminderLabel();
   renderLatestResult();
   populateFilters();
+  refreshAiStatus();
   setInterval(() => checkReminder(new Date()), 15000);
   checkReminder(new Date());
 }
@@ -496,6 +986,7 @@ function bindEvents() {
     saveState();
     renderPromptCards();
     renderWritingFlow();
+    renderDashboardStats();
     updatePreview();
   });
 
@@ -503,10 +994,13 @@ function bindEvents() {
     state.currentTask2Id = pickRandom(TASK2_PROMPTS, state.currentTask2Id).id;
     saveState();
     renderPromptCards();
+    renderDashboardStats();
   });
 
   elements.previewTask1.addEventListener("click", () => updatePreview(true));
-  elements.scoreTask1.addEventListener("click", scoreCurrentTask1);
+  elements.scoreTask1.addEventListener("click", () => {
+    void scoreCurrentTask1();
+  });
   elements.downloadAnki.addEventListener("click", downloadAnkiExport);
   elements.filterSection.addEventListener("change", renderCorrectionCards);
   elements.filterType.addEventListener("change", renderCorrectionCards);
@@ -576,6 +1070,16 @@ function bindEvents() {
     state.draft.task2Essay = elements.task2Essay.value;
     saveState();
   });
+
+  document.querySelectorAll("[data-insert-task2]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const snippet = button.dataset.insertTask2 || "";
+      elements.task2Essay.value = mergeStarterText(elements.task2Essay.value, snippet);
+      state.draft.task2Essay = elements.task2Essay.value;
+      saveState();
+      elements.task2Essay.focus();
+    });
+  });
 }
 
 function hydrateForm() {
@@ -587,10 +1091,13 @@ function hydrateForm() {
 function renderPromptCards() {
   const task1Prompt = getCurrentTask1Prompt();
   const task2Prompt = getCurrentTask2Prompt();
+  const task1Index = TASK1_PROMPTS.findIndex((item) => item.id === task1Prompt.id) + 1;
+  const task2Index = TASK2_PROMPTS.findIndex((item) => item.id === task2Prompt.id) + 1;
 
   elements.task1PromptCard.innerHTML = `
     <div class="prompt-meta">
       <span class="tag">${escapeHtml(task1Prompt.type)}</span>
+      <span class="tag">Prompt ${task1Index}/${TASK1_PROMPTS.length}</span>
       <span>#${escapeHtml(task1Prompt.id)}</span>
     </div>
     <h3>${escapeHtml(task1Prompt.title)}</h3>
@@ -603,12 +1110,43 @@ function renderPromptCards() {
 
   elements.task2PromptCard.innerHTML = `
     <div class="prompt-meta">
-      <span class="tag">Discussion / Opinion</span>
+      <span class="tag">${escapeHtml(task2Prompt.mode || "Argument Essay")}</span>
+      <span class="tag">Prompt ${task2Index}/${TASK2_PROMPTS.length}</span>
       <span>#${escapeHtml(task2Prompt.id)}</span>
     </div>
     <h3>${escapeHtml(task2Prompt.title)}</h3>
     <p>${escapeHtml(task2Prompt.prompt)}</p>
   `;
+}
+
+function renderDashboardStats() {
+  const task1Prompt = getCurrentTask1Prompt();
+  const task2Prompt = getCurrentTask2Prompt();
+  elements.task1BankSize.textContent = `${TASK1_PROMPTS.length} 題`;
+  elements.task2BankSize.textContent = `${TASK2_PROMPTS.length} 題`;
+  elements.currentTask1Type.textContent = task1Prompt.type;
+  elements.currentTask1Title.textContent = task1Prompt.title;
+  elements.currentTask2Title.textContent = task2Prompt.title;
+  elements.currentTask2Mode.textContent = task2Prompt.mode || "Argument Essay";
+}
+
+async function refreshAiStatus() {
+  try {
+    const response = await fetch("/api/health", {
+      headers: { Accept: "application/json" },
+    });
+    if (!response.ok) {
+      return;
+    }
+
+    const payload = await response.json();
+    runtime.ai.available = true;
+    runtime.ai.configured = Boolean(payload.ai_configured);
+    runtime.ai.model = payload.model || "gpt-5.2";
+    runtime.ai.reasoningEffort = payload.reasoning_effort || "high";
+  } catch (error) {
+    runtime.ai.available = false;
+  }
 }
 
 function renderWritingFlow() {
@@ -740,11 +1278,32 @@ function openReminderModal(isTest) {
   }
 }
 
-function scoreCurrentTask1() {
+async function scoreCurrentTask1() {
   const prompt = getCurrentTask1Prompt();
   const draft = { ...state.draft };
   const essay = composeEssayFromDraft();
-  const result = evaluateTask1(prompt, draft, essay);
+  const originalLabel = elements.scoreTask1.textContent;
+  elements.scoreTask1.disabled = true;
+  elements.scoreTask1.textContent = runtime.ai.configured ? "AI 批改中..." : "批改中...";
+
+  let result;
+  try {
+    if (runtime.ai.available && runtime.ai.configured) {
+      const aiPayload = await gradeWithBackend(prompt, draft, essay);
+      result = normalizeAiResult(aiPayload, prompt, draft);
+    } else {
+      result = evaluateTask1(prompt, draft, essay);
+      result.gradingMode = runtime.ai.available
+        ? "Local rules fallback · OPENAI_API_KEY 未設定"
+        : "Local rules fallback · backend unavailable";
+    }
+  } catch (error) {
+    result = evaluateTask1(prompt, draft, essay);
+    result.gradingMode = `Local rules fallback · ${error.message || "AI grading failed"}`;
+  } finally {
+    elements.scoreTask1.disabled = false;
+    elements.scoreTask1.textContent = originalLabel;
+  }
 
   state.latestResult = result;
   state.task2Unlocked = true;
@@ -759,6 +1318,98 @@ function scoreCurrentTask1() {
   if (state.ankiAutoDownload) {
     downloadAnkiExport();
   }
+}
+
+async function gradeWithBackend(prompt, draft, essay) {
+  const response = await fetch("/api/grade", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      prompt,
+      draft,
+      essay,
+      sections: WRITING_FLOW.map((step) => ({
+        sectionKey: step.key,
+        sectionLabel: step.label,
+        originalText: draft[step.key] || "",
+      })),
+    }),
+  });
+
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(payload.error || "AI grading request failed");
+  }
+
+  return payload;
+}
+
+function normalizeAiResult(aiPayload, prompt, draft) {
+  const rewriteMap = new Map(
+    (aiPayload.rewrites || []).map((item) => [item.sectionKey, normalizeEssaySentence(item.newText || "")]),
+  );
+
+  const sectionRewrites = WRITING_FLOW.map((step) => {
+    const original = sanitizeText(draft[step.key]);
+    const newText = rewriteMap.get(step.key) || improveSectionText(step.key, original, prompt);
+    return {
+      sectionKey: step.key,
+      sectionLabel: step.label,
+      oldText: original || "未填寫",
+      newText,
+      diffHtml: buildDiffHtml(original || "未填寫", newText),
+    };
+  });
+
+  const issues = (aiPayload.issues || []).map((issue) => ({
+    type: issue.type || "AI Feedback",
+    section: issue.section || "全文",
+    title: issue.title || "待調整",
+    reason: issue.reason || "",
+    advice: issue.advice || "",
+  }));
+
+  const correctionCards = buildCorrectionCards(sectionRewrites, issues);
+  const ankiRows = buildAnkiRows(correctionCards);
+  const prioritiesText = Array.isArray(aiPayload.analysis?.priorities)
+    ? aiPayload.analysis.priorities
+        .map((item, index) => `${index + 1}. ${item}`)
+        .join("\n")
+    : sanitizeText(aiPayload.analysis?.priorities || "");
+
+  return {
+    createdAt: aiPayload.createdAt || new Date().toISOString(),
+    promptId: prompt.id,
+    promptTitle: prompt.title,
+    promptType: prompt.type,
+    overallBand: Number(aiPayload.overallBand || 6.0),
+    gradingMode: `AI · ${aiPayload.model || runtime.ai.model} · reasoning ${aiPayload.reasoningEffort || runtime.ai.reasoningEffort}`,
+    scores: {
+      taskAchievement: Number(aiPayload.scores?.taskAchievement || 6.0),
+      coherence: Number(aiPayload.scores?.coherence || 6.0),
+      lexical: Number(aiPayload.scores?.lexical || 6.0),
+      grammar: Number(aiPayload.scores?.grammar || 6.0),
+    },
+    analysis: {
+      headline: aiPayload.analysis?.headline || `預估 Band Score：${Number(aiPayload.overallBand || 6.0).toFixed(1)}`,
+      reason: aiPayload.analysis?.reason || "AI 已完成 Task 1 批改。",
+      strengths: aiPayload.analysis?.strengths || "AI 已依據題目、結構與語言品質給出修正方向。",
+      priorities: prioritiesText,
+      descriptors: [
+        { label: "Task Achievement", value: Number(aiPayload.scores?.taskAchievement || 6.0).toFixed(1) },
+        { label: "Coherence & Cohesion", value: Number(aiPayload.scores?.coherence || 6.0).toFixed(1) },
+        { label: "Lexical Resource", value: Number(aiPayload.scores?.lexical || 6.0).toFixed(1) },
+        { label: "Grammar Range & Accuracy", value: Number(aiPayload.scores?.grammar || 6.0).toFixed(1) },
+      ],
+    },
+    issues,
+    correctionCards,
+    sectionRewrites,
+    ankiRows,
+  };
 }
 
 function evaluateTask1(prompt, draft, essay) {
@@ -828,6 +1479,7 @@ function evaluateTask1(prompt, draft, essay) {
     promptId: prompt.id,
     promptTitle: prompt.title,
     promptType: prompt.type,
+    gradingMode: "Local rules",
     overallBand,
     scores: {
       taskAchievement,
@@ -1080,6 +1732,7 @@ function renderLatestResult() {
   elements.lastScoreTime.textContent = new Date(result.createdAt).toLocaleString("zh-TW");
   elements.scoreSummary.innerHTML = `
     <div class="band-chip">Band ${result.overallBand.toFixed(1)} · ${escapeHtml(result.promptType)}</div>
+    <p><strong>批改來源：</strong>${escapeHtml(result.gradingMode || "Local rules")}</p>
     <p>${escapeHtml(result.analysis.reason)}</p>
     <div class="score-grid">
       ${result.analysis.descriptors
@@ -1130,6 +1783,7 @@ function openResultDialog(result) {
     <div class="dialog-summary">
       <section class="dialog-section">
         <div class="band-chip">${escapeHtml(result.analysis.headline)}</div>
+        <p><strong>批改來源：</strong>${escapeHtml(result.gradingMode || "Local rules")}</p>
         <p>${escapeHtml(result.analysis.reason)}</p>
         <p>${escapeHtml(result.analysis.strengths)}</p>
       </section>

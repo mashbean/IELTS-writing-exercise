@@ -15,6 +15,11 @@
           <p class="hero-text">
             本機端練習、提醒、評分與修正對比都在同一頁完成。先做 Task 1，完成後再進入 Task 2。
           </p>
+          <div class="hero-ribbon">
+            <span class="ribbon-tag">Offline-first</span>
+            <span class="ribbon-tag">Task 1 Visual Drills</span>
+            <span class="ribbon-tag">Task 2 Idea Bank</span>
+          </div>
         </div>
         <div class="hero-panel">
           <div class="stat-card">
@@ -31,6 +36,29 @@
           </div>
         </div>
       </header>
+
+      <section class="dashboard-strip">
+        <article class="dash-card">
+          <span class="dash-label">Task 1 題庫</span>
+          <strong id="task1-bank-size">0 題</strong>
+          <p>圖表、地圖、流程圖與混合題型已預載。</p>
+        </article>
+        <article class="dash-card">
+          <span class="dash-label">Task 2 題庫</span>
+          <strong id="task2-bank-size">0 題</strong>
+          <p>Opinion、discussion、advantages/disadvantages 都有。</p>
+        </article>
+        <article class="dash-card accent-card">
+          <span class="dash-label">目前 Task 1 類型</span>
+          <strong id="current-task1-type">Bar Chart</strong>
+          <p id="current-task1-title">Public Library Visits</p>
+        </article>
+        <article class="dash-card dark-card">
+          <span class="dash-label">目前 Task 2 主題</span>
+          <strong id="current-task2-title">University and Employment</strong>
+          <p id="current-task2-mode">Discussion / Opinion</p>
+        </article>
+      </section>
 
       <main class="layout">
         <aside class="left-rail">
@@ -139,6 +167,22 @@
             <div class="panel-head">
               <h2>Task 2 延伸練習</h2>
               <span id="task2-lock-hint" class="pill locked">完成 Task 1 後解鎖</span>
+            </div>
+            <div class="strategy-note task2-note">
+              <div class="card-labels">
+                <span class="pill">建議流程</span>
+                <span class="pill">4 段式議論文</span>
+              </div>
+              <p>
+                Task 2 建議先想立場，再寫 introduction、兩段主體與結論。先把理由講清楚，再補例子，不要一開始就堆很多空泛形容詞。
+              </p>
+            </div>
+            <div class="task2-toolkit">
+              <button type="button" class="starter-chip task2-starter" data-insert-task2="This essay will discuss both views before presenting my own opinion.">Discussion opener</button>
+              <button type="button" class="starter-chip task2-starter" data-insert-task2="I strongly believe that the advantages outweigh the disadvantages for two main reasons.">Opinion opener</button>
+              <button type="button" class="starter-chip task2-starter" data-insert-task2="One key reason is that this trend improves efficiency while also expanding access.">Reason sentence</button>
+              <button type="button" class="starter-chip task2-starter" data-insert-task2="For example, people can now benefit from services that were previously expensive or unavailable.">Example sentence</button>
+              <button type="button" class="starter-chip task2-starter" data-insert-task2="In conclusion, although there are some drawbacks, I believe the overall impact is positive.">Conclusion sentence</button>
             </div>
             <label class="field-card full-span">
               <span>Task 2 Essay Draft</span>

@@ -1,24 +1,36 @@
 # IELTS Writing Studio
 
-本專案是一個純前端、本機可執行的 IELTS Writing 練習頁面，重點功能如下：
+本專案是一個本機可執行的 IELTS Writing 練習頁面，前端與本機後端都在同一個 repo，重點功能如下：
 
 - 每日指定時間提醒練習
-- 內建 IELTS Writing Task 1 歷屆風格題庫，可隨機抽題並顯示本地示意圖表
+- 內建 `20` 題 IELTS Writing Task 1 與 `20` 題 Task 2 題庫
+- Task 1 可隨機抽題並顯示本地示意圖表
 - 依照 `Introduction / Overview / Body 1 / Body 2` 的直向句子流程寫作
 - 每個欄位提供可直接插入的句型起手式
-- 完成後以本地規則引擎產生中文 Band Score 分析、修正建議、逐區塊差異對比
+- 完成後可用本機後端呼叫 OpenAI API，進行 AI 批改
+- 若未設定 API key，會自動退回本地規則引擎批改
 - 匯出可匯入 Anki 的 TSV 卡片
+- API key 只放在本機 `.env`，不進前端，也不應提交到 GitHub
 
 ## 如何執行
 
-建議用本機伺服器開啟，因為瀏覽器通知在 `file://` 下通常不可用：
+先準備本機環境變數：
 
 ```bash
-cd /Users/mashbean/Codex/IELTS\ Writing
-python3 -m http.server 8787
+git clone https://github.com/mashbean/IELTS-writing-exercise.git
+cd IELTS-writing-exercise
+cp .env.example .env
 ```
 
-然後在瀏覽器打開：
+在 `.env` 裡填入你的 OpenAI API key。預設模型是 `gpt-5.2`，並使用 `reasoning.effort=high`。這裡的「thinking」是透過 reasoning 參數控制，不是另外一個前端可見的模型代號。
+
+然後啟動本機後端：
+
+```bash
+python3 server.py
+```
+
+最後在瀏覽器打開：
 
 ```text
 http://127.0.0.1:8787
@@ -27,8 +39,8 @@ http://127.0.0.1:8787
 ## 目前版本的限制
 
 - 自動提醒依賴瀏覽器通知與頁面內計時器。頁面沒有開著時，不能保證準時跳出。
-- 評分與 Band 7.5 範本目前是本地規則引擎生成，不是雲端 AI 批改。
-- Task 2 目前先提供解鎖流程與自由寫作區，主評分流程先集中在 Task 1。
+- Task 2 目前先提供題庫、句型提示與自由寫作區，主評分流程仍集中在 Task 1。
+- 若 `OPENAI_API_KEY` 未設定、網路不可用或 OpenAI API 呼叫失敗，系統會退回本地規則引擎。
 
 ## 下一步可擴充
 
