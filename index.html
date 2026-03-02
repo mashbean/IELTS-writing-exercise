@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IELTS Writing Studio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Local IELTS Writing Practice</p>
+          <h1>IELTS Writing Studio</h1>
+          <p class="hero-text">
+            本機端練習、提醒、評分與修正對比都在同一頁完成。先做 Task 1，完成後再進入 Task 2。
+          </p>
+        </div>
+        <div class="hero-panel">
+          <div class="stat-card">
+            <span class="stat-label">今日提醒</span>
+            <strong id="next-reminder">尚未設定</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Task 1 字數</span>
+            <strong id="live-word-count">0 words</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Task 2 狀態</span>
+            <strong id="task2-status">尚未解鎖</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <aside class="left-rail">
+          <section class="panel">
+            <div class="panel-head">
+              <h2>提醒設定</h2>
+              <button id="request-notification" class="ghost-button">通知權限</button>
+            </div>
+            <form id="reminder-form" class="stack-form">
+              <label>
+                <span>每日提醒時間</span>
+                <input id="reminder-time" type="time" value="17:00" />
+              </label>
+              <label class="switch-row">
+                <span>啟用提醒</span>
+                <input id="reminder-enabled" type="checkbox" checked />
+              </label>
+              <label class="switch-row">
+                <span>評分後自動下載 Anki</span>
+                <input id="anki-auto-download" type="checkbox" />
+              </label>
+              <div class="button-row">
+                <button type="submit" class="primary-button">儲存提醒</button>
+                <button type="button" id="test-reminder" class="secondary-button">測試提醒</button>
+              </div>
+            </form>
+            <p class="tiny-note">
+              通知需在 `localhost` 開啟頁面並允許通知。若頁面未開啟，瀏覽器無法保證準時跳出。
+            </p>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>今日題目</h2>
+              <button id="shuffle-task1" class="ghost-button">換一題</button>
+            </div>
+            <div id="task1-prompt-card" class="prompt-card"></div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Task 2</h2>
+              <button id="shuffle-task2" class="ghost-button">換題</button>
+            </div>
+            <div id="task2-prompt-card" class="prompt-card compact"></div>
+          </section>
+        </aside>
+
+        <section class="main-stage">
+          <div class="tab-row">
+            <button class="tab-button active" data-tab="task1">Task 1</button>
+            <button class="tab-button" data-tab="task2" id="task2-tab">Task 2</button>
+          </div>
+
+          <section class="panel tab-panel active" data-panel="task1">
+            <div class="panel-head">
+              <h2>Task 1 結構式寫作</h2>
+              <div class="button-row">
+                <button id="preview-task1" class="secondary-button">預覽全文</button>
+                <button id="score-task1" class="primary-button">完成並評分</button>
+              </div>
+            </div>
+            <div class="strategy-note">
+              <div class="card-labels">
+                <span class="pill">建議流程</span>
+                <span class="pill">4 段式</span>
+              </div>
+              <p>
+                建議用「1 句 Introduction + 1 到 2 句 Overview + 2 段 Detail」完成 Task 1。Overview 先講最大趨勢，不放細節數字；主體段再把相似項目分組比較。
+              </p>
+              <p class="tiny-note">
+                這些框框是幫你把文章拆成好寫的順序；最後送出的仍會自動組成完整段落，不是條列作答。
+              </p>
+            </div>
+            <div id="task1-flow" class="flow-form"></div>
+            <div class="mini-guide">
+              <div class="mini-guide-card">
+                <h3>Task 1 核心原則</h3>
+                <ul>
+                  <li>Introduction 只改寫題目，不評論。</li>
+                  <li>Overview 只寫整體趨勢、最高最低或明顯變化，不塞數字。</li>
+                  <li>Body 1 / Body 2 先分組，再用 figures 支撐比較。</li>
+                </ul>
+              </div>
+              <div class="mini-guide-card">
+                <h3>考場節奏</h3>
+                <ul>
+                  <li>目標 20 分鐘內完成，至少 150 字。</li>
+                  <li>先看最大差異，再決定兩段怎麼分組。</li>
+                  <li>優先寫 connected text，不要寫成筆記式片段。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="essay-preview">
+              <div class="preview-head">
+                <h3>Task 1 全文預覽</h3>
+                <span id="task1-preview-meta">0 words</span>
+              </div>
+              <div id="task1-preview" class="preview-body empty-state">
+                你的完整文章會在這裡即時組合。
+              </div>
+            </div>
+          </section>
+
+          <section class="panel tab-panel" data-panel="task2">
+            <div class="panel-head">
+              <h2>Task 2 延伸練習</h2>
+              <span id="task2-lock-hint" class="pill locked">完成 Task 1 後解鎖</span>
+            </div>
+            <label class="field-card full-span">
+              <span>Task 2 Essay Draft</span>
+              <textarea id="task2-essay" rows="15" placeholder="Task 2 先用自由寫作模式。完成 Task 1 評分後即可開始。"></textarea>
+            </label>
+          </section>
+        </section>
+
+        <aside class="right-rail">
+          <section class="panel result-panel">
+            <div class="panel-head">
+              <h2>評分摘要</h2>
+              <span id="last-score-time" class="tiny-note">尚未評分</span>
+            </div>
+            <div id="score-summary" class="score-summary empty-state">
+              送出 Task 1 後，這裡會顯示 Band Score、中文分析與修改建議。
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>修正卡片</h2>
+              <div class="filter-row">
+                <select id="filter-section">
+                  <option value="all">全部區塊</option>
+                </select>
+                <select id="filter-type">
+                  <option value="all">全部類型</option>
+                </select>
+              </div>
+            </div>
+            <div id="correction-cards" class="card-list empty-state">
+              這裡會顯示可篩選的錯誤與改寫卡片。
+            </div>
+          </section>
+
+          <section class="panel">
+            <div class="panel-head">
+              <h2>Anki 匯出</h2>
+              <button id="download-anki" class="ghost-button" disabled>下載 TSV</button>
+            </div>
+            <textarea id="anki-export" class="anki-export" readonly placeholder="評分後會自動產生可匯入 Anki 的 TSV。"></textarea>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <dialog id="reminder-dialog" class="modal">
+      <div class="modal-body">
+        <p class="eyebrow">Practice Time</p>
+        <h2>IELTS Writing 提醒</h2>
+        <p>現在是你設定的練習時間。先完成一篇 Task 1，再進入 Task 2。</p>
+        <div class="button-row">
+          <button id="jump-to-task1" class="primary-button">開始練習</button>
+          <button id="close-reminder-dialog" class="secondary-button">稍後再說</button>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="result-dialog" class="modal wide">
+      <div class="modal-body">
+        <div class="panel-head">
+          <h2>本次評分結果</h2>
+          <button id="close-result-dialog" class="ghost-button">關閉</button>
+        </div>
+        <div id="result-dialog-content"></div>
+      </div>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
