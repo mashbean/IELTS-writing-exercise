@@ -110,6 +110,19 @@ def load_dotenv() -> None:
         os.environ.setdefault(key, value)
 
 
+def build_ssl_context() -> ssl.SSLContext:
+    # Force Python/OpenSSL to use certifi's CA bundle on local machines where
+    # the default trust store is incomplete.
+    cafile = certifi.where()
+    os.environ.setdefault("SSL_CERT_FILE", cafile)
+    os.environ.setdefault("REQUESTS_CA_BUNDLE", cafile)
+
+    if os.environ.get("OPENAI_ALLOW_INSECURE_SSL", "").strip() == "1":
+        return ssl._create_unverified_context()
+
+    return ssl.create_default_context(cafile=cafile)
+
+
 def extract_output_text(response_json: dict) -> str:
     if isinstance(response_json.get("output_text"), str) and response_json["output_text"].strip():
         return response_json["output_text"]
@@ -193,7 +206,7 @@ def call_openai(payload: dict) -> dict:
         method="POST",
     )
 
-    ssl_context = ssl.create_default_context(cafile=certifi.where())
+    ssl_context = build_ssl_context()
 
     try:
         with urlopen(request, timeout=90, context=ssl_context) as response:
@@ -298,6 +311,9 @@ def main():
     server = ThreadingHTTPServer(("127.0.0.1", port), AppHandler)
     print(f"Serving IELTS Writing Studio at http://127.0.0.1:{port}")
     print(f"AI grading model: {os.environ.get('OPENAI_MODEL', DEFAULT_MODEL)}")
+    print(f"SSL cert bundle: {os.environ.get('SSL_CERT_FILE', certifi.where())}")
+    if os.environ.get("OPENAI_ALLOW_INSECURE_SSL", "").strip() == "1":
+        print("Warning: OPENAI_ALLOW_INSECURE_SSL=1 is enabled. TLS verification is disabled.")
     server.serve_forever()
 
 

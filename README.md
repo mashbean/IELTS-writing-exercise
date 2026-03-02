@@ -36,6 +36,20 @@ python3 server.py
 python3 -m pip install certifi
 ```
 
+如果你的本機 Python 憑證鏈還是有問題，可以先用這個方式強制指定 CA bundle：
+
+```bash
+SSL_CERT_FILE=$(python3 -c "import certifi; print(certifi.where())") python3 server.py
+```
+
+若你只是要先確認 OpenAI 路徑有沒有通，最後才使用這個僅限本機除錯的暫時方案：
+
+```bash
+OPENAI_ALLOW_INSECURE_SSL=1 python3 server.py
+```
+
+這會關閉 TLS 驗證，不建議長期使用。
+
 最後在瀏覽器打開：
 
 ```text
