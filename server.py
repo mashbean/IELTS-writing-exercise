@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import json
 import os
+import ssl
 import sys
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+
+import certifi
 
 
 ROOT = Path(__file__).resolve().parent
@@ -190,8 +193,10 @@ def call_openai(payload: dict) -> dict:
         method="POST",
     )
 
+    ssl_context = ssl.create_default_context(cafile=certifi.where())
+
     try:
-        with urlopen(request, timeout=90) as response:
+        with urlopen(request, timeout=90, context=ssl_context) as response:
             response_json = json.loads(response.read().decode("utf-8"))
     except HTTPError as exc:
         detail = exc.read().decode("utf-8", errors="replace")

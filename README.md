@@ -30,6 +30,12 @@ cp .env.example .env
 python3 server.py
 ```
 
+如果你在 macOS 上遇到 SSL 憑證錯誤，這個後端會優先使用 `certifi` 提供的 CA bundle。你目前的 Python 環境若沒有 `certifi`，再額外安裝即可：
+
+```bash
+python3 -m pip install certifi
+```
+
 最後在瀏覽器打開：
 
 ```text
