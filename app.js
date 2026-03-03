@@ -983,15 +983,20 @@ function bindEvents() {
 
   elements.shuffleTask1.addEventListener("click", () => {
     state.currentTask1Id = pickRandom(TASK1_PROMPTS, state.currentTask1Id).id;
+    resetTask1Session();
     saveState();
     renderPromptCards();
     renderWritingFlow();
     renderDashboardStats();
+    renderLatestResult();
+    populateFilters();
+    renderCorrectionCards();
     updatePreview();
   });
 
   elements.shuffleTask2.addEventListener("click", () => {
     state.currentTask2Id = pickRandom(TASK2_PROMPTS, state.currentTask2Id).id;
+    resetTask2Draft();
     saveState();
     renderPromptCards();
     renderDashboardStats();
@@ -1128,6 +1133,18 @@ function renderDashboardStats() {
   elements.currentTask1Title.textContent = task1Prompt.title;
   elements.currentTask2Title.textContent = task2Prompt.title;
   elements.currentTask2Mode.textContent = task2Prompt.mode || "Argument Essay";
+}
+
+function resetTask1Session() {
+  TASK1_SECTION_KEYS.forEach((key) => {
+    state.draft[key] = "";
+  });
+  state.latestResult = null;
+}
+
+function resetTask2Draft() {
+  state.draft.task2Essay = "";
+  elements.task2Essay.value = "";
 }
 
 async function refreshAiStatus() {
