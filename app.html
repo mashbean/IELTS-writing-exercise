@@ -1,0 +1,2861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Practice Studio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --teal: #1f6d67;
+            --terracotta: #bd5d38;
+            --gold: #bd8a2e;
+            --cream: #f8f3ed;
+            --dark: #2e241c;
+            --muted: #6f5d4d;
+            --border: rgba(46, 36, 28, 0.08);
+            --shadow: rgba(46, 36, 28, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header — compact single row */
+        .header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 0.5rem 1.25rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .header-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--teal);
+            white-space: nowrap;
+        }
+
+        .header-subtitle {
+            display: none;
+        }
+
+        .stats-ribbon {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .stat-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* Tab Navigation — compact */
+        .tab-navigation {
+            display: flex;
+            gap: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 0 1.25rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .tab-button {
+            padding: 0.6rem 1.25rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--muted);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .tab-button:hover {
+            color: var(--teal);
+        }
+
+        .tab-button.active {
+            color: var(--teal);
+            border-bottom-color: var(--teal);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 220px 1fr 280px;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            height: calc(100vh - 76px);
+            overflow: hidden;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .sidebar-left, .sidebar-right {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tab-navigation {
+                overflow-x: auto;
+            }
+
+            .tab-button {
+                white-space: nowrap;
+                padding: 0.5rem 0.75rem;
+                font-size: 13px;
+            }
+
+            .header {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .header-title {
+                font-size: 16px;
+            }
+
+            .stats-ribbon {
+                gap: 0.75rem;
+                font-size: 11px;
+            }
+        }
+
+        /* Sidebars */
+        .sidebar-left {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .sidebar-right {
+            display: flex;
+            flex-direction: column;
+            font-size: 13px;
+            gap: 0.75rem;
+            overflow-y: auto;
+            padding-left: 0.5rem;
+        }
+
+        .sidebar-left::-webkit-scrollbar,
+        .sidebar-right::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-left::-webkit-scrollbar-track,
+        .sidebar-right::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar-left::-webkit-scrollbar-thumb,
+        .sidebar-right::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        /* Workspace */
+        .workspace {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .workspace::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .workspace::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .workspace::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 8px rgba(46, 36, 28, 0.1);
+        }
+
+        .card-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Today's Prompt Card */
+        .prompt-card {
+            background: linear-gradient(135deg, var(--teal) 0%, rgba(31, 109, 103, 0.9) 100%);
+            color: white;
+            border: none;
+        }
+
+        .prompt-card .card-title {
+            color: white;
+            font-size: 14px;
+        }
+
+        .prompt-type-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .prompt-text {
+            font-size: 12px;
+            line-height: 1.4;
+            opacity: 0.95;
+        }
+
+        /* Timer */
+        .timer-display {
+            background: white;
+            padding: 0.75rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .timer-label {
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .timer-value {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--teal);
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .timer-value.warning {
+            color: #d97706;
+        }
+
+        .timer-value.critical {
+            color: #dc2626;
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .timer-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .timer-btn {
+            flex: 1;
+            padding: 0.5rem;
+            background: var(--teal);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .timer-btn:hover {
+            background: var(--teal);
+            filter: brightness(1.1);
+        }
+
+        /* Prompt Display */
+        .prompt-display {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .prompt-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .prompt-type {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .prompt-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .prompt-question {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--dark);
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--terracotta);
+        }
+
+        /* Writing Steps */
+        .writing-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-number {
+            background: var(--teal);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .step-hint {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .starter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .chip {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--dark);
+        }
+
+        .chip:hover {
+            background: var(--teal);
+            color: white;
+            border-color: var(--teal);
+        }
+
+        .textarea-wrapper {
+            position: relative;
+        }
+
+        .textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--dark);
+            resize: vertical;
+            transition: var(--transition);
+        }
+
+        .textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(31, 109, 103, 0.1);
+        }
+
+        .textarea-counter {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+
+        /* Buttons */
+        .button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .button-primary {
+            background: var(--teal);
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: var(--teal);
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .button-secondary {
+            background: var(--cream);
+            color: var(--dark);
+            border: 1px solid var(--border);
+        }
+
+        .button-secondary:hover {
+            background: var(--border);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Step Actions */
+        .step-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Analysis Panel */
+        .analysis-panel {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .analysis-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .band-score {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--teal);
+        }
+
+        .band-label {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .grading-source {
+            font-size: 11px;
+            color: var(--muted);
+            background: var(--cream);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .score-breakdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .score-item {
+            text-align: center;
+        }
+
+        .score-dimension {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .score-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--terracotta);
+        }
+
+        .feedback-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .feedback-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .feedback-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        .issues-list {
+            list-style: none;
+        }
+
+        .issue-item {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: var(--cream);
+            border-left: 3px solid var(--terracotta);
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        /* Error Cards */
+        .error-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .error-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .error-original {
+            background: #fee;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 0.5rem;
+            font-family: 'Monaco', monospace;
+        }
+
+        .error-corrected {
+            background: #efe;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 0.75rem;
+            font-family: 'Monaco', monospace;
+        }
+
+        .error-type {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        .error-type.grammar {
+            background: #fee;
+            color: #991b1b;
+        }
+
+        .error-type.collocation {
+            background: #e9d5ff;
+            color: #6b21a8;
+        }
+
+        .error-type.lexical {
+            background: #dbeafe;
+            color: #0c4a6e;
+        }
+
+        .error-type.punctuation {
+            background: #fed7aa;
+            color: #92400e;
+        }
+
+        .error-explanation {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* Settings Panel */
+        .settings-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border);
+        }
+
+        .setting-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .toggle {
+            width: 44px;
+            height: 24px;
+            background: var(--border);
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .toggle.active {
+            background: var(--teal);
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: var(--transition);
+        }
+
+        .toggle.active::after {
+            left: 22px;
+        }
+
+        /* Loading State */
+        .loading {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            animation: loading 1.4s infinite;
+        }
+
+        @keyframes loading {
+            0%, 80%, 100% { opacity: 0.2; }
+            40% { opacity: 1; }
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: contents;
+        }
+
+        /* Error Message */
+        .error-message {
+            background: #fee;
+            border-left: 3px solid #dc2626;
+            padding: 1rem;
+            border-radius: 8px;
+            color: #991b1b;
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #dbeafe;
+            border-left: 3px solid #0284c7;
+            padding: 1rem;
+            border-radius: 8px;
+            color: #0c4a6e;
+            font-size: 14px;
+            margin-bottom: 1rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--muted);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Error Bank */
+        .error-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            background: white;
+            color: var(--dark);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-select:hover {
+            border-color: var(--teal);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(31, 109, 103, 0.1);
+        }
+
+        /* Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--cream);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-card-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--teal);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-card-label {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* Speaking Prep */
+        .speaking-prep {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .prep-step {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .prep-step:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .prep-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .prep-textarea {
+            width: 100%;
+            min-height: 60px;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .prep-textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(31, 109, 103, 0.1);
+        }
+
+        /* Hidden */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .prompt-display {
+                padding: 1rem;
+            }
+
+            .prompt-title {
+                font-size: 20px;
+            }
+
+            .prompt-question {
+                font-size: 14px;
+            }
+
+            .step {
+                padding: 1rem;
+            }
+
+            .button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .stats-ribbon {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .timer-value {
+                font-size: 32px;
+            }
+
+            .band-score {
+                font-size: 24px;
+            }
+        }
+
+        /* Chart Container */
+        .chart-container {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+
+        .chart-container svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .chart-container table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .chart-container th {
+            background: var(--teal);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .chart-container td {
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chart-container tr:nth-child(even) td {
+            background: rgba(31, 109, 103, 0.04);
+        }
+
+        .process-flow {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            padding: 1rem 0;
+        }
+
+        .process-step {
+            background: var(--teal);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .process-arrow {
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        /* Change Topic Button */
+        .change-topic-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: var(--teal);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .change-topic-btn:hover {
+            background: var(--teal);
+            color: white;
+        }
+
+        .prompt-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .prompt-header-left {
+            flex: 1;
+        }
+
+        /* Section Headers for Task 2 */
+        .section-header {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header:first-child {
+            margin-top: 0;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--teal);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Progress Map */
+        .progress-map-items {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .progress-map-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--muted);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .progress-map-item:hover {
+            background: rgba(31, 109, 103, 0.05);
+        }
+
+        .progress-map-item.active {
+            background: rgba(31, 109, 103, 0.1);
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .progress-map-item.completed {
+            color: var(--teal);
+        }
+
+        .progress-map-item.completed .map-dot {
+            background: var(--teal);
+        }
+
+        .map-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .progress-map-item.active .map-dot {
+            background: var(--terracotta);
+            box-shadow: 0 0 0 3px rgba(189, 93, 56, 0.2);
+        }
+
+        .map-section-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--muted);
+            padding: 0.5rem 0.6rem 0.2rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="header-title">IELTS Practice Studio</div>
+            <div class="header-subtitle">每日三練：Writing Task 1 · Task 2 · Speaking</div>
+            <div class="stats-ribbon">
+                <div class="stat-item">
+                    📅 Today: <span class="stat-value" id="todayDate">Mar 21</span>
+                </div>
+                <div class="stat-item">
+                    🔥 Streak: <span class="stat-value" id="practiceStreak">0</span> days
+                </div>
+                <div class="stat-item">
+                    📚 Errors: <span class="stat-value" id="totalErrors">0</span> collected
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-navigation">
+        <button class="tab-button active" data-tab="task1">Task 1</button>
+        <button class="tab-button" data-tab="task2">Task 2</button>
+        <button class="tab-button" data-tab="speaking">Speaking</button>
+        <button class="tab-button" data-tab="error-bank">Error Bank</button>
+        <button class="tab-button" data-tab="daily-review">Daily Review</button>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar-left">
+            <div class="prompt-card card">
+                <div class="card-title" id="sidebarPromptTitle">Today's Prompt</div>
+                <div class="prompt-type-badge" id="sidebarPromptType">Task 1</div>
+                <div class="prompt-text" id="sidebarPromptText">Loading prompt...</div>
+            </div>
+
+            <div class="timer-display">
+                <div class="timer-label">Time Remaining</div>
+                <div class="timer-value" id="timerDisplay">20:00</div>
+                <div class="timer-buttons">
+                    <button class="timer-btn" id="timerPlayPause">Start</button>
+                    <button class="timer-btn" id="timerReset">Reset</button>
+                </div>
+            </div>
+
+            <div class="settings-panel card">
+                <div class="card-title">Settings</div>
+                <div class="setting-item">
+                    <span class="setting-label">Sound Alerts</span>
+                    <button class="toggle active" id="soundToggle"></button>
+                </div>
+                <div class="setting-item">
+                    <span class="setting-label">Auto-save Drafts</span>
+                    <button class="toggle active" id="autoSaveToggle"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workspace -->
+        <div class="workspace">
+            <!-- Task 1 Tab -->
+            <div class="tab-content active" data-tab-panel="task1">
+                <div class="prompt-display">
+                    <div class="prompt-header">
+                        <div class="prompt-header-left">
+                            <span class="prompt-type" id="task1PromptType">Bar Chart</span>
+                            <h1 class="prompt-title" id="task1PromptTitle">Public Library Visits</h1>
+                        </div>
+                        <button class="change-topic-btn" onclick="changeTopic('task1')">↻ Change Topic</button>
+                    </div>
+                    <div class="prompt-question" id="task1PromptText">The bar chart compares the number of visits made to four public libraries in one city in 2000 and 2020.</div>
+                    <div class="chart-container" id="task1Chart"></div>
+                </div>
+
+                <div class="writing-steps" id="task1Steps">
+                    <!-- Steps will be populated by JavaScript -->
+                </div>
+
+                <div class="button-group">
+                    <button class="button button-secondary" id="task1Preview">Preview Full Essay</button>
+                    <button class="button button-primary" id="task1Submit">Submit for Analysis</button>
+                </div>
+            </div>
+
+            <!-- Task 2 Tab -->
+            <div class="tab-content" data-tab-panel="task2">
+                <div class="prompt-display">
+                    <div class="prompt-header">
+                        <div class="prompt-header-left">
+                            <span class="prompt-type" id="task2PromptType">Discussion + Opinion</span>
+                            <h1 class="prompt-title" id="task2PromptTitle">University and Employment</h1>
+                        </div>
+                        <button class="change-topic-btn" onclick="changeTopic('task2')">↻ Change Topic</button>
+                    </div>
+                    <div class="prompt-question" id="task2PromptText">Some people believe that university education should prepare students for employment, while others think it should focus on knowledge for its own sake. Discuss both views and give your opinion.</div>
+                </div>
+
+                <div class="writing-steps" id="task2Steps">
+                    <!-- Steps will be populated by JavaScript -->
+                </div>
+
+                <div class="button-group">
+                    <button class="button button-secondary" id="task2Preview">Preview Full Essay</button>
+                    <button class="button button-primary" id="task2Submit">Submit for Analysis</button>
+                </div>
+            </div>
+
+            <!-- Speaking Tab -->
+            <div class="tab-content" data-tab-panel="speaking">
+                <div class="prompt-display">
+                    <div class="prompt-header">
+                        <div class="prompt-header-left">
+                            <span class="prompt-type" id="speakingPromptType">Speaking Part 2</span>
+                            <h1 class="prompt-title" id="speakingPromptTitle">Hometown</h1>
+                        </div>
+                        <button class="change-topic-btn" onclick="changeTopic('speaking')">↻ Change Topic</button>
+                    </div>
+                    <div class="prompt-question" id="speakingPromptText">Describe your hometown. You should say: where it is, what it is known for, what you like about it, and explain how it has changed in recent years.</div>
+                </div>
+
+                <div class="speaking-prep card">
+                    <div class="card-title">📝 Preparation (1 minute)</div>
+
+                    <div class="prep-step">
+                        <div class="prep-label">Opening Statement</div>
+                        <textarea class="prep-textarea" placeholder="Start with a general statement..."></textarea>
+                    </div>
+
+                    <div class="prep-step">
+                        <div class="prep-label">Main Point 1 + Details</div>
+                        <textarea class="prep-textarea" placeholder="First key point and supporting details..."></textarea>
+                    </div>
+
+                    <div class="prep-step">
+                        <div class="prep-label">Main Point 2 + Details</div>
+                        <textarea class="prep-textarea" placeholder="Second key point and supporting details..."></textarea>
+                    </div>
+
+                    <div class="prep-step">
+                        <div class="prep-label">Example or Story</div>
+                        <textarea class="prep-textarea" placeholder="Add a relevant example or anecdote..."></textarea>
+                    </div>
+
+                    <div class="prep-step">
+                        <div class="prep-label">Closing Summary</div>
+                        <textarea class="prep-textarea" placeholder="Wrap up your response..."></textarea>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-title">🎤 Speaking (2 minutes)</div>
+                    <textarea class="textarea" id="speakingResponse" placeholder="Paste your transcribed speech here..."></textarea>
+                    <div class="button-group">
+                        <button class="button button-primary" id="speakingSubmit">I've finished speaking — Submit</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Bank Tab -->
+            <div class="tab-content" data-tab-panel="error-bank">
+                <div class="card">
+                    <div class="card-title">Error Bank</div>
+
+                    <div class="error-filters">
+                        <select class="filter-select" id="errorTypeFilter">
+                            <option value="">All Types</option>
+                            <option value="grammar">Grammar</option>
+                            <option value="collocation">Collocation</option>
+                            <option value="lexical">Lexical</option>
+                            <option value="punctuation">Punctuation</option>
+                        </select>
+                        <select class="filter-select" id="taskTypeFilter">
+                            <option value="">All Tasks</option>
+                            <option value="task1">Task 1</option>
+                            <option value="task2">Task 2</option>
+                            <option value="speaking">Speaking</option>
+                        </select>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-value" id="grammarCount">0</div>
+                            <div class="stat-card-label">Grammar</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value" id="collocationCount">0</div>
+                            <div class="stat-card-label">Collocation</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value" id="lexicalCount">0</div>
+                            <div class="stat-card-label">Lexical</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-value" id="punctuationCount">0</div>
+                            <div class="stat-card-label">Punctuation</div>
+                        </div>
+                    </div>
+
+                    <div class="error-cards" id="errorList">
+                        <!-- Error cards will be populated by JavaScript -->
+                    </div>
+
+                    <button class="button button-primary" style="width: 100%; margin-top: 1.5rem;" id="exportAnki">📥 Export to Anki</button>
+                </div>
+            </div>
+
+            <!-- Daily Review Tab -->
+            <div class="tab-content" data-tab-panel="daily-review">
+                <div class="card">
+                    <div class="card-title">📋 Today's Review Items</div>
+
+                    <div class="feedback-section">
+                        <div class="feedback-label">AI Review Summary</div>
+                        <div class="feedback-text" id="reviewSummary">Start your practice to generate today's review summary.</div>
+                    </div>
+
+                    <div id="reviewItems">
+                        <!-- Review items will be populated by JavaScript -->
+                    </div>
+
+                    <button class="button button-primary" style="width: 100%; margin-top: 1.5rem;" id="exportReview">📥 Export Review Set</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="sidebar-right">
+            <!-- Progress Map -->
+            <div class="card" id="progressMap">
+                <div class="card-title">📍 Essay Structure Map</div>
+                <div class="progress-map-items" id="progressMapItems">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- Analysis Results -->
+            <div class="analysis-panel card" id="analysisPanel" style="display: none;">
+                <div class="analysis-header">
+                    <div>
+                        <div class="band-label">Band Score</div>
+                        <div class="band-score" id="bandScore">7.0</div>
+                    </div>
+                    <div class="grading-source" id="gradingSource">AI Analysis</div>
+                </div>
+
+                <div class="score-breakdown" id="scoreBreakdown">
+                    <div class="score-item">
+                        <div class="score-dimension">Coherence</div>
+                        <div class="score-value" id="scoreCoherence">7</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="score-dimension">Vocabulary</div>
+                        <div class="score-value" id="scoreVocabulary">7</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="score-dimension">Grammar</div>
+                        <div class="score-value" id="scoreGrammar">7</div>
+                    </div>
+                    <div class="score-item">
+                        <div class="score-dimension">Fluency</div>
+                        <div class="score-value" id="scoreFluency">7</div>
+                    </div>
+                </div>
+
+                <div class="feedback-section">
+                    <div class="feedback-label">Overall Feedback</div>
+                    <div class="feedback-text" id="overallFeedback">Solid writing with clear structure.</div>
+                </div>
+
+                <div class="feedback-section">
+                    <div class="feedback-label">Priority Issues</div>
+                    <ul class="issues-list" id="issuesList">
+                        <li class="issue-item">Focus on varying sentence structures</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sentence-by-Sentence Analysis -->
+            <div class="analysis-panel card" id="sentenceAnalysis" style="display: none;">
+                <div class="card-title">✏️ Sentence Analysis</div>
+                <div class="error-cards" id="sentenceCards">
+                    <!-- Sentence cards will be populated -->
+                </div>
+            </div>
+
+            <!-- Reference Essay -->
+            <div class="analysis-panel card" id="referencePanel" style="display: none;">
+                <div class="card-title">⭐ Band 7.5 Reference</div>
+                <div class="feedback-text" id="referenceEssay">Reference essay will appear here.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== DATA =====
+
+        const TASK1_PROMPTS = [
+            {
+                id: "t1-bar-library",
+                type: "Bar Chart",
+                title: "Public Library Visits",
+                prompt: "The bar chart compares the number of visits made to four public libraries in one city in 2000 and 2020.",
+                restatement: "The bar chart compares the numbers of visits to four public libraries in one city in 2000 and 2020.",
+                overview: "Overall, Central Library was the most popular site in both years, and visits increased in every library.",
+                overview2: "The most noticeable growth was seen at Central and East Libraries, while West Library remained the least visited branch.",
+                focusA: "Central Library recorded the highest figures throughout the period, rising from about 120,000 visits in 2000 to roughly 160,000 in 2020.",
+                focusB: "By comparison, West Library had the lowest totals, although its number of visits still edged up slightly over the period.",
+                visual: { kind: "bar", categories: ["Central","North","East","West"], series: [{ label: "2000", color: "#1f6d67", values: [120,90,70,50] },{ label: "2020", color: "#bd5d38", values: [160,110,95,60] }], unit: "thousand visits" }
+            },
+            {
+                id: "t1-line-commute",
+                type: "Line Graph",
+                title: "Commuting by Transport",
+                prompt: "The line graph shows the proportion of commuters using cars, buses and bicycles in a European city between 2005 and 2025.",
+                restatement: "The line graph illustrates the percentage of commuters using cars, buses, and bicycles in a European city over a 20-year period.",
+                overview: "Overall, car usage initially dominated but has declined significantly, while bus and bicycle use have shown steady increases.",
+                overview2: "The most dramatic shift occurred in private car commuting, which fell from over 60% to approximately 40%.",
+                focusA: "Car commuting started at around 65% in 2005 and experienced a sharp decline, eventually dropping to 40% by 2025.",
+                focusB: "In contrast, buses and bicycles gained in popularity, rising from 20% and 15% respectively to end around 30% and 30%.",
+                visual: { kind: "line", categories: ["2005", "2010", "2015", "2020", "2025"], series: [{ label: "Cars", color: "#bd5d38", values: [65, 58, 50, 45, 40] }, { label: "Buses", color: "#1f6d67", values: [20, 23, 28, 30, 32] }, { label: "Bicycles", color: "#bd8a2e", values: [15, 19, 22, 25, 28] }], unit: "percent" }
+            },
+            {
+                id: "t1-pie-budget",
+                type: "Pie Chart",
+                title: "Household Spending",
+                prompt: "The pie charts compare how an average household allocated its monthly budget in 1995 and 2025.",
+                restatement: "The pie charts show the breakdown of household expenditure across different categories in 1995 and 2025.",
+                overview: "Household spending patterns have shifted dramatically over three decades, with increased spending on technology and leisure.",
+                overview2: "Traditional expenses like rent remained significant, but proportional allocation to utilities and entertainment changed substantially.",
+                focusA: "In 1995, rent was the largest expense at 30%, while technology spending was minimal at 2%.",
+                focusB: "By 2025, rent maintained 28% but technology jumped to 15%, reflecting modern lifestyle changes.",
+                visual: { kind: "pie", categories: ["Rent", "Food", "Utilities", "Technology", "Entertainment", "Other"], series: [{ label: "1995", values: [30, 25, 15, 2, 15, 13] }, { label: "2025", values: [28, 20, 12, 15, 18, 7] }], unit: "percent" }
+            },
+            {
+                id: "t1-map-harbor",
+                type: "Map",
+                title: "Harbor Redevelopment",
+                prompt: "The maps show the changes that took place in a coastal harbor area between 1980 and the present day.",
+                restatement: "The two maps compare the layout of a coastal harbor area in 1980 and today.",
+                overview: "The harbor has undergone extensive modernization, transforming from an industrial port to a mixed-use development.",
+                overview2: "Key changes include the development of residential zones, recreational areas, and improved transportation infrastructure.",
+                focusA: "In 1980, the area was dominated by industrial warehouses and cargo facilities occupying the entire waterfront.",
+                focusB: "Today, the harbor features apartments, parks, restaurants, and a marina alongside maintained commercial operations.",
+                visual: { kind: "map", features: ["industrial", "residential", "parks", "marina"], label: "Harbor Layout" }
+            },
+            {
+                id: "t1-table-energy",
+                type: "Table",
+                title: "Energy Consumption by Sector",
+                prompt: "The table shows the amount of energy consumed by the residential, industrial and transport sectors in five countries in 2023.",
+                restatement: "The table presents energy consumption data across three main sectors in five different countries during 2023.",
+                overview: "Energy consumption patterns vary significantly by country, with industrial sectors typically consuming the most.",
+                overview2: "Japan and Germany show the highest total consumption, while India exhibits different proportional distribution patterns.",
+                focusA: "Industrial consumption dominates in developed nations, representing 45-50% of total energy use.",
+                focusB: "Transport sector consumption is notably lower in Asian countries compared to Western nations.",
+                visual: { kind: "table", headers: ["Country", "Residential", "Industrial", "Transport"], data: [["Japan", "25", "48", "27"], ["Germany", "28", "45", "27"], ["USA", "22", "50", "28"], ["India", "35", "40", "25"], ["China", "20", "52", "28"]], unit: "percent" }
+            },
+            {
+                id: "t1-process-recycle",
+                type: "Process Diagram",
+                title: "Plastic Bottle Recycling",
+                prompt: "The diagram shows how plastic bottles are recycled.",
+                restatement: "The diagram illustrates the step-by-step process of recycling plastic bottles.",
+                overview: "Plastic bottle recycling involves collection, sorting, processing, and transformation into new products.",
+                overview2: "The process begins at the consumer level and ends with the creation of new recyclable items.",
+                focusA: "Used bottles are first collected through designated recycling programs or centers.",
+                focusB: "After sorting by type, bottles are cleaned, shredded, melted, and reformed into pellets for manufacturing new products.",
+                visual: { kind: "process", steps: ["Collect bottles", "Sort by type", "Clean", "Shred", "Melt into pellets", "Form new products"] }
+            },
+            {
+                id: "t1-mixed-sales",
+                type: "Mixed Charts",
+                title: "Online Sales and Returns",
+                prompt: "The bar chart shows online sales in four regions, while the pie chart indicates the reasons for product returns in 2024.",
+                restatement: "The data presents online sales figures across regions alongside the distribution of reasons for product returns.",
+                overview: "Sales performance varies by region, with quality issues accounting for the majority of returns.",
+                overview2: "Asia shows the highest sales volume, but return rates suggest regional quality concerns.",
+                focusA: "Asia led in sales with $450 million, followed by Europe at $380 million.",
+                focusB: "Defective products account for 35% of returns, while sizing issues and customer preference account for 30% and 25% respectively.",
+                visual: { kind: "mixed", series: [{ label: "Sales by Region", values: [450, 380, 290, 220], categories: ["Asia", "Europe", "Americas", "Africa"] }, { label: "Return Reasons", values: [35, 30, 25, 10], categories: ["Defective", "Sizing", "Preference", "Other"] }] }
+            },
+            {
+                id: "t1-line-population",
+                type: "Line Graph",
+                title: "Urban Population Growth",
+                prompt: "The line graph compares the urban population of three Asian cities from 1990 to 2030.",
+                restatement: "The line graph illustrates urban population trends in three Asian cities over a 40-year period.",
+                overview: "All three cities experienced significant population growth, with Seoul maintaining the highest population throughout.",
+                overview2: "Growth rates have varied, with Shanghai showing accelerated expansion in recent decades.",
+                focusA: "Seoul's population grew from 10 million in 1990 to approximately 12 million by 2030.",
+                focusB: "Shanghai experienced the most dramatic growth, rising from 13 million to 28 million, while Tokyo remained relatively stable.",
+                visual: { kind: "line", categories: ["1990", "2000", "2010", "2020", "2030"], series: [{ label: "Seoul", color: "#1f6d67", values: [10.5, 10.8, 10.3, 9.8, 12] }, { label: "Shanghai", color: "#bd5d38", values: [13, 16, 20, 24, 28] }, { label: "Tokyo", color: "#bd8a2e", values: [14, 14.5, 14, 13.5, 13] }], unit: "millions" }
+            },
+            {
+                id: "t1-bar-internet",
+                type: "Bar Chart",
+                title: "Internet Access by Age Group",
+                prompt: "The bar chart compares the percentage of people in five age groups who had access to the internet in 2008 and 2024.",
+                restatement: "The bar chart shows internet access rates across different age groups in 2008 compared to 2024.",
+                overview: "Internet access has increased dramatically across all age groups, with the digital divide narrowing significantly.",
+                overview2: "Young people maintain near-universal access, while older populations show the most improvement.",
+                focusA: "In 2008, only 45% of people over 65 had internet access; this figure rose to 75% by 2024.",
+                focusB: "The 18-34 age group maintained near-universal access, reaching 98% by 2024.",
+                visual: { kind: "bar", categories: ["18-34", "35-49", "50-64", "65+"], series: [{ label: "2008", color: "#1f6d67", values: [92, 78, 62, 45] }, { label: "2024", color: "#bd5d38", values: [98, 92, 85, 75] }], unit: "percent" }
+            },
+            {
+                id: "t1-line-tourism",
+                type: "Line Graph",
+                title: "International Tourist Arrivals",
+                prompt: "The line graph shows the number of international tourists visiting three island destinations between 2010 and 2025.",
+                restatement: "The line graph illustrates visitor numbers to three island destinations over a 15-year period.",
+                overview: "All three islands experienced tourism growth, with Bali becoming increasingly popular among international visitors.",
+                overview2: "Growth accelerated particularly after 2015, though interrupted briefly around 2020.",
+                focusA: "Bali's visitor numbers increased from 2.5 million in 2010 to over 6 million by 2025.",
+                focusB: "Maldives and Fiji saw more modest growth, reaching approximately 1.8 million and 1.5 million respectively.",
+                visual: { kind: "line", categories: ["2010", "2013", "2016", "2019", "2022", "2025"], series: [{ label: "Bali", color: "#bd5d38", values: [2.5, 3.2, 4.1, 5.2, 5.8, 6.2] }, { label: "Maldives", color: "#1f6d67", values: [0.6, 0.9, 1.2, 1.5, 1.6, 1.8] }, { label: "Fiji", color: "#bd8a2e", values: [0.5, 0.7, 0.9, 1.1, 1.3, 1.5] }], unit: "millions" }
+            },
+            {
+                id: "t1-table-smartphone",
+                type: "Table",
+                title: "Smartphone Ownership",
+                prompt: "The table compares smartphone ownership rates among adults in six countries in 2012 and 2024.",
+                restatement: "The table shows smartphone ownership percentages across six countries in 2012 and 2024.",
+                overview: "Smartphone adoption has grown globally, with some countries reaching near-saturation levels.",
+                overview2: "Developed nations showed higher ownership rates initially and throughout the period.",
+                focusA: "In 2012, South Korea led with 48% ownership, increasing to 92% by 2024.",
+                focusB: "India showed the largest growth trajectory, rising from just 2% to 35% ownership.",
+                visual: { kind: "table", headers: ["Country", "2012", "2024"], data: [["South Korea", "48%", "92%"], ["USA", "45%", "88%"], ["UK", "42%", "85%"], ["China", "25%", "78%"], ["Brazil", "18%", "62%"], ["India", "2%", "35%"]], unit: "percent" }
+            },
+            {
+                id: "t1-pie-water",
+                type: "Pie Chart",
+                title: "Household Water Use",
+                prompt: "The pie charts show how household water was used in a city in 1990 and 2025.",
+                restatement: "The pie charts compare household water consumption patterns between 1990 and 2025.",
+                overview: "Water usage has shifted toward more efficient consumption, though bathing and cleaning remain dominant.",
+                overview2: "Outdoor watering decreased due to drought awareness, while toilet flushing proportions changed.",
+                focusA: "In 1990, bathing consumed 35% of household water, decreasing to 28% by 2025.",
+                focusB: "Outdoor watering fell from 30% to 15%, reflecting conservation efforts and climate considerations.",
+                visual: { kind: "pie", categories: ["Bathing", "Laundry", "Toilet", "Cleaning", "Outdoor", "Other"], series: [{ label: "1990", values: [35, 15, 25, 10, 30, 5] }, { label: "2025", values: [28, 18, 30, 12, 15, 7] }], unit: "percent" }
+            },
+            {
+                id: "t1-process-coffee",
+                type: "Process Diagram",
+                title: "Coffee Production",
+                prompt: "The diagram illustrates the process of producing coffee from beans to packaged products.",
+                restatement: "The diagram shows the sequential steps in coffee production from raw beans to finished product.",
+                overview: "Coffee production involves multiple stages from harvesting to roasting and packaging.",
+                overview2: "Quality control occurs at several points throughout the process.",
+                focusA: "Beans begin as cherry fruits that are harvested and processed to remove the outer layers.",
+                focusB: "Green beans are roasted, ground, packaged, and distributed to consumers.",
+                visual: { kind: "process", steps: ["Harvest cherries", "Process beans", "Dry beans", "Roast", "Cool & package", "Distribute"] }
+            },
+            {
+                id: "t1-map-park",
+                type: "Map",
+                title: "City Park Renovation",
+                prompt: "The maps show the layout of a city park in 2005 and after redevelopment in 2025.",
+                restatement: "The two maps compare the design and features of a city park before and after renovation.",
+                overview: "The park underwent significant modernization to enhance recreational and environmental amenities.",
+                overview2: "Natural areas expanded while infrastructure was improved for better accessibility.",
+                focusA: "The original 2005 park featured basic pathways, a small playground, and minimal green space.",
+                focusB: "The renovated 2025 park includes expanded gardens, modern facilities, sports areas, and improved walking trails.",
+                visual: { kind: "map", features: ["gardens", "playground", "sports", "trails", "parking"], label: "Park Layout" }
+            },
+            {
+                id: "t1-bar-enrolment",
+                type: "Bar Chart",
+                title: "University Enrolment by Faculty",
+                prompt: "The bar chart compares the numbers of students enrolled in four university faculties in 2015 and 2025.",
+                restatement: "The bar chart shows student enrollment figures for four university faculties in 2015 and 2025.",
+                overview: "Enrolment patterns have shifted, with STEM fields gaining popularity while arts enrollment declined.",
+                overview2: "Engineering and Business faculties attracted the most students by 2025.",
+                focusA: "Engineering enrollment grew from 3,500 to 5,200 students over the decade.",
+                focusB: "Arts enrollment decreased from 2,800 to 2,100, reflecting changing career preferences.",
+                visual: { kind: "bar", categories: ["Engineering", "Business", "Science", "Arts"], series: [{ label: "2015", color: "#1f6d67", values: [3500, 3200, 2900, 2800] }, { label: "2025", color: "#bd5d38", values: [5200, 4800, 3600, 2100] }], unit: "students" }
+            },
+            {
+                id: "t1-line-energymix",
+                type: "Line Graph",
+                title: "Electricity Mix",
+                prompt: "The line graph shows the percentage of electricity generated from coal, gas and renewable sources in one country between 2000 and 2025.",
+                restatement: "The line graph illustrates the changing composition of electricity sources between 2000 and 2025.",
+                overview: "There has been a dramatic shift away from coal toward renewable energy sources.",
+                overview2: "Natural gas maintained relatively stable usage while renewables experienced exponential growth.",
+                focusA: "Coal generation fell from 55% in 2000 to just 15% by 2025.",
+                focusB: "Renewable energy surged from 5% to 45%, driven by wind and solar expansion.",
+                visual: { kind: "line", categories: ["2000", "2005", "2010", "2015", "2020", "2025"], series: [{ label: "Coal", color: "#6f5d4d", values: [55, 52, 48, 40, 25, 15] }, { label: "Gas", color: "#bd8a2e", values: [25, 28, 30, 32, 30, 30] }, { label: "Renewable", color: "#1f6d67", values: [5, 8, 12, 20, 35, 45] }], unit: "percent" }
+            },
+            {
+                id: "t1-mixed-museum",
+                type: "Mixed Charts",
+                title: "Museum Visitors and Feedback",
+                prompt: "The bar chart compares visitor numbers at four museums in 2024, while the pie chart shows visitors' main reasons for attending.",
+                restatement: "The data presents annual visitor numbers for four museums alongside visitor motivations.",
+                overview: "Cultural interest dominates visitor motivations, though tourism and education are also significant.",
+                overview2: "The National Museum attracted the highest visitor count in 2024.",
+                focusA: "The National Museum received 450,000 visitors, nearly double that of other institutions.",
+                focusB: "Cultural interest accounted for 45% of visits, with tourism (30%) and education (25%) forming secondary motivations.",
+                visual: { kind: "mixed", series: [{ label: "Visitors", values: [450, 250, 180, 120], categories: ["National", "Art", "Science", "History"] }, { label: "Visit Reasons", values: [45, 30, 25], categories: ["Culture", "Tourism", "Education"] }] }
+            },
+            {
+                id: "t1-table-airline",
+                type: "Table",
+                title: "Airline Performance",
+                prompt: "The table compares the on-time arrival rate, average ticket price and passenger numbers for five airlines in 2024.",
+                restatement: "The table presents performance metrics for five airlines during 2024.",
+                overview: "Airlines show varying performance across reliability, pricing, and passenger volume.",
+                overview2: "Premium airlines maintain higher prices but better punctuality records.",
+                focusA: "Airline A had the best on-time rate at 94%, while Airline E had the lowest at 78%.",
+                focusB: "Airline C offered the lowest prices at $120 average but carried the most passengers at 8 million.",
+                visual: { kind: "table", headers: ["Airline", "On-time %", "Avg Price", "Passengers"], data: [["A", "94%", "$280", "3.5M"], ["B", "88%", "$220", "4.2M"], ["C", "82%", "$120", "8.0M"], ["D", "85%", "$190", "5.1M"], ["E", "78%", "$150", "6.3M"]] }
+            },
+            {
+                id: "t1-process-cement",
+                type: "Process Diagram",
+                title: "Cement Manufacturing",
+                prompt: "The diagram shows how cement is manufactured for use in concrete production.",
+                restatement: "The diagram illustrates the step-by-step process of manufacturing cement.",
+                overview: "Cement production involves mining, heating, grinding, and quality control across multiple stages.",
+                overview2: "The process transforms raw materials into a fine powder used in construction.",
+                focusA: "Raw materials including limestone and clay are extracted and crushed.",
+                focusB: "These materials are heated in a kiln, cooled, and ground into fine cement powder.",
+                visual: { kind: "process", steps: ["Mine limestone & clay", "Crush materials", "Mix", "Heat in kiln", "Cool", "Grind into powder"] }
+            },
+            {
+                id: "t1-map-town",
+                type: "Map",
+                title: "Town Centre Changes",
+                prompt: "The maps show changes to a town centre between 1995 and the present day.",
+                restatement: "The two maps compare the layout and features of a town centre from 1995 to today.",
+                overview: "The town centre has transformed from a car-oriented retail hub to a mixed-use pedestrian-friendly district.",
+                overview2: "Residential development increased while vehicle circulation was reduced.",
+                focusA: "In 1995, the centre featured wide roads, parking lots, and individual retail stores.",
+                focusB: "Today's centre includes pedestrian zones, apartments, parks, and integrated shopping and entertainment venues.",
+                visual: { kind: "map", features: ["residential", "retail", "parking", "pedestrian", "parks"], label: "Town Centre Layout" }
+            }
+        ];
+
+        const TASK2_PROMPTS = [
+            { id: "t2-education", mode: "Discussion + Opinion", title: "University and Employment", prompt: "Some people believe that university education should prepare students for employment, while others think it should focus on knowledge for its own sake. Discuss both views and give your opinion." },
+            { id: "t2-technology", mode: "Advantages / Disadvantages", title: "AI in Daily Life", prompt: "Artificial intelligence is becoming part of daily life. Do the advantages of this trend outweigh the disadvantages?" },
+            { id: "t2-environment", mode: "Discussion + Opinion", title: "Individual vs Government Action", prompt: "Some people think environmental problems should be solved by individuals, while others believe governments and large companies should take responsibility. Discuss both sides and give your opinion." },
+            { id: "t2-work", mode: "Problems / Solutions", title: "Remote Work Culture", prompt: "Many employees now work from home. What are the main benefits and drawbacks of remote working?" },
+            { id: "t2-health", mode: "Agree / Disagree", title: "Public Health Policy", prompt: "In order to improve public health, governments should impose higher taxes on unhealthy food. To what extent do you agree or disagree?" },
+            { id: "t2-transport", mode: "Agree / Disagree", title: "Free Public Transport", prompt: "Some people think public transport should be free in cities. To what extent do you agree or disagree?" },
+            { id: "t2-children-screen", mode: "Causes / Solutions", title: "Children and Screen Time", prompt: "Many children spend too much time using smartphones and tablets. What problems can this cause, and what measures could be taken to address them?" },
+            { id: "t2-tourism", mode: "Discussion + Opinion", title: "Tourism and Culture", prompt: "Some people believe tourism benefits local culture, while others think it damages traditional ways of life. Discuss both views and give your opinion." },
+            { id: "t2-crime", mode: "Discussion + Opinion", title: "Longer Prison Sentences", prompt: "Some people believe that longer prison sentences are the best way to reduce crime, while others think there are more effective alternatives. Discuss both views and give your opinion." },
+            { id: "t2-advertising", mode: "Advantages / Disadvantages", title: "Advertising to Children", prompt: "Advertising aimed at children should be strictly controlled. Do the advantages of this policy outweigh the disadvantages?" },
+            { id: "t2-history", mode: "Agree / Disagree", title: "History vs Science", prompt: "Schools should spend more time teaching science and less time teaching history. To what extent do you agree or disagree?" },
+            { id: "t2-city-life", mode: "Problems / Solutions", title: "Life in Large Cities", prompt: "Living in large cities creates many problems for people. What are the main problems, and how can these be solved?" },
+            { id: "t2-space", mode: "Agree / Disagree", title: "Space Exploration Spending", prompt: "Governments spend too much money on space exploration when there are more urgent needs on Earth. To what extent do you agree or disagree?" },
+            { id: "t2-aging", mode: "Discussion + Opinion", title: "An Aging Population", prompt: "An increasing proportion of the population in many countries is elderly. Some people think this creates problems for society, while others believe there are benefits. Discuss both views and give your opinion." },
+            { id: "t2-food", mode: "Direct Question", title: "Imported Food", prompt: "Many countries import large amounts of food from other parts of the world. Why is this happening, and is this a positive or negative development?" },
+            { id: "t2-books", mode: "Discussion + Opinion", title: "Printed Books and E-books", prompt: "Some people think printed books will never disappear, while others believe digital reading will replace them. Discuss both views and give your opinion." },
+            { id: "t2-uniform", mode: "Agree / Disagree", title: "School Uniforms", prompt: "All students should be required to wear school uniforms. To what extent do you agree or disagree?" },
+            { id: "t2-sports", mode: "Discussion + Opinion", title: "Funding Elite Sports", prompt: "Some people think governments should spend money on elite sports, while others believe it should be used to encourage ordinary people to exercise. Discuss both views and give your opinion." },
+            { id: "t2-online-learning", mode: "Advantages / Disadvantages", title: "Online Learning", prompt: "More students are choosing to study online rather than attend classes in person. Do the advantages of this trend outweigh the disadvantages?" },
+            { id: "t2-jobsat", mode: "Causes / Solutions", title: "Job Satisfaction", prompt: "Many people are unhappy with their jobs. Why is this the case, and what can employers do to improve job satisfaction?" }
+        ];
+
+        const SPEAKING_PROMPTS = [
+            { id: "sp-hometown", topic: "Hometown", prompt: "Describe your hometown. You should say: where it is, what it is known for, what you like about it, and explain how it has changed in recent years.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-hobby", topic: "A Hobby", prompt: "Describe a hobby you enjoy. You should say: what the hobby is, when you started it, how often you do it, and explain why you enjoy it.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-teacher", topic: "A Teacher", prompt: "Describe a teacher who influenced you. You should say: who this person was, what subject they taught, what made them special, and explain how they influenced you.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-travel", topic: "A Trip", prompt: "Describe a memorable trip you took. You should say: where you went, who you went with, what you did there, and explain why it was memorable.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-book", topic: "A Book", prompt: "Describe a book that you have read recently. You should say: what the book is about, why you chose to read it, what you learned from it, and explain whether you would recommend it.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-technology", topic: "Technology", prompt: "Describe a piece of technology you use every day. You should say: what it is, how you use it, how long you have been using it, and explain how it has changed your daily life.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-achievement", topic: "An Achievement", prompt: "Describe something you achieved that you are proud of. You should say: what you achieved, when it happened, how you achieved it, and explain why you feel proud.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-place", topic: "A Quiet Place", prompt: "Describe a quiet place you like to visit. You should say: where it is, how you discovered it, what you do there, and explain why you enjoy going there.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-friend", topic: "A Close Friend", prompt: "Describe a close friend. You should say: how you met this person, how long you have been friends, what you do together, and explain what makes this friendship special.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-food", topic: "A Meal", prompt: "Describe a special meal you had. You should say: what the occasion was, where you ate, what you had, and explain why this meal was special to you.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-skill", topic: "A Skill", prompt: "Describe a skill you would like to learn. You should say: what the skill is, why you want to learn it, how you would learn it, and explain how it would benefit you.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-event", topic: "An Event", prompt: "Describe a public event you attended. You should say: what the event was, when and where it took place, who you went with, and explain what you enjoyed about it.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-environment", topic: "Environment", prompt: "Describe an environmental problem in your area. You should say: what the problem is, what causes it, how it affects people, and explain what could be done about it.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-childhood", topic: "Childhood Memory", prompt: "Describe a happy memory from your childhood. You should say: what happened, how old you were, who was involved, and explain why this memory is important to you.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-change", topic: "A Change", prompt: "Describe a positive change you made in your life. You should say: what the change was, when you made it, why you decided to change, and explain how it improved your life.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-building", topic: "A Building", prompt: "Describe an interesting building you have visited. You should say: where it is, what it looks like, what it is used for, and explain why you found it interesting.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-music", topic: "Music", prompt: "Describe a song or piece of music you enjoy. You should say: what the music is, when you first heard it, how often you listen to it, and explain why it is special to you.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-challenge", topic: "A Challenge", prompt: "Describe a difficult challenge you faced. You should say: what the challenge was, when it happened, how you dealt with it, and explain what you learned from the experience.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-market", topic: "A Market", prompt: "Describe an outdoor market you have been to. You should say: where it is, what is sold there, how often you go, and explain what you like about it.", thinkTime: 60, speakTime: 120 },
+            { id: "sp-advice", topic: "Advice", prompt: "Describe a piece of advice you received that was helpful. You should say: who gave you the advice, what the advice was, when you received it, and explain how it helped you.", thinkTime: 60, speakTime: 120 }
+        ];
+
+        // ===== STATE MANAGEMENT =====
+
+        let appState = {
+            currentTab: 'task1',
+            timerActive: false,
+            timerSeconds: 1200, // 20 minutes for Task 1
+            drafts: {
+                task1: {},
+                task2: {},
+                speaking: {}
+            },
+            soundEnabled: true,
+            autoSave: true,
+            selectedPrompts: {},
+            analysisResults: null
+        };
+
+        // Load state from localStorage
+        function loadState() {
+            const saved = localStorage.getItem('ieltsAppState');
+            if (saved) {
+                try {
+                    const data = JSON.parse(saved);
+                    appState = { ...appState, ...data };
+                } catch (e) {
+                    console.error('Failed to load state', e);
+                }
+            }
+        }
+
+        // Save state to localStorage
+        function saveState() {
+            localStorage.setItem('ieltsAppState', JSON.stringify(appState));
+        }
+
+        // ===== TIMER CLASS =====
+
+        class PracticeTimer {
+            constructor(durationSeconds, onTick, onComplete) {
+                this.durationSeconds = durationSeconds;
+                this.remainingSeconds = durationSeconds;
+                this.onTick = onTick;
+                this.onComplete = onComplete;
+                this.intervalId = null;
+                this.isRunning = false;
+            }
+
+            start() {
+                if (this.isRunning) return;
+                this.isRunning = true;
+                this.intervalId = setInterval(() => {
+                    this.remainingSeconds--;
+                    this.onTick(this.remainingSeconds);
+
+                    if (this.remainingSeconds <= 0) {
+                        this.stop();
+                        this.onComplete();
+                    }
+                }, 1000);
+            }
+
+            pause() {
+                if (!this.isRunning) return;
+                this.isRunning = false;
+                clearInterval(this.intervalId);
+            }
+
+            stop() {
+                this.isRunning = false;
+                clearInterval(this.intervalId);
+            }
+
+            reset() {
+                this.stop();
+                this.remainingSeconds = this.durationSeconds;
+                this.onTick(this.remainingSeconds);
+            }
+
+            setDuration(seconds) {
+                this.durationSeconds = seconds;
+                this.remainingSeconds = seconds;
+                this.onTick(this.remainingSeconds);
+            }
+
+            getFormattedTime() {
+                const mins = Math.floor(this.remainingSeconds / 60);
+                const secs = this.remainingSeconds % 60;
+                return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }
+        }
+
+        // ===== TIMER INSTANCE =====
+
+        let timer = new PracticeTimer(1200, updateTimerDisplay, onTimerComplete);
+
+        function updateTimerDisplay(seconds) {
+            const display = document.getElementById('timerDisplay');
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            const formatted = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            display.textContent = formatted;
+
+            // Update visual state
+            if (seconds < 300) {
+                display.classList.add('warning');
+                display.classList.remove('critical');
+            } else {
+                display.classList.remove('warning');
+            }
+
+            if (seconds < 60) {
+                display.classList.add('critical');
+            } else {
+                display.classList.remove('critical');
+            }
+        }
+
+        function onTimerComplete() {
+            alert('Time\'s up! Your practice session has ended.');
+        }
+
+        // ===== DOM UTILITIES =====
+
+        function getRandomPrompt(array) {
+            const date = new Date();
+            const seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+            const index = seed % array.length;
+            return array[index];
+        }
+
+        function setDailyPrompts() {
+            const task1Prompt = getRandomPrompt(TASK1_PROMPTS);
+            const task2Prompt = getRandomPrompt(TASK2_PROMPTS);
+            const speakingPrompt = getRandomPrompt(SPEAKING_PROMPTS);
+
+            appState.selectedPrompts = {
+                task1: task1Prompt,
+                task2: task2Prompt,
+                speaking: speakingPrompt
+            };
+
+            // Update sidebars and main displays
+            updateSidebarPrompt('task1', task1Prompt);
+            updateSidebarPrompt('task2', task2Prompt);
+            updateSidebarPrompt('speaking', speakingPrompt);
+
+            updateTask1Display(task1Prompt);
+            updateTask2Display(task2Prompt);
+            updateSpeakingDisplay(speakingPrompt);
+        }
+
+        function updateSidebarPrompt(tab, prompt) {
+            const titleEl = document.getElementById('sidebarPromptTitle');
+            const typeEl = document.getElementById('sidebarPromptType');
+            const textEl = document.getElementById('sidebarPromptText');
+
+            if (appState.currentTab === tab) {
+                const type = prompt.type || prompt.mode || 'Speaking';
+                titleEl.textContent = prompt.title || prompt.topic;
+                typeEl.textContent = type;
+                typeEl.className = 'prompt-type-badge';
+                textEl.textContent = prompt.prompt;
+            }
+        }
+
+        function updateTask1Display(prompt) {
+            document.getElementById('task1PromptType').textContent = prompt.type;
+            document.getElementById('task1PromptTitle').textContent = prompt.title;
+            document.getElementById('task1PromptText').textContent = prompt.prompt;
+            createTask1Steps();
+            if (prompt.visual) {
+                renderChart(prompt.visual, 'task1Chart');
+            }
+        }
+
+        function updateTask2Display(prompt) {
+            document.getElementById('task2PromptType').textContent = prompt.mode;
+            document.getElementById('task2PromptTitle').textContent = prompt.title;
+            document.getElementById('task2PromptText').textContent = prompt.prompt;
+            createTask2Steps();
+        }
+
+        function updateSpeakingDisplay(prompt) {
+            document.getElementById('speakingPromptType').textContent = 'Speaking Part 2';
+            document.getElementById('speakingPromptTitle').textContent = prompt.topic;
+            document.getElementById('speakingPromptText').textContent = prompt.prompt;
+        }
+
+        // ===== STEP BUILDERS =====
+
+        function createTask1Steps() {
+            const container = document.getElementById('task1Steps');
+            container.innerHTML = '';
+
+            const steps = [
+                { num: 1, title: 'Introduction', hint: 'Restate the prompt in your own words', chipTexts: ['The chart shows...', 'According to...', 'This graph compares...'], draftKey: 'intro' },
+                { num: 2, title: 'Overview Sentence 1', hint: 'Main trend or pattern', chipTexts: ['Overall, ...', 'In general, ...', 'The data reveals...'], draftKey: 'overview1' },
+                { num: 3, title: 'Overview Sentence 2', hint: 'Secondary observation', chipTexts: ['Most notably, ...', 'Significantly, ...', 'What is particularly striking...'], draftKey: 'overview2' },
+                { num: 4, title: 'Body 1 Topic', hint: 'Introduce first major point', chipTexts: ['Looking at...', 'Examining...', 'The most notable...'], draftKey: 'body1topic' },
+                { num: 5, title: 'Body 1 Detail A', hint: 'Supporting detail for first point', chipTexts: ['rose from...', 'increased to...', 'reached approximately...'], draftKey: 'body1a' },
+                { num: 6, title: 'Body 1 Detail B', hint: 'Additional supporting information', chipTexts: ['In contrast,...', 'Meanwhile,...', 'Similarly,...'], draftKey: 'body1b' },
+                { num: 7, title: 'Body 2 Topic', hint: 'Introduce second major point', chipTexts: ['Turning to...', 'With respect to...', 'Regarding...'], draftKey: 'body2topic' },
+                { num: 8, title: 'Body 2 Detail A', hint: 'Supporting detail for second point', chipTexts: ['dropped from...', 'fell to...', 'showed a decline...'], draftKey: 'body2a' },
+                { num: 9, title: 'Body 2 Detail B', hint: 'Final supporting information', chipTexts: ['Nevertheless,...', 'However,...', 'It is clear that...'], draftKey: 'body2b' }
+            ];
+
+            steps.forEach(step => {
+                const stepEl = createStepElement(step, 'task1');
+                container.appendChild(stepEl);
+            });
+        }
+
+        function createTask2Steps() {
+            const container = document.getElementById('task2Steps');
+            container.innerHTML = '';
+
+            const steps = [
+                // Introduction
+                { num: 1, title: 'Hook / Background', hint: 'Open with a general statement about the topic', chipTexts: ['In recent years,...', 'It is widely acknowledged that...', 'The question of whether...'], draftKey: 'hook', section: 'Introduction' },
+                { num: 2, title: 'Thesis Statement', hint: 'State your position clearly', chipTexts: ['I believe that...', 'In my view,...', 'While both perspectives have merit,...'], draftKey: 'thesis', section: 'Introduction' },
+                // Body 1
+                { num: 3, title: 'Body 1 — Topic Sentence', hint: 'State your first main argument', chipTexts: ['Firstly,...', 'The primary reason is that...', 'One compelling argument is...'], draftKey: 'b1topic', section: 'Body 1' },
+                { num: 4, title: 'Body 1 — Explanation', hint: 'Explain why this point matters', chipTexts: ['This is because...', 'The reason for this is...', 'This matters since...'], draftKey: 'b1explain', section: 'Body 1' },
+                { num: 5, title: 'Body 1 — Example', hint: 'Provide a specific example', chipTexts: ['For instance,...', 'A clear example of this is...', 'Research has shown that...'], draftKey: 'b1example', section: 'Body 1' },
+                // Body 2
+                { num: 6, title: 'Body 2 — Topic Sentence', hint: 'Introduce your second argument or the opposing view', chipTexts: ['Furthermore,...', 'On the other hand,...', 'Another important consideration...'], draftKey: 'b2topic', section: 'Body 2' },
+                { num: 7, title: 'Body 2 — Explanation', hint: 'Develop this argument in detail', chipTexts: ['This can be attributed to...', 'The significance of this lies in...', 'It follows that...'], draftKey: 'b2explain', section: 'Body 2' },
+                { num: 8, title: 'Body 2 — Example', hint: 'Support with evidence or example', chipTexts: ['To illustrate,...', 'A case in point is...', 'Statistics indicate that...'], draftKey: 'b2example', section: 'Body 2' },
+                // Body 3 (optional / concession)
+                { num: 9, title: 'Body 3 — Topic Sentence', hint: 'Third point, concession, or rebuttal', chipTexts: ['Additionally,...', 'Admittedly,...', 'Some might argue that...'], draftKey: 'b3topic', section: 'Body 3' },
+                { num: 10, title: 'Body 3 — Explanation', hint: 'Develop or counter the argument', chipTexts: ['However,...', 'Despite this,...', 'Nevertheless,...'], draftKey: 'b3explain', section: 'Body 3' },
+                { num: 11, title: 'Body 3 — Example', hint: 'Final supporting example', chipTexts: ['For example,...', 'This is evident in...', 'In practice,...'], draftKey: 'b3example', section: 'Body 3' },
+                // Conclusion
+                { num: 12, title: 'Conclusion — Restate Position', hint: 'Summarise your main argument', chipTexts: ['In conclusion,...', 'To summarise,...', 'All things considered,...'], draftKey: 'conc_restate', section: 'Conclusion' },
+                { num: 13, title: 'Conclusion — Final Thought', hint: 'End with a recommendation or prediction', chipTexts: ['It is therefore recommended...', 'Looking ahead,...', 'Ultimately,...'], draftKey: 'conc_final', section: 'Conclusion' }
+            ];
+
+            let currentSection = '';
+            steps.forEach(step => {
+                // Add section header if new section
+                if (step.section !== currentSection) {
+                    currentSection = step.section;
+                    const sectionHeader = document.createElement('div');
+                    sectionHeader.className = 'section-header';
+                    sectionHeader.innerHTML = `<span class="section-tag">${currentSection}</span>`;
+                    container.appendChild(sectionHeader);
+                }
+                const stepEl = createStepElement(step, 'task2');
+                container.appendChild(stepEl);
+            });
+        }
+
+        function createStepElement(step, task) {
+            const el = document.createElement('div');
+            el.className = 'step';
+
+            const headerHtml = `
+                <div class="step-header">
+                    <div class="step-number">${step.num}</div>
+                    <div>
+                        <div class="step-title">${step.title}</div>
+                        <div class="step-hint">${step.hint}</div>
+                    </div>
+                </div>
+            `;
+
+            const chipsHtml = `
+                <div class="starter-chips">
+                    ${step.chipTexts.map((text, i) => `<button class="chip" data-index="${i}">${text}</button>`).join('')}
+                </div>
+            `;
+
+            const textareaHtml = `
+                <div class="textarea-wrapper">
+                    <textarea class="textarea" id="${task}_${step.draftKey}" placeholder="Write your ${step.title.toLowerCase()}..."></textarea>
+                    <div class="textarea-counter"><span id="${task}_${step.draftKey}_count">0</span> words</div>
+                </div>
+            `;
+
+            el.innerHTML = headerHtml + chipsHtml + textareaHtml;
+
+            // Add chip listeners
+            el.querySelectorAll('.chip').forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const ta = el.querySelector('.textarea');
+                    ta.focus();
+                    if (ta.value) {
+                        ta.value += ' ' + chip.textContent;
+                    } else {
+                        ta.value = chip.textContent;
+                    }
+                    updateWordCount(ta.id);
+                    saveDraft(ta.id, ta.value);
+                });
+            });
+
+            // Add textarea listeners
+            const ta = el.querySelector('.textarea');
+            ta.addEventListener('input', () => {
+                updateWordCount(ta.id);
+                saveDraft(ta.id, ta.value);
+            });
+
+            return el;
+        }
+
+        function updateWordCount(textareaId) {
+            const ta = document.getElementById(textareaId);
+            const counter = document.getElementById(textareaId + '_count');
+            const words = ta.value.trim().split(/\s+/).filter(w => w).length;
+            counter.textContent = words;
+        }
+
+        function saveDraft(elementId, content) {
+            if (!appState.autoSave) return;
+            const [task, key] = elementId.split('_');
+            if (!appState.drafts[task]) appState.drafts[task] = {};
+            appState.drafts[task][key] = content;
+            saveState();
+            updateProgressMap();
+        }
+
+        // ===== CHART RENDERING =====
+
+        function renderChart(visual, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container || !visual) return;
+
+            const colors = visual.colors || ['#1f6d67', '#bd5d38', '#bd8a2e', '#6f5d4d'];
+            const kind = visual.kind;
+
+            let html = '';
+
+            if (kind === 'bar') {
+                html = renderBarChart(visual, colors);
+            } else if (kind === 'line') {
+                html = renderLineChart(visual, colors);
+            } else if (kind === 'pie') {
+                html = renderPieCharts(visual, colors);
+            } else if (kind === 'table') {
+                html = renderTable(visual);
+            } else if (kind === 'process') {
+                html = renderProcessFlow(visual);
+            } else if (kind === 'map') {
+                html = renderMapDiagram(visual);
+            } else if (kind === 'mixed') {
+                html = renderMixedChart(visual, colors);
+            }
+
+            if (html) {
+                container.innerHTML = html;
+                container.className = 'chart-container';
+            }
+        }
+
+        function renderBarChart(visual, colors) {
+            const width = 500;
+            const height = 300;
+            const padding = 40;
+            const chartWidth = width - padding * 2;
+            const chartHeight = height - padding * 2;
+
+            const categories = visual.categories || [];
+            const series = visual.series || [];
+            const maxValue = Math.max(...series.flatMap(s => s.values)) * 1.1;
+
+            const barWidth = chartWidth / (categories.length * (series.length + 0.5)) / series.length;
+            const groupSpacing = chartWidth / categories.length;
+
+            let svg = `<svg viewBox="0 0 ${width} ${height}" style="max-width: 100%; height: auto;">`;
+
+            // Axes
+            svg += `<line x1="${padding}" y1="${height - padding}" x2="${width - padding}" y2="${height - padding}" stroke="#ccc" stroke-width="1"/>`;
+            svg += `<line x1="${padding}" y1="${padding}" x2="${padding}" y2="${height - padding}" stroke="#ccc" stroke-width="1"/>`;
+
+            // Y-axis labels
+            for (let i = 0; i <= 4; i++) {
+                const val = Math.round((i / 4) * maxValue);
+                const y = height - padding - (i / 4) * chartHeight;
+                svg += `<text x="${padding - 5}" y="${y + 4}" font-size="11" text-anchor="end" fill="#666">${val}</text>`;
+            }
+
+            // Bars
+            categories.forEach((cat, catIdx) => {
+                series.forEach((ser, serIdx) => {
+                    const val = ser.values[catIdx];
+                    const barHeight = (val / maxValue) * chartHeight;
+                    const x = padding + catIdx * groupSpacing + serIdx * barWidth + 10;
+                    const y = height - padding - barHeight;
+
+                    svg += `<rect x="${x}" y="${y}" width="${barWidth}" height="${barHeight}" fill="${ser.color}" opacity="0.8"/>`;
+                    svg += `<text x="${x + barWidth/2}" y="${y - 3}" font-size="11" text-anchor="middle" fill="#333">${val}</text>`;
+                });
+
+                // X-axis label
+                const labelX = padding + catIdx * groupSpacing + groupSpacing / 2;
+                svg += `<text x="${labelX}" y="${height - padding + 20}" font-size="12" text-anchor="middle" fill="#666">${cat}</text>`;
+            });
+
+            // Legend
+            let legendX = padding;
+            series.forEach((ser) => {
+                svg += `<rect x="${legendX}" y="${padding - 20}" width="12" height="12" fill="${ser.color}"/>`;
+                svg += `<text x="${legendX + 16}" y="${padding - 10}" font-size="12" fill="#333">${ser.label}</text>`;
+                legendX += 120;
+            });
+
+            svg += '</svg>';
+            return svg;
+        }
+
+        function renderLineChart(visual, colors) {
+            const width = 500;
+            const height = 300;
+            const padding = 40;
+            const chartWidth = width - padding * 2;
+            const chartHeight = height - padding * 2;
+
+            const categories = visual.categories || [];
+            const series = visual.series || [];
+            const maxValue = Math.max(...series.flatMap(s => s.values)) * 1.1;
+
+            let svg = `<svg viewBox="0 0 ${width} ${height}" style="max-width: 100%; height: auto;">`;
+
+            // Axes
+            svg += `<line x1="${padding}" y1="${height - padding}" x2="${width - padding}" y2="${height - padding}" stroke="#ccc" stroke-width="1"/>`;
+            svg += `<line x1="${padding}" y1="${padding}" x2="${padding}" y2="${height - padding}" stroke="#ccc" stroke-width="1"/>`;
+
+            // Y-axis labels
+            for (let i = 0; i <= 4; i++) {
+                const val = Math.round((i / 4) * maxValue);
+                const y = height - padding - (i / 4) * chartHeight;
+                svg += `<text x="${padding - 5}" y="${y + 4}" font-size="11" text-anchor="end" fill="#666">${val}</text>`;
+            }
+
+            // Lines and points
+            const xSpacing = chartWidth / (categories.length - 1);
+            series.forEach((ser) => {
+                let pathD = '';
+                ser.values.forEach((val, idx) => {
+                    const x = padding + idx * xSpacing;
+                    const y = height - padding - (val / maxValue) * chartHeight;
+                    pathD += (idx === 0 ? 'M' : 'L') + ` ${x} ${y}`;
+                });
+                svg += `<path d="${pathD}" stroke="${ser.color}" stroke-width="2" fill="none"/>`;
+
+                // Points
+                ser.values.forEach((val, idx) => {
+                    const x = padding + idx * xSpacing;
+                    const y = height - padding - (val / maxValue) * chartHeight;
+                    svg += `<circle cx="${x}" cy="${y}" r="4" fill="${ser.color}"/>`;
+                });
+            });
+
+            // X-axis labels
+            categories.forEach((cat, idx) => {
+                const x = padding + idx * xSpacing;
+                svg += `<text x="${x}" y="${height - padding + 20}" font-size="12" text-anchor="middle" fill="#666">${cat}</text>`;
+            });
+
+            // Legend
+            let legendX = padding;
+            series.forEach((ser) => {
+                svg += `<line x1="${legendX}" y1="${padding - 18}" x2="${legendX + 20}" y2="${padding - 18}" stroke="${ser.color}" stroke-width="2"/>`;
+                svg += `<circle cx="${legendX + 10}" cy="${padding - 18}" r="3" fill="${ser.color}"/>`;
+                svg += `<text x="${legendX + 26}" y="${padding - 10}" font-size="12" fill="#333">${ser.label}</text>`;
+                legendX += 120;
+            });
+
+            svg += '</svg>';
+            return svg;
+        }
+
+        function renderPieCharts(visual, colors) {
+            const width = 600;
+            const height = 300;
+            const radius = 80;
+            const centerY = height / 2;
+
+            let svg = `<svg viewBox="0 0 ${width} ${height}" style="max-width: 100%; height: auto;">`;
+
+            // Assuming visual.series has two datasets for comparison
+            const datasets = visual.series || [];
+            const positions = [150, 450];
+
+            datasets.forEach((dataset, datasetIdx) => {
+                const centerX = positions[datasetIdx];
+                let currentAngle = -Math.PI / 2;
+
+                const total = dataset.values.reduce((a, b) => a + b, 0);
+
+                dataset.values.forEach((val, idx) => {
+                    const sliceAngle = (val / total) * 2 * Math.PI;
+                    const endAngle = currentAngle + sliceAngle;
+
+                    const x1 = centerX + radius * Math.cos(currentAngle);
+                    const y1 = centerY + radius * Math.sin(currentAngle);
+                    const x2 = centerX + radius * Math.cos(endAngle);
+                    const y2 = centerY + radius * Math.sin(endAngle);
+
+                    const largeArc = sliceAngle > Math.PI ? 1 : 0;
+                    const pathD = `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`;
+
+                    svg += `<path d="${pathD}" fill="${colors[idx % colors.length]}" stroke="white" stroke-width="2"/>`;
+
+                    // Percentage label
+                    const labelAngle = currentAngle + sliceAngle / 2;
+                    const labelX = centerX + (radius * 0.65) * Math.cos(labelAngle);
+                    const labelY = centerY + (radius * 0.65) * Math.sin(labelAngle);
+                    const percent = Math.round((val / total) * 100);
+                    svg += `<text x="${labelX}" y="${labelY}" font-size="12" font-weight="600" fill="white" text-anchor="middle" dominant-baseline="middle">${percent}%</text>`;
+
+                    currentAngle = endAngle;
+                });
+
+                // Label below pie
+                svg += `<text x="${centerX}" y="${centerY + radius + 25}" font-size="13" font-weight="600" text-anchor="middle" fill="#333">${dataset.label || 'Dataset ' + (datasetIdx + 1)}</text>`;
+            });
+
+            svg += '</svg>';
+            return svg;
+        }
+
+        function renderTable(visual) {
+            const headers = visual.headers || [];
+            const rows = visual.data || visual.rows || [];
+
+            let html = '<table><thead><tr>';
+            headers.forEach(h => {
+                html += `<th>${h}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+
+            rows.forEach(row => {
+                html += '<tr>';
+                row.forEach(cell => {
+                    html += `<td>${cell}</td>`;
+                });
+                html += '</tr>';
+            });
+
+            html += '</tbody></table>';
+            return html;
+        }
+
+        function renderProcessFlow(visual) {
+            const steps = visual.steps || [];
+            let html = '<div class="process-flow">';
+
+            steps.forEach((step, idx) => {
+                html += `<div class="process-step">${step}</div>`;
+                if (idx < steps.length - 1) {
+                    html += '<div class="process-arrow">→</div>';
+                }
+            });
+
+            html += '</div>';
+            return html;
+        }
+
+        function renderMixedChart(visual, colors) {
+            const s = visual.series || [];
+            if (s.length < 2) return '<p>No mixed data available</p>';
+
+            const barData = s[0];
+            const pieData = s[1];
+
+            // Bar part
+            const barW = 280, barH = 200, pad = 35;
+            const cats = barData.categories || [];
+            const vals = barData.values || [];
+            const maxVal = Math.max(...vals, 1);
+            const bw = (barW - pad * 2) / cats.length * 0.7;
+            const gap = (barW - pad * 2) / cats.length;
+            let barSvg = `<svg viewBox="0 0 ${barW} ${barH}" style="width:100%;max-width:${barW}px;height:auto;">`;
+            barSvg += `<text x="${barW/2}" y="14" text-anchor="middle" font-size="11" font-weight="600" fill="#2e241c">${barData.label}</text>`;
+            barSvg += `<line x1="${pad}" y1="${barH-pad}" x2="${barW-pad}" y2="${barH-pad}" stroke="#e5e0db" stroke-width="1"/>`;
+            vals.forEach((v, i) => {
+                const x = pad + i * gap + (gap - bw) / 2;
+                const h = (v / maxVal) * (barH - pad - 24);
+                const y = barH - pad - h;
+                const c = colors[i % colors.length];
+                barSvg += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${c}" rx="3"/>`;
+                barSvg += `<text x="${x + bw/2}" y="${y - 4}" text-anchor="middle" font-size="9" fill="#2e241c">${v}</text>`;
+                barSvg += `<text x="${x + bw/2}" y="${barH - pad + 12}" text-anchor="middle" font-size="8" fill="#6f5d4d">${cats[i]}</text>`;
+            });
+            barSvg += '</svg>';
+
+            // Pie part
+            const pieW = 220, pieH = 200;
+            const pieCats = pieData.categories || [];
+            const pieVals = pieData.values || [];
+            const total = pieVals.reduce((a, b) => a + b, 0) || 1;
+            const cx = pieW / 2, cy = 100, r = 65;
+            let pieSvg = `<svg viewBox="0 0 ${pieW} ${pieH}" style="width:100%;max-width:${pieW}px;height:auto;">`;
+            pieSvg += `<text x="${cx}" y="14" text-anchor="middle" font-size="11" font-weight="600" fill="#2e241c">${pieData.label}</text>`;
+            let startAngle = -Math.PI / 2;
+            pieVals.forEach((v, i) => {
+                const slice = (v / total) * Math.PI * 2;
+                const endAngle = startAngle + slice;
+                const x1 = cx + r * Math.cos(startAngle);
+                const y1 = cy + r * Math.sin(startAngle);
+                const x2 = cx + r * Math.cos(endAngle);
+                const y2 = cy + r * Math.sin(endAngle);
+                const large = slice > Math.PI ? 1 : 0;
+                const c = colors[i % colors.length];
+                pieSvg += `<path d="M${cx},${cy} L${x1},${y1} A${r},${r} 0 ${large},1 ${x2},${y2} Z" fill="${c}" stroke="white" stroke-width="1.5"/>`;
+                const midA = startAngle + slice / 2;
+                const lx = cx + (r * 0.65) * Math.cos(midA);
+                const ly = cy + (r * 0.65) * Math.sin(midA);
+                const pct = Math.round(v / total * 100);
+                pieSvg += `<text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="white" font-weight="600">${pct}%</text>`;
+                startAngle = endAngle;
+            });
+            // Legend below pie
+            pieCats.forEach((cat, i) => {
+                const lx = 10 + (i % 2) * (pieW / 2);
+                const ly = cy + r + 18 + Math.floor(i / 2) * 14;
+                pieSvg += `<rect x="${lx}" y="${ly - 5}" width="8" height="8" rx="2" fill="${colors[i % colors.length]}"/>`;
+                pieSvg += `<text x="${lx + 12}" y="${ly + 2}" font-size="8" fill="#6f5d4d">${cat}</text>`;
+            });
+            pieSvg += '</svg>';
+
+            return `<div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">${barSvg}${pieSvg}</div>`;
+        }
+
+        function renderMapDiagram(visual) {
+            const label = visual.label || 'Map';
+            const features = visual.features || [];
+            const colors = ['#1f6d67', '#bd5d38', '#bd8a2e', '#6f5d4d', '#8b5cf6'];
+            const w = 500, h = 260;
+
+            let svg = `<svg viewBox="0 0 ${w} ${h}" style="width:100%;max-width:${w}px;height:auto;">`;
+            // Title
+            svg += `<text x="${w/2}" y="18" text-anchor="middle" font-size="12" font-weight="700" fill="#2e241c">${label}</text>`;
+
+            // Draw two side-by-side map frames (Before / After)
+            const frameW = 210, frameH = 180, gap = 30;
+            const x1 = (w - frameW * 2 - gap) / 2;
+            const x2 = x1 + frameW + gap;
+            const fy = 30;
+
+            // Frame 1 - Before
+            svg += `<rect x="${x1}" y="${fy}" width="${frameW}" height="${frameH}" rx="8" fill="#f0ebe5" stroke="#d4cfc7" stroke-width="1"/>`;
+            svg += `<text x="${x1 + frameW/2}" y="${fy + 16}" text-anchor="middle" font-size="10" font-weight="600" fill="#6f5d4d">BEFORE</text>`;
+            // Simple blocks
+            const bx = x1 + 15, by = fy + 28, bw = frameW - 30, bh = frameH - 42;
+            svg += `<rect x="${bx}" y="${by}" width="${bw}" height="${bh * 0.6}" rx="4" fill="${colors[0]}" opacity="0.3"/>`;
+            svg += `<text x="${bx + bw/2}" y="${by + bh * 0.3}" text-anchor="middle" font-size="9" fill="${colors[0]}" font-weight="600">${features[0] || 'Zone A'}</text>`;
+            svg += `<rect x="${bx}" y="${by + bh * 0.65}" width="${bw * 0.45}" height="${bh * 0.32}" rx="4" fill="${colors[1]}" opacity="0.3"/>`;
+            svg += `<text x="${bx + bw * 0.225}" y="${by + bh * 0.81}" text-anchor="middle" font-size="8" fill="${colors[1]}" font-weight="600">${features[1] || 'Zone B'}</text>`;
+            svg += `<rect x="${bx + bw * 0.5}" y="${by + bh * 0.65}" width="${bw * 0.48}" height="${bh * 0.32}" rx="4" fill="${colors[3]}" opacity="0.3"/>`;
+            svg += `<text x="${bx + bw * 0.74}" y="${by + bh * 0.81}" text-anchor="middle" font-size="8" fill="${colors[3]}" font-weight="600">${features[2] || 'Zone C'}</text>`;
+
+            // Frame 2 - After
+            svg += `<rect x="${x2}" y="${fy}" width="${frameW}" height="${frameH}" rx="8" fill="#f0ebe5" stroke="#d4cfc7" stroke-width="1"/>`;
+            svg += `<text x="${x2 + frameW/2}" y="${fy + 16}" text-anchor="middle" font-size="10" font-weight="600" fill="#6f5d4d">AFTER</text>`;
+            const ax = x2 + 15, ay = fy + 28, aw = frameW - 30, ah = frameH - 42;
+            // More diverse blocks after
+            const nf = features.length || 4;
+            features.forEach((f, i) => {
+                const col = Math.floor(i / 2);
+                const row = i % 2;
+                const fx = ax + col * (aw / Math.ceil(nf / 2) + 4);
+                const fw = aw / Math.ceil(nf / 2) - 6;
+                const fh = row === 0 ? ah * 0.45 : ah * 0.45;
+                const fffy = ay + row * (ah * 0.5 + 4);
+                svg += `<rect x="${fx}" y="${fffy}" width="${fw}" height="${fh}" rx="4" fill="${colors[i % colors.length]}" opacity="0.5"/>`;
+                svg += `<text x="${fx + fw/2}" y="${fffy + fh/2 + 3}" text-anchor="middle" font-size="8" fill="white" font-weight="600">${f}</text>`;
+            });
+
+            // Arrow between frames
+            svg += `<text x="${x1 + frameW + gap/2}" y="${fy + frameH/2}" text-anchor="middle" font-size="20" fill="#bd5d38">→</text>`;
+
+            svg += '</svg>';
+
+            // Legend
+            let legend = '<div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:0.5rem;justify-content:center;">';
+            features.forEach((f, i) => {
+                legend += `<span style="display:flex;align-items:center;gap:4px;font-size:11px;color:#6f5d4d;"><span style="width:10px;height:10px;border-radius:3px;background:${colors[i % colors.length]};display:inline-block;"></span>${f}</span>`;
+            });
+            legend += '</div>';
+
+            return svg + legend;
+        }
+
+        // ===== CHANGE TOPIC =====
+
+        let topicOffset = { task1: 0, task2: 0, speaking: 0 };
+
+        function changeTopic(taskType) {
+            topicOffset[taskType]++;
+            const arrays = { task1: TASK1_PROMPTS, task2: TASK2_PROMPTS, speaking: SPEAKING_PROMPTS };
+            const array = arrays[taskType];
+            const date = new Date();
+            const seed = date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+            const index = (seed + topicOffset[taskType]) % array.length;
+            const newPrompt = array[index];
+
+            appState.selectedPrompts[taskType] = newPrompt;
+
+            if (taskType === 'task1') updateTask1Display(newPrompt);
+            else if (taskType === 'task2') updateTask2Display(newPrompt);
+            else if (taskType === 'speaking') updateSpeakingDisplay(newPrompt);
+
+            updateSidebarPrompt(taskType, newPrompt);
+            updateProgressMap();
+            saveState();
+        }
+
+        // ===== PROGRESS MAP =====
+
+        function updateProgressMap() {
+            const container = document.getElementById('progressMapItems');
+            if (!container) return;
+
+            const tab = appState.currentTab;
+            let steps = [];
+
+            if (tab === 'task1') {
+                steps = [
+                    { section: 'Introduction', key: 'intro', label: 'Restatement' },
+                    { section: 'Overview', key: 'overview1', label: 'Overview Sentence 1' },
+                    { section: 'Overview', key: 'overview2', label: 'Overview Sentence 2' },
+                    { section: 'Body 1', key: 'body1topic', label: 'Topic Sentence' },
+                    { section: 'Body 1', key: 'body1a', label: 'Detail A' },
+                    { section: 'Body 1', key: 'body1b', label: 'Detail B' },
+                    { section: 'Body 2', key: 'body2topic', label: 'Topic Sentence' },
+                    { section: 'Body 2', key: 'body2a', label: 'Detail A' },
+                    { section: 'Body 2', key: 'body2b', label: 'Detail B' },
+                ];
+            } else if (tab === 'task2') {
+                steps = [
+                    { section: 'Introduction', key: 'hook', label: 'Hook / Background' },
+                    { section: 'Introduction', key: 'thesis', label: 'Thesis Statement' },
+                    { section: 'Body 1', key: 'b1topic', label: 'Topic Sentence' },
+                    { section: 'Body 1', key: 'b1explain', label: 'Explanation' },
+                    { section: 'Body 1', key: 'b1example', label: 'Example' },
+                    { section: 'Body 2', key: 'b2topic', label: 'Topic Sentence' },
+                    { section: 'Body 2', key: 'b2explain', label: 'Explanation' },
+                    { section: 'Body 2', key: 'b2example', label: 'Example' },
+                    { section: 'Body 3', key: 'b3topic', label: 'Topic Sentence' },
+                    { section: 'Body 3', key: 'b3explain', label: 'Explanation' },
+                    { section: 'Body 3', key: 'b3example', label: 'Example' },
+                    { section: 'Conclusion', key: 'conc_restate', label: 'Restate Position' },
+                    { section: 'Conclusion', key: 'conc_final', label: 'Final Thought' },
+                ];
+            } else if (tab === 'speaking') {
+                steps = [
+                    { section: 'Prep', key: 'opening', label: 'Opening' },
+                    { section: 'Prep', key: 'point1', label: 'Main Point 1' },
+                    { section: 'Prep', key: 'point2', label: 'Main Point 2' },
+                    { section: 'Prep', key: 'example', label: 'Example / Story' },
+                    { section: 'Prep', key: 'closing', label: 'Closing' },
+                    { section: 'Speaking', key: 'response', label: 'Full Response' },
+                ];
+            } else {
+                container.innerHTML = '<div style="text-align:center;color:var(--muted);padding:1rem;font-size:13px;">Select a practice tab to see your progress map.</div>';
+                return;
+            }
+
+            const drafts = appState.drafts[tab] || {};
+
+            // Find active step (first empty one)
+            let activeKey = null;
+            for (const step of steps) {
+                if (!drafts[step.key] || !drafts[step.key].trim()) {
+                    activeKey = step.key;
+                    break;
+                }
+            }
+
+            let html = '';
+            let currentSection = '';
+
+            for (const step of steps) {
+                if (step.section !== currentSection) {
+                    currentSection = step.section;
+                    html += `<div class="map-section-label">${currentSection}</div>`;
+                }
+
+                const hasContent = drafts[step.key] && drafts[step.key].trim();
+                const isActive = step.key === activeKey;
+
+                let cls = 'progress-map-item';
+                if (hasContent) cls += ' completed';
+                if (isActive) cls += ' active';
+
+                html += `<div class="${cls}" onclick="focusStep('${tab}', '${step.key}')">
+                    <span class="map-dot"></span>
+                    <span>${step.label}</span>
+                    ${hasContent ? '<span style="margin-left:auto;font-size:10px;color:var(--teal);">✓</span>' : ''}
+                </div>`;
+            }
+
+            container.innerHTML = html;
+        }
+
+        function focusStep(task, key) {
+            const textarea = document.getElementById(task + '_' + key);
+            if (textarea) {
+                textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                textarea.focus();
+            }
+        }
+
+        // ===== TAB SWITCHING =====
+
+        function switchTab(tabName) {
+            appState.currentTab = tabName;
+            saveState();
+
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            const activeContent = document.querySelector(`.tab-content[data-tab-panel="${tabName}"]`);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+
+            // Update timer
+            const timers = {
+                task1: 1200, // 20 min
+                task2: 2400, // 40 min
+                speaking: 180  // 3 min (think + speak)
+            };
+            timer.setDuration(timers[tabName] || 1200);
+
+            // Update sidebar
+            if (appState.selectedPrompts[tabName]) {
+                updateSidebarPrompt(tabName, appState.selectedPrompts[tabName]);
+            }
+
+            // Update progress map
+            updateProgressMap();
+
+            // Hide/show analysis panels and load data
+            if (tabName === 'task1' || tabName === 'task2' || tabName === 'speaking') {
+                document.getElementById('analysisPanel').style.display = appState.analysisResults ? 'block' : 'none';
+            } else {
+                document.getElementById('analysisPanel').style.display = 'none';
+                document.getElementById('sentenceAnalysis').style.display = 'none';
+                document.getElementById('referencePanel').style.display = 'none';
+            }
+            if (tabName === 'errors') filterErrors();
+            if (tabName === 'review') loadDailyReview();
+        }
+
+        // ===== INITIALIZATION =====
+
+        function initializeApp() {
+            loadState();
+            setDailyPrompts();
+
+            // Set up date display
+            const now = new Date();
+            const options = { month: 'short', day: 'numeric' };
+            document.getElementById('todayDate').textContent = now.toLocaleDateString('en-US', options);
+
+            // Tab navigation
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchTab(btn.dataset.tab);
+                });
+            });
+
+            // Timer controls
+            document.getElementById('timerPlayPause').addEventListener('click', () => {
+                const btn = document.getElementById('timerPlayPause');
+                if (timer.isRunning) {
+                    timer.pause();
+                    btn.textContent = 'Resume';
+                } else {
+                    timer.start();
+                    btn.textContent = 'Pause';
+                }
+            });
+
+            document.getElementById('timerReset').addEventListener('click', () => {
+                timer.reset();
+                document.getElementById('timerPlayPause').textContent = 'Start';
+            });
+
+            // Settings
+            document.getElementById('soundToggle').addEventListener('click', (e) => {
+                appState.soundEnabled = !appState.soundEnabled;
+                e.target.classList.toggle('active');
+                saveState();
+            });
+
+            document.getElementById('autoSaveToggle').addEventListener('click', (e) => {
+                appState.autoSave = !appState.autoSave;
+                e.target.classList.toggle('active');
+                saveState();
+            });
+
+            // Submit buttons
+            document.getElementById('task1Submit').addEventListener('click', () => submitTask('task1'));
+            document.getElementById('task2Submit').addEventListener('click', () => submitTask('task2'));
+            document.getElementById('speakingSubmit').addEventListener('click', () => submitTask('speaking'));
+
+            // Error bank filters
+            document.getElementById('errorTypeFilter').addEventListener('change', filterErrors);
+            document.getElementById('taskTypeFilter').addEventListener('change', filterErrors);
+
+            // Export buttons
+            document.getElementById('exportAnki').addEventListener('click', exportToAnki);
+            document.getElementById('exportReview').addEventListener('click', exportReviewSet);
+
+            // Initialize with first tab
+            switchTab('task1');
+        }
+
+        // ===== SUBMIT HANDLERS =====
+
+        async function submitTask(taskType) {
+            const draftData = appState.drafts[taskType] || {};
+            const contentParts = Object.values(draftData).filter(v => v && v.trim());
+            if (contentParts.length === 0) {
+                alert('Please write something before submitting.');
+                return;
+            }
+
+            const prompt = appState.selectedPrompts[taskType];
+            if (!prompt) return;
+
+            const content = contentParts.join('\n\n');
+            const sections = Object.entries(draftData).map(([key, val]) => ({
+                sectionKey: key,
+                sectionLabel: key,
+                originalText: val || ''
+            }));
+
+            // Show loading state
+            const submitBtn = document.getElementById(taskType + 'Submit');
+            const origText = submitBtn.textContent;
+            submitBtn.textContent = 'Analyzing...';
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch('/api/analyze', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ taskType, prompt: { id: prompt.id, title: prompt.title || prompt.topic, type: prompt.type || prompt.mode, question: prompt.prompt }, content, sections })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Server returned ' + response.status);
+                }
+
+                const result = await response.json();
+                const analysis = result.analysis || result;
+                appState.analysisResults = analysis;
+                displayAnalysisResults(analysis);
+            } catch (error) {
+                console.error('Analysis request failed:', error);
+                const mockResult = generateMockAnalysis(taskType, draftData);
+                appState.analysisResults = mockResult;
+                displayAnalysisResults(mockResult);
+            } finally {
+                submitBtn.textContent = origText;
+                submitBtn.disabled = false;
+            }
+
+            saveState();
+        }
+
+        function generateMockAnalysis(taskType, draftData) {
+            return {
+                bandScore: 7.0,
+                coherence: 7,
+                vocabulary: 7,
+                grammar: 6.5,
+                fluency: 7.5,
+                feedback: 'Well-structured response with clear organization. Focus on varying sentence structures and using more sophisticated vocabulary.',
+                issues: [
+                    'Some repetitive sentence structures',
+                    'Consider using more sophisticated lexical items',
+                    'Good use of transition words'
+                ],
+                errors: [
+                    { original: 'the data shows', corrected: 'the data demonstrate', type: 'grammar', explanation: 'Data is plural, use plural verb' },
+                    { original: 'a lot of increase', corrected: 'a significant increase', type: 'collocation', explanation: 'Use "significant" or "substantial" not "a lot of"' }
+                ],
+                reference: 'This essay demonstrates solid command of the task requirements with clear paragraphing and logical development of ideas.'
+            };
+        }
+
+        function displayAnalysisResults(result) {
+            const panel = document.getElementById('analysisPanel');
+            panel.style.display = 'block';
+
+            // Handle both real API format and mock format
+            const band = result.overallBand || result.bandScore || 0;
+            const scores = result.scores || {};
+            document.getElementById('bandScore').textContent = Number(band).toFixed(1);
+            document.getElementById('scoreCoherence').textContent = scores.coherence || result.coherence || '-';
+            document.getElementById('scoreVocabulary').textContent = scores.lexical || result.vocabulary || '-';
+            document.getElementById('scoreGrammar').textContent = scores.grammar || result.grammar || '-';
+            document.getElementById('scoreFluency').textContent = scores.taskAchievement || result.fluency || '-';
+
+            // Feedback
+            const feedback = result.overallFeedback || result.feedback || '';
+            document.getElementById('overallFeedback').textContent = feedback;
+
+            // Priority issues
+            const priorities = result.priorities || result.issues || [];
+            const issuesList = document.getElementById('issuesList');
+            issuesList.innerHTML = priorities.map(issue => `<li class="issue-item">${typeof issue === 'string' ? issue : issue.title || issue}</li>`).join('');
+
+            // Sentence-by-sentence analysis (from real API)
+            const sentences = result.sentenceAnalysis || result.errors || [];
+            if (sentences.length > 0) {
+                const sentencePanel = document.getElementById('sentenceAnalysis');
+                sentencePanel.style.display = 'block';
+                const sentenceCards = document.getElementById('sentenceCards');
+                sentenceCards.innerHTML = sentences.map(s => `
+                    <div class="error-card">
+                        <div class="error-original">${s.original || ''}</div>
+                        <div class="error-corrected">${s.corrected || ''}</div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <span class="error-type ${s.errorType || s.type || ''}">${(s.errorType || s.type || 'feedback').toUpperCase()}</span>
+                            ${s.sentenceScore ? `<span style="margin-left:8px;font-weight:600;color:var(--teal);">Band ${s.sentenceScore}</span>` : ''}
+                        </div>
+                        <div class="error-explanation">${s.errorDescription || s.explanation || s.suggestion || ''}</div>
+                        ${s.cue ? `<div style="margin-top:6px;font-size:12px;color:var(--gold);font-style:italic;">Cue: "${s.cue}"</div>` : ''}
+                    </div>
+                `).join('');
+            }
+
+            // Band 7.5 reference
+            const ref = result.band75Version || result.reference || '';
+            if (ref) {
+                const refPanel = document.getElementById('referencePanel');
+                refPanel.style.display = 'block';
+                document.getElementById('referenceEssay').textContent = ref;
+            }
+        }
+
+        // ===== ERROR BANK =====
+
+        async function filterErrors() {
+            const typeFilter = document.getElementById('errorTypeFilter').value;
+            const taskFilter = document.getElementById('taskTypeFilter').value;
+            let url = '/api/errors?limit=100';
+            if (typeFilter && typeFilter !== 'all') url += '&type=' + typeFilter;
+            try {
+                const resp = await fetch(url);
+                if (!resp.ok) return;
+                const data = await resp.json();
+                let errors = data.errors || [];
+                if (taskFilter && taskFilter !== 'all') {
+                    errors = errors.filter(e => e.task_type === taskFilter);
+                }
+                const container = document.getElementById('errorBankList');
+                if (!container) return;
+                if (errors.length === 0) {
+                    container.innerHTML = '<div style="text-align:center;color:var(--muted);padding:2rem;">No errors recorded yet. Complete a practice session to start building your error database.</div>';
+                    return;
+                }
+                container.innerHTML = errors.map(e => `
+                    <div class="error-card">
+                        <div class="error-original">${e.original || ''}</div>
+                        <div class="error-corrected">${e.corrected || ''}</div>
+                        <div style="margin-bottom:0.5rem;">
+                            <span class="error-type ${e.error_type}">${(e.error_type || '').toUpperCase()}</span>
+                            <span style="margin-left:8px;font-size:12px;color:var(--muted);">${e.task_type || ''} | Reviews: ${e.review_count || 0}</span>
+                        </div>
+                        <div class="error-explanation">${e.explanation || ''}</div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error('Failed to load errors:', err);
+            }
+        }
+
+        function exportToAnki() {
+            window.open('/api/anki-export?type=all', '_blank');
+        }
+
+        function exportReviewSet() {
+            window.open('/api/anki-export?type=all', '_blank');
+        }
+
+        async function loadDailyReview() {
+            try {
+                const resp = await fetch('/api/review');
+                if (!resp.ok) return;
+                const data = await resp.json();
+                const container = document.getElementById('reviewContent');
+                if (!container) return;
+                const items = data.reviewItems || [];
+                if (items.length === 0) {
+                    container.innerHTML = '<div style="text-align:center;color:var(--muted);padding:2rem;">No items to review today. Keep practicing!</div>';
+                    return;
+                }
+                let html = '';
+                if (data.summary) {
+                    html += `<div class="card" style="margin-bottom:1rem;background:linear-gradient(135deg,var(--teal),rgba(31,109,103,0.85));color:white;"><div class="card-title" style="color:white;">AI Review Summary</div><div style="line-height:1.6;">${data.summary}</div></div>`;
+                }
+                html += items.map(item => `
+                    <div class="error-card">
+                        <div class="error-original">${item.original || ''}</div>
+                        <div class="error-corrected">${item.corrected || ''}</div>
+                        <div style="margin-bottom:0.5rem;">
+                            <span class="error-type ${item.error_type}">${(item.error_type || '').toUpperCase()}</span>
+                            <span style="margin-left:8px;font-size:12px;">Reviewed ${item.review_count || 0} times</span>
+                        </div>
+                        <div class="error-explanation">${item.explanation || ''}</div>
+                    </div>
+                `).join('');
+                container.innerHTML = html;
+            } catch (err) {
+                console.error('Failed to load review:', err);
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>

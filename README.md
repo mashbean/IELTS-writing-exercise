@@ -1,69 +1,141 @@
-# IELTS Writing Studio
+# IELTS Practice Studio
 
-本專案是一個本機可執行的 IELTS Writing 練習頁面，前端與本機後端都在同一個 repo，重點功能如下：
+本機可用的 IELTS 每日練習網頁，支援 Writing Task 1、Task 2 與 Speaking 三項練習。
 
-- 每日指定時間提醒練習
-- 內建 `20` 題 IELTS Writing Task 1 與 `20` 題 Task 2 題庫
-- Task 1 可隨機抽題並顯示本地示意圖表
-- 依照 `Introduction / Overview / Body 1 / Body 2` 的直向句子流程寫作
-- 每個欄位提供可直接插入的句型起手式
-- 完成後可用本機後端呼叫 OpenAI API，進行 AI 批改
-- 若未設定 API key，會自動退回本地規則引擎批改
-- 匯出可匯入 Anki 的 TSV 卡片
-- API key 只放在本機 `.env`，不進前端，也不應提交到 GitHub
+## 功能一覽
 
-## 如何執行
+- **每日三題**：基於日期自動產生不重複的 Task 1、Task 2、Speaking 題目
+- **結構化寫作**：Task 1（9 步）、Task 2（5 步）結構化寫作流程，每步有句型提示 chip
+- **口說練習**：Speaking Part 2 結構化準備 + 文字輸入模式
+- **倒數計時器**：Task 1（20 分鐘）、Task 2（40 分鐘）、Speaking（3 分鐘）
+- **LLM 分析**：逐句結構化分析（句型、錯誤分類、修正、cue 提示）
+- **Band 7.5 改寫**：每次分析都生成完整 Band 7.5 參考版本
+- **錯誤資料庫**：累積所有練習錯誤，支援篩選與瀏覽
+- **Anki 匯出**：一鍵匯出 TSV 格式，可直接匯入 Anki
+- **每日複習**：基於錯誤資料庫生成複習清單
+- **離線可用**：前端完全本地，後端只在分析時需要網路
 
-先準備本機環境變數：
+## 快速啟動
 
 ```bash
-git clone https://github.com/mashbean/IELTS-writing-exercise.git
-cd IELTS-writing-exercise
+cd tools/ielts-writing
 cp .env.example .env
 ```
 
-在 `.env` 裡填入你的 OpenAI API key。預設模型是 `gpt-5.2`，並使用 `reasoning.effort=high`。這裡的「thinking」是透過 reasoning 參數控制，不是另外一個前端可見的模型代號。
+在 `.env` 填入你的 API key（擇一即可）：
 
-然後啟動本機後端：
-
-```bash
-python3 ielts_writing_server.py
+```
+ANTHROPIC_API_KEY=sk-ant-...
+# 或
+OPENAI_API_KEY=sk-...
 ```
 
-如果你在 macOS 上遇到 SSL 憑證錯誤，這個後端會優先使用 `certifi` 提供的 CA bundle。你目前的 Python 環境若沒有 `certifi`，再額外安裝即可：
+啟動伺服器：
 
 ```bash
-python3 -m pip install certifi
+python3 server.py
 ```
 
-如果你的本機 Python 憑證鏈還是有問題，可以先用這個方式強制指定 CA bundle：
+打開瀏覽器：
 
-```bash
-SSL_CERT_FILE=$(python3 -c "import certifi; print(certifi.where())") python3 ielts_writing_server.py
 ```
-
-若你只是要先確認 OpenAI 路徑有沒有通，最後才使用這個僅限本機除錯的暫時方案：
-
-```bash
-OPENAI_ALLOW_INSECURE_SSL=1 python3 ielts_writing_server.py
-```
-
-這會關閉 TLS 驗證，不建議長期使用。
-
-最後在瀏覽器打開：
-
-```text
 http://127.0.0.1:8787
 ```
 
-## 目前版本的限制
+## 技術架構
 
-- 自動提醒依賴瀏覽器通知與頁面內計時器。頁面沒有開著時，不能保證準時跳出。
-- Task 2 目前先提供題庫、句型提示與自由寫作區，主評分流程仍集中在 Task 1。
-- 若 `OPENAI_API_KEY` 未設定、網路不可用或 OpenAI API 呼叫失敗，系統會退回本地規則引擎。
+| 層 | 技術 | 說明 |
+|---|---|---|
+| 前端 | HTML + CSS + JS（單一檔案） | `app.html`，無外部依賴 |
+| 後端 | Python `http.server` | `server.py`，無需安裝框架 |
+| 資料庫 | SQLite | `ielts_practice.db`，自動建立 |
+| LLM | Anthropic Claude / OpenAI | 優先 Claude，OpenAI 為 fallback |
+
+## 資料庫 Schema
+
+### practice_sessions
+| 欄位 | 型別 | 說明 |
+|---|---|---|
+| id | INTEGER PK | 自動遞增 |
+| date | TEXT | 練習日期 |
+| task_type | TEXT | task1 / task2 / speaking |
+| prompt_id | TEXT | 題目 ID |
+| prompt_title | TEXT | 題目標題 |
+| content | TEXT | 使用者輸入內容 |
+| overall_band | REAL | 整體分數 |
+| scores_json | TEXT | 四維分數 JSON |
+| analysis_json | TEXT | 完整分析 JSON |
+| created_at | TEXT | 建立時間 |
+
+### error_bank
+| 欄位 | 型別 | 說明 |
+|---|---|---|
+| id | INTEGER PK | 自動遞增 |
+| session_id | INTEGER FK | 關聯 practice_sessions |
+| task_type | TEXT | task1 / task2 / speaking |
+| error_type | TEXT | grammar / collocation / sentence_pattern / awkward_phrasing / task_response / coherence / lexical / pronunciation_note |
+| section | TEXT | 來源段落 |
+| original | TEXT | 原文 |
+| corrected | TEXT | 修正版 |
+| explanation | TEXT | 說明 |
+| severity | TEXT | low / medium / high |
+| review_count | INTEGER | 複習次數 |
+| next_review_date | TEXT | 下次複習日期 |
+| created_at | TEXT | 建立時間 |
+
+### daily_prompts
+| 欄位 | 型別 | 說明 |
+|---|---|---|
+| date | TEXT PK | 日期 |
+| task1_id | TEXT | 當日 Task 1 題目 ID |
+| task2_id | TEXT | 當日 Task 2 題目 ID |
+| speaking_id | TEXT | 當日 Speaking 題目 ID |
+
+## Anki 匯出格式
+
+TSV（Tab-Separated Values），每行三欄：
+
+```
+[error_type] original text    corrected text\n\nexplanation    ielts task_type error_type
+```
+
+匯入 Anki 時選擇「Tab」分隔，三欄分別對應 Front、Back、Tags。
+
+## API 端點
+
+| 方法 | 路徑 | 說明 |
+|---|---|---|
+| GET | `/api/health` | 健康檢查 |
+| GET | `/api/daily-prompts?date=YYYY-MM-DD` | 每日題目 |
+| POST | `/api/analyze` | 提交分析（主要功能） |
+| GET | `/api/errors?type=grammar&limit=50` | 錯誤資料庫查詢 |
+| GET | `/api/review` | 每日複習 |
+| GET | `/api/stats` | 練習統計 |
+| GET | `/api/anki-export` | 匯出 Anki TSV |
+
+## 題庫
+
+- **Task 1**：20 題（Bar Chart、Line Graph、Pie Chart、Map、Table、Process Diagram、Mixed Charts）
+- **Task 2**：20 題（Discussion、Agree/Disagree、Advantages/Disadvantages、Causes/Solutions、Direct Question）
+- **Speaking**：20 題（Part 2 長題，涵蓋 Hometown、Hobby、Travel、Technology 等主題）
+
+## 今晚做到的
+
+1. 可在本地啟動的完整網頁（`app.html`）
+2. Python 後端 + SQLite 錯誤資料庫（`server.py`）
+3. 每日三題自動出題（基於日期 seed）
+4. 結構化寫作流程（Task 1 九步 / Task 2 五步 / Speaking 五點）
+5. 倒數計時器（三種時長）
+6. LLM 逐句分析 + Band 7.5 改寫（需 API key）
+7. 錯誤累積 + 篩選瀏覽
+8. Anki TSV 一鍵匯出
+9. 每日複習清單
 
 ## 下一步可擴充
 
-- 導入你之後提供的 `error / correction` 資料，讓評分與改寫規則更貼近你的常見錯誤。
-- 補完整的 Task 2 評分與模板系統。
-- 若你要真正做到「即使沒開頁面也能定時跳提醒」，建議把這個前端包成 Electron 或 Tauri 桌面版。
+- 更完整的 SRS（間隔重複）整合
+- 題庫擴充 / LLM 動態生成新題
+- 更好的評分模型 / 多模型比較
+- 語音辨識整合（目前以文字輸入為主）
+- Electron / Tauri 桌面版（支援背景提醒）
+- 歷史練習紀錄回顧與進步曲線
