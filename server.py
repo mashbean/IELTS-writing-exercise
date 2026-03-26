@@ -33,8 +33,40 @@ PORT = int(os.getenv("PORT", "8787"))
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "").strip()
 ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-20250514")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "").strip()
-OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.2")
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-5.4")
 BASE_DIR = Path(__file__).parent
+
+# Load IELTS dataset
+_DATASET = None
+_PROMPTS = None
+
+def load_dataset():
+    global _DATASET, _PROMPTS
+    # Load cues/tips/errors dataset
+    dataset_path = BASE_DIR / "ielts-dataset.json"
+    if dataset_path.exists():
+        try:
+            with open(dataset_path, 'r', encoding='utf-8') as f:
+                _DATASET = json.load(f)
+            print(f"[Dataset] Loaded: {len(_DATASET.get('writing_tips',[]))} tips, {len(_DATASET.get('sentence_cues',[]))} cues, {len(_DATASET.get('error_patterns',[]))} error patterns", file=sys.stderr)
+        except Exception as e:
+            print(f"[Dataset] Failed to load: {e}", file=sys.stderr)
+    else:
+        print("[Dataset] ielts-dataset.json not found", file=sys.stderr)
+
+    # Load prompts
+    prompts_path = BASE_DIR / "ielts-prompts.json"
+    if prompts_path.exists():
+        try:
+            with open(prompts_path, 'r', encoding='utf-8') as f:
+                _PROMPTS = json.load(f)
+            t1 = len(_PROMPTS.get('task1_prompts', []))
+            t2 = len(_PROMPTS.get('task2_prompts', []))
+            print(f"[Prompts] Loaded: {t1} Task 1, {t2} Task 2 prompts loaded", file=sys.stderr)
+        except Exception as e:
+            print(f"[Prompts] Failed to load: {e}", file=sys.stderr)
+    else:
+        print("[Prompts] ielts-prompts.json not found", file=sys.stderr)
 # DB path: prefer same dir, fall back to home dir, then /tmp
 DB_PATH = None
 for _candidate in [BASE_DIR / "ielts_practice.db", Path.home() / "ielts_practice.db", Path("/tmp/ielts_practice.db")]:
@@ -217,7 +249,7 @@ def call_anthropic_api(system_prompt, user_message):
 
         payload = {
             "model": ANTHROPIC_MODEL,
-            "max_tokens": 8000,
+            "max_tokens": 32000,
             "messages": [
                 {
                     "role": "user",
@@ -270,7 +302,7 @@ def call_openai_api(system_prompt, user_message):
 
         payload = {
             "model": OPENAI_MODEL,
-            "max_tokens": 8000,
+            "max_tokens": 32000,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_message}
@@ -314,27 +346,83 @@ def build_analysis_prompt(task_type, prompt_obj, content):
         "speaking": "IELTS Speaking"
     }.get(task_type, task_type)
 
-    system_prompt = f"""You are an IELTS Academic Writing/Speaking examiner and writing coach.
+    # Extract the original question/prompt for context
+    question_text = prompt_obj.get("question", "") or prompt_obj.get("prompt", "")
+    prompt_title = prompt_obj.get("title", "") or prompt_obj.get("topic", "")
+    prompt_type = prompt_obj.get("type", "") or prompt_obj.get("mode", "")
 
-Analyze the student's {task_name} response sentence by sentence.
+    prompt_context = ""
+    if question_text:
+        prompt_context = f"""
 
-For each sentence, provide:
-1. The original sentence
-2. Error type classification (grammar, collocation, sentence_pattern, awkward_phrasing, task_response, coherence, lexical, pronunciation_note)
-3. Specific error description
-4. Corrected version
-5. Improvement suggestion
-6. Sentence-level score estimate (1-9)
-7. Suggested cue/starter for this sentence position (the first few words that could help frame a better sentence)
+=== ORIGINAL IELTS QUESTION ===
+Title: {prompt_title}
+Type: {prompt_type}
+Question: {question_text}
+=== END QUESTION ===
+"""
 
-Also provide:
-- Overall IELTS band score estimate (with sub-scores: Task Achievement/Response, Coherence & Cohesion, Lexical Resource, Grammatical Range & Accuracy)
-- Top 3-5 priority issues to fix
-- A complete Band 7.5 rewritten version of the entire response
-- Overall feedback in Traditional Chinese
-- For speaking: also note filler words, hesitation markers, and fluency issues
+    # Inject dataset context: common error patterns and relevant tips
+    dataset_context = ""
+    if _DATASET:
+        # Pick relevant error patterns
+        error_patterns = _DATASET.get("error_patterns", [])[:10]
+        if error_patterns:
+            ep_text = "\n".join([
+                f"- [{e['error_type']}] \"{e['error_example']}\" → \"{e['correction']}\" ({e.get('explanation','')})"
+                for e in error_patterns
+            ])
+            dataset_context += f"\n\n=== COMMON IELTS ERROR PATTERNS ===\nWatch for these specific errors in the student's writing:\n{ep_text}\n=== END PATTERNS ==="
 
-Return as JSON matching this exact schema:
+        # Pick relevant tips for this task type
+        tips = [t for t in _DATASET.get("writing_tips", []) if t.get("category") in (task_type, "general", "grammar", "vocabulary")][:5]
+        if tips:
+            tips_text = "\n".join([f"- {t['tip']}" for t in tips])
+            dataset_context += f"\n\n=== IELTS WRITING TIPS ===\n{tips_text}\n=== END TIPS ==="
+
+    speaking_extra = ""
+    if task_type == "speaking":
+        speaking_extra = """
+IMPORTANT — This is a SPEAKING response (transcribed speech). Use SPEAKING scoring criteria:
+- scores.taskAchievement = Fluency & Coherence
+- scores.lexical = Lexical Resource
+- scores.grammar = Grammatical Range & Accuracy
+- scores.coherence = Pronunciation (estimate from word choices & patterns)
+- Also identify: filler words (um, uh, like, you know), hesitation markers, self-corrections, incomplete sentences, and fluency issues.
+- In sentenceAnalysis, flag spoken-language issues like false starts, repetitions, and informal register."""
+
+    system_prompt = f"""You are a senior IELTS Academic Writing/Speaking examiner (Band 9 certified) and writing coach.
+You must analyze the student's {task_name} response with extreme thoroughness.
+{prompt_context}{dataset_context}
+
+CRITICAL INSTRUCTIONS:
+1. You MUST analyze EVERY SINGLE SENTENCE in the student's response. Do not skip any sentence.
+2. ALL feedback text (errorDescription, suggestion, overallFeedback, priorities) MUST be BILINGUAL:
+   - First write in English, then write the Traditional Chinese (繁體中文) translation
+   - Format: "English explanation // 繁體中文說明"
+3. The band75Version MUST be a COMPLETE, full-length model essay/response at Band 7.5 level that directly answers the same question. It should be at least as long as the student's response.
+4. Be specific about errors — cite the exact words that are wrong and explain why.
+
+For EACH sentence in the student's response, provide:
+1. original: The exact original sentence
+2. errorType: One of (grammar, collocation, sentence_pattern, awkward_phrasing, task_response, coherence, lexical, spelling, punctuation, no_error)
+3. errorDescription: Detailed error description in BILINGUAL format (English // 繁體中文)
+4. corrected: The corrected/improved version of the sentence
+5. suggestion: Specific improvement suggestion in BILINGUAL format
+6. sentenceScore: Sentence-level band score estimate (1-9, as a number)
+7. cue: A better opening phrase/starter for this sentence position in the essay
+
+ALSO provide:
+- overallBand: Overall IELTS band score (number, e.g. 6.5)
+- scores: Sub-scores for taskAchievement, coherence, lexical, grammar (each a number)
+- priorities: Array of 3-5 most critical issues, each in BILINGUAL format
+- band75Version: A COMPLETE Band 7.5 model response answering the SAME question (at least 150 words for Task 1, 250 words for Task 2)
+- overallFeedback: Detailed overall feedback in BILINGUAL format (at least 150 words covering strengths, weaknesses, and specific advice)
+- sectionRewrites: Array of section-level rewrites with sectionKey and newText
+
+{speaking_extra}
+
+Return ONLY valid JSON matching this exact schema (no markdown, no code blocks):
 {{
     "overallBand": number,
     "scores": {{
@@ -347,35 +435,55 @@ Return as JSON matching this exact schema:
         {{
             "original": "string",
             "errorType": "string",
-            "errorDescription": "string",
+            "errorDescription": "string (bilingual: English // 繁體中文)",
             "corrected": "string",
-            "suggestion": "string",
+            "suggestion": "string (bilingual: English // 繁體中文)",
             "sentenceScore": number,
             "cue": "string"
         }}
     ],
-    "priorities": ["string"],
-    "band75Version": "string",
-    "overallFeedback": "string (in Traditional Chinese)",
+    "priorities": ["string (bilingual)"],
+    "band75Version": "string (complete model essay)",
+    "overallFeedback": "string (bilingual, detailed, 150+ words)",
     "sectionRewrites": [
         {{
             "sectionKey": "string",
             "newText": "string"
         }}
     ]
-}}
-
-All feedback text should be in Traditional Chinese.
-The band75Version should be a complete rewrite at Band 7.5 level.
-Be specific, direct, and constructive."""
+}}"""
 
     return system_prompt
 
 
 def analyze_content(task_type, prompt_obj, content, sections):
-    """Analyze user content using Claude API"""
+    """Analyze user content using LLM API (Anthropic first, OpenAI fallback)"""
     system_prompt = build_analysis_prompt(task_type, prompt_obj, content)
-    user_message = f"Please analyze this {task_type} response:\n\n{content}"
+
+    # Include prompt context and section structure in user message
+    question_text = prompt_obj.get("question", "") or prompt_obj.get("prompt", "")
+    section_info = ""
+    if sections:
+        section_info = "\n\n--- Section breakdown ---\n"
+        for sec in sections:
+            key = sec.get("sectionKey", "")
+            text = sec.get("originalText", "")
+            if text.strip():
+                section_info += f"\n[{key}]:\n{text}\n"
+
+    user_message = f"""Please analyze this {task_type} response in full detail.
+
+IELTS Question: {question_text}
+
+Student's Response:
+{content}
+{section_info}
+
+Remember:
+- Analyze EVERY sentence (not just a few)
+- ALL feedback must be bilingual (English // 繁體中文)
+- The band75Version must be a COMPLETE model answer
+- Return ONLY valid JSON, no markdown code blocks"""
 
     # Try Anthropic first, fall back to OpenAI
     response_text, error = call_anthropic_api(system_prompt, user_message)
@@ -389,20 +497,35 @@ def analyze_content(task_type, prompt_obj, content, sections):
 
     # Parse the JSON response
     try:
-        # Handle potential markdown code blocks
-        if response_text.strip().startswith("```"):
-            response_text = response_text.strip()
-            if response_text.startswith("```json"):
-                response_text = response_text[7:]
-            else:
-                response_text = response_text[3:]
-            if response_text.endswith("```"):
-                response_text = response_text[:-3]
+        text = response_text.strip()
 
-        analysis = json.loads(response_text.strip())
+        # Handle potential markdown code blocks
+        if text.startswith("```"):
+            if text.startswith("```json"):
+                text = text[7:]
+            else:
+                text = text[3:]
+            if text.endswith("```"):
+                text = text[:-3]
+            text = text.strip()
+
+        # Try to find JSON object if there's extra text around it
+        if not text.startswith("{"):
+            start = text.find("{")
+            if start >= 0:
+                text = text[start:]
+        if not text.endswith("}"):
+            end = text.rfind("}")
+            if end >= 0:
+                text = text[:end + 1]
+
+        analysis = json.loads(text)
+        print(f"[ANALYSIS] Successfully parsed LLM response. Band: {analysis.get('overallBand', '?')}, Sentences: {len(analysis.get('sentenceAnalysis', []))}", file=sys.stderr)
         return analysis, None
     except json.JSONDecodeError as e:
-        return None, f"Failed to parse API response as JSON: {str(e)}"
+        # Log the raw response for debugging
+        print(f"[ERROR] Failed to parse JSON. Raw response (first 500 chars):\n{response_text[:500]}", file=sys.stderr)
+        return None, f"Failed to parse API response as JSON: {str(e)}. First 200 chars: {response_text[:200]}"
 
 
 def save_analysis_to_db(task_type, prompt_obj, content, analysis, sections):
@@ -481,6 +604,20 @@ class IELTSRequestHandler(BaseHTTPRequestHandler):
                 self.handle_review()
             elif path == "/api/stats":
                 self.handle_stats()
+            elif path == "/api/dataset":
+                self.send_json_response(200, _DATASET or {})
+            elif path == "/api/prompts":
+                # Return prompts for frontend
+                query = query_string.get("type", ["all"])[0]
+                if _PROMPTS:
+                    if query == "task1":
+                        self.send_json_response(200, {"prompts": _PROMPTS.get("task1_prompts", []), "source": "books"})
+                    elif query == "task2":
+                        self.send_json_response(200, {"prompts": _PROMPTS.get("task2_prompts", []), "source": "books"})
+                    else:
+                        self.send_json_response(200, _PROMPTS)
+                else:
+                    self.send_json_response(200, {"prompts": [], "source": "none"})
             elif path == "/api/anki-export":
                 export_type = query_string.get("type", ["all"])[0]
                 from_date = query_string.get("from", ["2024-01-01"])[0]
@@ -513,6 +650,8 @@ class IELTSRequestHandler(BaseHTTPRequestHandler):
 
             if path == "/api/analyze":
                 self.handle_analyze(data)
+            elif path == "/api/speaking-part3":
+                self.handle_speaking_part3(data)
             else:
                 self.send_json_response(404, {"error": "Endpoint not found"})
         except Exception as e:
@@ -566,6 +705,51 @@ class IELTSRequestHandler(BaseHTTPRequestHandler):
             "analysis": analysis
         }
         self.send_json_response(200, response)
+
+    def handle_speaking_part3(self, data):
+        """POST /api/speaking-part3 — generate Part 3 discussion questions from Task 2 topic"""
+        task2_topic = data.get("task2Topic", "")
+        task2_question = data.get("task2Question", "")
+
+        if not task2_topic and not task2_question:
+            self.send_json_response(400, {"error": "No Task 2 topic provided"})
+            return
+
+        system_prompt = """You are an IELTS Speaking examiner. Generate 4 follow-up discussion questions for Speaking Part 3.
+These questions should be related to the given IELTS Writing Task 2 topic but be more abstract and discussion-oriented.
+They should require the candidate to analyze, compare, predict, or evaluate.
+Return ONLY a JSON array of 4 question strings, no other text. Example: ["Question 1?", "Question 2?", "Question 3?", "Question 4?"]"""
+
+        user_message = f"Task 2 topic: {task2_topic}\nTask 2 question: {task2_question}\n\nGenerate 4 IELTS Speaking Part 3 discussion questions related to this topic."
+
+        response_text, error = call_anthropic_api(system_prompt, user_message)
+        if response_text is None:
+            response_text, error = call_openai_api(system_prompt, user_message)
+
+        if response_text is None:
+            self.send_json_response(500, {"error": error or "API call failed"})
+            return
+
+        try:
+            text = response_text.strip()
+            if text.startswith("```"):
+                text = text.split("\n", 1)[-1] if "\n" in text else text[3:]
+                if text.endswith("```"):
+                    text = text[:-3]
+                text = text.strip()
+            if not text.startswith("["):
+                start = text.find("[")
+                if start >= 0:
+                    text = text[start:]
+            if not text.endswith("]"):
+                end = text.rfind("]")
+                if end >= 0:
+                    text = text[:end + 1]
+            questions = json.loads(text)
+            self.send_json_response(200, {"questions": questions})
+        except Exception as e:
+            print(f"[ERROR] Part 3 JSON parse failed: {e}", file=sys.stderr)
+            self.send_json_response(500, {"error": f"Failed to parse questions: {str(e)}"})
 
     def handle_errors(self, error_type, limit, offset):
         """GET /api/errors"""
@@ -792,6 +976,9 @@ def main():
     """Start the server"""
     # Load .env file
     load_env_file()
+
+    # Load dataset
+    load_dataset()
 
     # Initialize database
     init_database()

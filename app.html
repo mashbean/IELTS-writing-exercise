@@ -1260,43 +1260,47 @@
                         </div>
                         <button class="change-topic-btn" onclick="changeTopic('speaking')">↻ Change Topic</button>
                     </div>
-                    <div class="prompt-question" id="speakingPromptText">Describe your hometown. You should say: where it is, what it is known for, what you like about it, and explain how it has changed in recent years.</div>
+                    <div class="prompt-question" id="speakingPromptText">Describe your hometown.</div>
                 </div>
 
-                <div class="speaking-prep card">
-                    <div class="card-title">📝 Preparation (1 minute)</div>
-
-                    <div class="prep-step">
-                        <div class="prep-label">Opening Statement</div>
-                        <textarea class="prep-textarea" placeholder="Start with a general statement..."></textarea>
-                    </div>
-
-                    <div class="prep-step">
-                        <div class="prep-label">Main Point 1 + Details</div>
-                        <textarea class="prep-textarea" placeholder="First key point and supporting details..."></textarea>
-                    </div>
-
-                    <div class="prep-step">
-                        <div class="prep-label">Main Point 2 + Details</div>
-                        <textarea class="prep-textarea" placeholder="Second key point and supporting details..."></textarea>
-                    </div>
-
-                    <div class="prep-step">
-                        <div class="prep-label">Example or Story</div>
-                        <textarea class="prep-textarea" placeholder="Add a relevant example or anecdote..."></textarea>
-                    </div>
-
-                    <div class="prep-step">
-                        <div class="prep-label">Closing Summary</div>
-                        <textarea class="prep-textarea" placeholder="Wrap up your response..."></textarea>
+                <!-- Structure hints (read-only guidance) -->
+                <div class="card" style="background:rgba(31,109,103,0.08);border:1px solid rgba(31,109,103,0.2);padding:10px 14px;">
+                    <div style="font-size:12px;font-weight:600;color:var(--teal);margin-bottom:6px;">💡 Structure Guide (2 min)</div>
+                    <div style="font-size:12px;color:var(--text);line-height:1.7;" id="speakingStructureHints">
+                        <span style="color:var(--gold);">0:00–0:15</span> Opening — introduce the topic directly<br>
+                        <span style="color:var(--gold);">0:15–0:45</span> Point 1 — address the first bullet with detail<br>
+                        <span style="color:var(--gold);">0:45–1:15</span> Point 2 — address the second bullet with an example<br>
+                        <span style="color:var(--gold);">1:15–1:40</span> Point 3 — address the third bullet, add personal experience<br>
+                        <span style="color:var(--gold);">1:40–2:00</span> Wrap up — conclude with a summary or reflection
                     </div>
                 </div>
 
+                <!-- Single speaking textarea -->
                 <div class="card">
-                    <div class="card-title">🎤 Speaking (2 minutes)</div>
-                    <textarea class="textarea" id="speakingResponse" placeholder="Paste your transcribed speech here..."></textarea>
-                    <div class="button-group">
-                        <button class="button button-primary" id="speakingSubmit">I've finished speaking — Submit</button>
+                    <div class="card-title">🎤 Speaking Response (Part 2)</div>
+                    <div class="textarea-wrapper">
+                        <textarea class="textarea" id="speaking_response" style="min-height:180px;" placeholder="Speak for 2 minutes, then paste your transcribed speech here. You can also type directly if you prefer."></textarea>
+                        <div class="textarea-counter"><span id="speaking_response_count">0</span> words</div>
+                    </div>
+                    <div class="button-group" style="margin-top:8px;">
+                        <button class="button button-primary" id="speakingSubmit">Submit Part 2</button>
+                    </div>
+                </div>
+
+                <!-- Part 3: Follow-up Discussion Questions -->
+                <div class="card" id="speakingPart3Card">
+                    <div class="card-title">🗣️ Speaking Part 3 — Discussion Questions</div>
+                    <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">These follow-up questions are related to today's Task 2 topic. Practice giving extended answers (30-60 seconds each).</div>
+                    <div id="speakingPart3Questions" style="line-height:1.8;font-size:13px;color:var(--text);">
+                        Loading Part 3 questions...
+                    </div>
+                    <div class="textarea-wrapper" style="margin-top:10px;">
+                        <textarea class="textarea" id="speaking_part3" style="min-height:120px;" placeholder="Pick a question above and speak your answer. Paste transcription here for analysis."></textarea>
+                        <div class="textarea-counter"><span id="speaking_part3_count">0</span> words</div>
+                    </div>
+                    <div class="button-group" style="margin-top:8px;">
+                        <button class="button" id="speakingPart3Submit" onclick="submitSpeakingPart3()">Submit Part 3</button>
+                        <button class="button" onclick="generatePart3Questions()" style="font-size:12px;">↻ Regenerate Questions</button>
                     </div>
                 </div>
             </div>
@@ -1390,20 +1394,20 @@
 
                 <div class="score-breakdown" id="scoreBreakdown">
                     <div class="score-item">
-                        <div class="score-dimension">Coherence</div>
-                        <div class="score-value" id="scoreCoherence">7</div>
+                        <div class="score-dimension" id="dimCoherence">Coherence</div>
+                        <div class="score-value" id="scoreCoherence">-</div>
                     </div>
                     <div class="score-item">
-                        <div class="score-dimension">Vocabulary</div>
-                        <div class="score-value" id="scoreVocabulary">7</div>
+                        <div class="score-dimension" id="dimVocabulary">Vocabulary</div>
+                        <div class="score-value" id="scoreVocabulary">-</div>
                     </div>
                     <div class="score-item">
-                        <div class="score-dimension">Grammar</div>
-                        <div class="score-value" id="scoreGrammar">7</div>
+                        <div class="score-dimension" id="dimGrammar">Grammar</div>
+                        <div class="score-value" id="scoreGrammar">-</div>
                     </div>
                     <div class="score-item">
-                        <div class="score-dimension">Fluency</div>
-                        <div class="score-value" id="scoreFluency">7</div>
+                        <div class="score-dimension" id="dimFluency">Task Ach.</div>
+                        <div class="score-value" id="scoreFluency">-</div>
                     </div>
                 </div>
 
@@ -1439,7 +1443,7 @@
     <script>
         // ===== DATA =====
 
-        const TASK1_PROMPTS = [
+        let TASK1_PROMPTS = [
             {
                 id: "t1-bar-library",
                 type: "Bar Chart",
@@ -1682,7 +1686,7 @@
             }
         ];
 
-        const TASK2_PROMPTS = [
+        let TASK2_PROMPTS = [
             { id: "t2-education", mode: "Discussion + Opinion", title: "University and Employment", prompt: "Some people believe that university education should prepare students for employment, while others think it should focus on knowledge for its own sake. Discuss both views and give your opinion." },
             { id: "t2-technology", mode: "Advantages / Disadvantages", title: "AI in Daily Life", prompt: "Artificial intelligence is becoming part of daily life. Do the advantages of this trend outweigh the disadvantages?" },
             { id: "t2-environment", mode: "Discussion + Opinion", title: "Individual vs Government Action", prompt: "Some people think environmental problems should be solved by individuals, while others believe governments and large companies should take responsibility. Discuss both sides and give your opinion." },
@@ -1742,8 +1746,122 @@
             soundEnabled: true,
             autoSave: true,
             selectedPrompts: {},
-            analysisResults: null
+            analysisResults: { task1: null, task2: null, speaking: null }
         };
+
+        // ===== IELTS DATASET (from ebooks) =====
+        let ieltsDataset = null;
+
+        async function loadIeltsDataset() {
+            try {
+                // Try API endpoint first, fall back to static file
+                let resp = await fetch('/api/dataset');
+                if (!resp.ok) resp = await fetch('/ielts-dataset.json');
+                if (resp.ok) {
+                    const data = await resp.json();
+                    if (data && data.writing_tips) {
+                        ieltsDataset = data;
+                        console.log('[Dataset] Loaded:', {
+                            tips: ieltsDataset.writing_tips?.length,
+                            cues: ieltsDataset.sentence_cues?.length,
+                            essays: ieltsDataset.sample_essays?.length,
+                            vocab: ieltsDataset.vocabulary?.length,
+                            errors: ieltsDataset.error_patterns?.length
+                        });
+                    }
+                }
+            } catch (e) {
+                console.log('[Dataset] Not available:', e.message);
+            }
+        }
+
+        // ===== BOOK PROMPTS LOADER =====
+
+        const TASK1_TYPE_MAP = {
+            'line': 'Line Graph', 'bar': 'Bar Chart', 'pie': 'Pie Chart',
+            'table': 'Table', 'map': 'Map', 'process': 'Process Diagram',
+            'mixed': 'Mixed Charts', 'area': 'Area Chart'
+        };
+        const TASK2_MODE_MAP = {
+            'opinion': 'Agree / Disagree',
+            'discussion': 'Discussion + Opinion',
+            'problem-solution': 'Problems / Solutions',
+            'advantages-disadvantages': 'Advantages / Disadvantages'
+        };
+
+        async function loadBookPrompts() {
+            try {
+                const resp = await fetch('/api/prompts');
+                if (!resp.ok) return;
+                const data = await resp.json();
+
+                // Convert and prepend Task 1 book prompts
+                const bookT1 = (data.task1_prompts || [])
+                    .filter(p => p.prompt && p.prompt.length > 20)
+                    .map(p => ({
+                        id: p.id,
+                        type: TASK1_TYPE_MAP[p.type] || p.type || 'Chart',
+                        title: p.title ? p.title.replace(/\.$/, '').trim() : 'IELTS Task 1',
+                        prompt: p.prompt,
+                        visual: p.visual || null,
+                        source: 'book'
+                    }));
+
+                // Convert and prepend Task 2 book prompts
+                const bookT2 = (data.task2_prompts || [])
+                    .filter(p => p.prompt && p.prompt.length > 30)
+                    .map(p => ({
+                        id: p.id,
+                        mode: TASK2_MODE_MAP[p.essay_type] || 'Agree / Disagree',
+                        title: p.title ? p.title.replace(/\.$/, '').trim() : 'IELTS Task 2',
+                        topic: p.topic || '',
+                        prompt: p.prompt,
+                        source: 'book'
+                    }));
+
+                if (bookT1.length) {
+                    TASK1_PROMPTS = [...bookT1, ...TASK1_PROMPTS];
+                    console.log(`[BookPrompts] Task1: ${bookT1.length} book prompts loaded`);
+                }
+                if (bookT2.length) {
+                    TASK2_PROMPTS = [...bookT2, ...TASK2_PROMPTS];
+                    console.log(`[BookPrompts] Task2: ${bookT2.length} book prompts loaded`);
+                }
+            } catch (e) {
+                console.log('[BookPrompts] Not available:', e.message);
+            }
+        }
+
+        function getDatasetCues(position, count = 4) {
+            if (!ieltsDataset) return null;  // null is falsy — lets || fallback work
+            const cues = ieltsDataset.sentence_cues || [];
+            const matches = cues.filter(c => c.position === position);
+            if (!matches.length) return null;
+            // Shuffle deterministically based on today
+            const seed = new Date().toISOString().slice(0,10).replace(/-/g,'');
+            const shuffled = [...matches].sort((a, b) => {
+                const ha = parseInt(seed + a.id.slice(-3), 10) % 997;
+                const hb = parseInt(seed + b.id.slice(-3), 10) % 997;
+                return ha - hb;
+            });
+            return shuffled.slice(0, count).map(c => c.cue);
+        }
+
+        function getDatasetTips(category, count = 2) {
+            if (!ieltsDataset) return [];
+            return (ieltsDataset.writing_tips || [])
+                .filter(t => t.category === category || category === 'all')
+                .slice(0, count);
+        }
+
+        function getDailyTip(taskType) {
+            if (!ieltsDataset) return null;
+            const cat = taskType === 'task1' ? 'task1' : taskType === 'task2' ? 'task2' : 'general';
+            const tips = (ieltsDataset.writing_tips || []).filter(t => t.category === cat);
+            if (!tips.length) return null;
+            const dayIndex = new Date().getDate() % tips.length;
+            return tips[dayIndex];
+        }
 
         // Load state from localStorage
         function loadState() {
@@ -1755,6 +1873,19 @@
                 } catch (e) {
                     console.error('Failed to load state', e);
                 }
+            }
+            // Normalize analysisResults — old saves had null, new format is per-tab object
+            if (!appState.analysisResults || typeof appState.analysisResults !== 'object' || Array.isArray(appState.analysisResults)) {
+                appState.analysisResults = { task1: null, task2: null, speaking: null };
+            } else {
+                // Ensure all keys exist
+                appState.analysisResults.task1 = appState.analysisResults.task1 || null;
+                appState.analysisResults.task2 = appState.analysisResults.task2 || null;
+                appState.analysisResults.speaking = appState.analysisResults.speaking || null;
+            }
+            // Normalize drafts
+            if (!appState.drafts || typeof appState.drafts !== 'object') {
+                appState.drafts = { task1: {}, task2: {}, speaking: {} };
             }
         }
 
@@ -1914,6 +2045,134 @@
             document.getElementById('speakingPromptType').textContent = 'Speaking Part 2';
             document.getElementById('speakingPromptTitle').textContent = prompt.topic;
             document.getElementById('speakingPromptText').textContent = prompt.prompt;
+
+            // Set up speaking textarea event listeners
+            const speakingTA = document.getElementById('speaking_response');
+            if (speakingTA && !speakingTA._listenerAdded) {
+                speakingTA.addEventListener('input', () => {
+                    updateWordCount('speaking_response');
+                    saveDraft('speaking_response', speakingTA.value);
+                });
+                speakingTA._listenerAdded = true;
+            }
+            const part3TA = document.getElementById('speaking_part3');
+            if (part3TA && !part3TA._listenerAdded) {
+                part3TA.addEventListener('input', () => {
+                    updateWordCount('speaking_part3');
+                    saveDraft('speaking_part3', part3TA.value);
+                });
+                part3TA._listenerAdded = true;
+            }
+
+            // Restore saved drafts
+            if (appState.drafts.speaking) {
+                if (appState.drafts.speaking.response && speakingTA) {
+                    speakingTA.value = appState.drafts.speaking.response;
+                    updateWordCount('speaking_response');
+                }
+                if (appState.drafts.speaking.part3 && part3TA) {
+                    part3TA.value = appState.drafts.speaking.part3;
+                    updateWordCount('speaking_part3');
+                }
+            }
+
+            // Generate Part 3 questions
+            generatePart3Questions();
+        }
+
+        async function generatePart3Questions() {
+            const container = document.getElementById('speakingPart3Questions');
+            if (!container) return;
+
+            // Get today's Task 2 topic for context
+            const task2Prompt = appState.selectedPrompts.task2;
+            const task2Topic = task2Prompt ? (task2Prompt.title || task2Prompt.topic || '') : '';
+            const task2Question = task2Prompt ? (task2Prompt.prompt || '') : '';
+
+            // Try to generate via LLM
+            try {
+                const response = await fetch('/api/speaking-part3', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ task2Topic, task2Question })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const questions = data.questions || [];
+                    if (questions.length > 0) {
+                        container.innerHTML = questions.map((q, i) =>
+                            `<div style="margin-bottom:8px;padding:6px 10px;background:rgba(189,141,46,0.08);border-radius:6px;">
+                                <strong>Q${i + 1}.</strong> ${q}
+                            </div>`
+                        ).join('');
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.log('Part 3 API not available, using fallback questions');
+            }
+
+            // Fallback: generate static questions based on Task 2 topic
+            const fallbackQuestions = generateFallbackPart3(task2Topic, task2Question);
+            container.innerHTML = fallbackQuestions.map((q, i) =>
+                `<div style="margin-bottom:8px;padding:6px 10px;background:rgba(189,141,46,0.08);border-radius:6px;">
+                    <strong>Q${i + 1}.</strong> ${q}
+                </div>`
+            ).join('');
+        }
+
+        function generateFallbackPart3(topic, question) {
+            // Generate generic Part 3 questions based on the topic keywords
+            const baseQuestions = [
+                `How has ${topic || 'this issue'} changed in your country over the past decade?`,
+                `Do you think the government should do more to address ${topic || 'this issue'}? Why or why not?`,
+                `What are the main differences between how older and younger generations view ${topic || 'this topic'}?`,
+                `Some people think ${topic || 'this'} is becoming a bigger problem. Do you agree?`,
+                `How might ${topic || 'this situation'} change in the next 20 years?`,
+            ];
+            return baseQuestions.slice(0, 4);
+        }
+
+        async function submitSpeakingPart3() {
+            const ta = document.getElementById('speaking_part3');
+            if (!ta || !ta.value.trim()) {
+                alert('Please write or paste your Part 3 response first.');
+                return;
+            }
+            // Reuse the main submit flow with speaking type
+            const prompt = appState.selectedPrompts.speaking;
+            if (!prompt) return;
+
+            const btn = document.getElementById('speakingPart3Submit');
+            const origText = btn.textContent;
+            btn.textContent = 'Analyzing...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch('/api/analyze', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        taskType: 'speaking',
+                        prompt: { id: prompt.id + '-part3', title: prompt.topic + ' (Part 3)', type: 'Speaking Part 3', question: 'Part 3 discussion based on: ' + (appState.selectedPrompts.task2?.prompt || prompt.prompt) },
+                        content: ta.value,
+                        sections: []
+                    })
+                });
+
+                if (!response.ok) throw new Error('Server returned ' + response.status);
+                const result = await response.json();
+                const analysis = result.analysis || result;
+                appState.analysisResults.speaking = analysis;
+                displayAnalysisResults(analysis, false);
+            } catch (error) {
+                console.error('Part 3 analysis failed:', error);
+                alert('分析失敗: ' + error.message);
+            } finally {
+                btn.textContent = origText;
+                btn.disabled = false;
+            }
         }
 
         // ===== STEP BUILDERS =====
@@ -1922,16 +2181,25 @@
             const container = document.getElementById('task1Steps');
             container.innerHTML = '';
 
+            // Show daily tip from dataset
+            const tip = getDailyTip('task1');
+            if (tip) {
+                const tipEl = document.createElement('div');
+                tipEl.style.cssText = 'background:rgba(189,141,46,0.1);border-left:3px solid var(--gold);padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:10px;font-size:12px;';
+                tipEl.innerHTML = `<strong style="color:var(--gold);">💡 Today's Tip</strong> ${tip.tip}${tip.example ? ` <em style="color:var(--muted);">(e.g. "${tip.example}")</em>` : ''}`;
+                container.appendChild(tipEl);
+            }
+
             const steps = [
-                { num: 1, title: 'Introduction', hint: 'Restate the prompt in your own words', chipTexts: ['The chart shows...', 'According to...', 'This graph compares...'], draftKey: 'intro' },
-                { num: 2, title: 'Overview Sentence 1', hint: 'Main trend or pattern', chipTexts: ['Overall, ...', 'In general, ...', 'The data reveals...'], draftKey: 'overview1' },
-                { num: 3, title: 'Overview Sentence 2', hint: 'Secondary observation', chipTexts: ['Most notably, ...', 'Significantly, ...', 'What is particularly striking...'], draftKey: 'overview2' },
-                { num: 4, title: 'Body 1 Topic', hint: 'Introduce first major point', chipTexts: ['Looking at...', 'Examining...', 'The most notable...'], draftKey: 'body1topic' },
-                { num: 5, title: 'Body 1 Detail A', hint: 'Supporting detail for first point', chipTexts: ['rose from...', 'increased to...', 'reached approximately...'], draftKey: 'body1a' },
-                { num: 6, title: 'Body 1 Detail B', hint: 'Additional supporting information', chipTexts: ['In contrast,...', 'Meanwhile,...', 'Similarly,...'], draftKey: 'body1b' },
-                { num: 7, title: 'Body 2 Topic', hint: 'Introduce second major point', chipTexts: ['Turning to...', 'With respect to...', 'Regarding...'], draftKey: 'body2topic' },
-                { num: 8, title: 'Body 2 Detail A', hint: 'Supporting detail for second point', chipTexts: ['dropped from...', 'fell to...', 'showed a decline...'], draftKey: 'body2a' },
-                { num: 9, title: 'Body 2 Detail B', hint: 'Final supporting information', chipTexts: ['Nevertheless,...', 'However,...', 'It is clear that...'], draftKey: 'body2b' }
+                { num: 1, title: 'Introduction', hint: 'Restate the prompt in your own words', chipTexts: getDatasetCues('intro') || ['The chart shows...', 'According to...', 'This graph compares...'], draftKey: 'intro' },
+                { num: 2, title: 'Overview Sentence 1', hint: 'Main trend or pattern', chipTexts: getDatasetCues('overview') || ['Overall, ...', 'In general, ...', 'The data reveals...'], draftKey: 'overview1' },
+                { num: 3, title: 'Overview Sentence 2', hint: 'Secondary observation', chipTexts: getDatasetCues('emphasis') || ['Most notably, ...', 'Significantly, ...', 'What is particularly striking...'], draftKey: 'overview2' },
+                { num: 4, title: 'Body 1 Topic', hint: 'Introduce first major point', chipTexts: getDatasetCues('body_topic') || ['Looking at...', 'Examining...', 'The most notable...'], draftKey: 'body1topic' },
+                { num: 5, title: 'Body 1 Detail A', hint: 'Trend or figure detail', chipTexts: getDatasetCues('trend_up') || ['rose from...', 'increased to...', 'reached approximately...'], draftKey: 'body1a' },
+                { num: 6, title: 'Body 1 Detail B', hint: 'Contrast or additional information', chipTexts: getDatasetCues('comparison') || ['In contrast,...', 'Meanwhile,...', 'Similarly,...'], draftKey: 'body1b' },
+                { num: 7, title: 'Body 2 Topic', hint: 'Introduce second major point', chipTexts: getDatasetCues('body_topic') || ['Turning to...', 'With respect to...', 'Regarding...'], draftKey: 'body2topic' },
+                { num: 8, title: 'Body 2 Detail A', hint: 'Declining or stable trend', chipTexts: getDatasetCues('trend_down') || ['dropped from...', 'fell to...', 'showed a decline...'], draftKey: 'body2a' },
+                { num: 9, title: 'Body 2 Detail B', hint: 'Final supporting information', chipTexts: getDatasetCues('body_detail') || ['Nevertheless,...', 'However,...', 'It is clear that...'], draftKey: 'body2b' }
             ];
 
             steps.forEach(step => {
@@ -1944,24 +2212,33 @@
             const container = document.getElementById('task2Steps');
             container.innerHTML = '';
 
+            // Show daily tip from dataset
+            const tip = getDailyTip('task2');
+            if (tip) {
+                const tipEl = document.createElement('div');
+                tipEl.style.cssText = 'background:rgba(189,141,46,0.1);border-left:3px solid var(--gold);padding:8px 12px;border-radius:0 6px 6px 0;margin-bottom:10px;font-size:12px;';
+                tipEl.innerHTML = `<strong style="color:var(--gold);">💡 Today's Tip</strong> ${tip.tip}${tip.example ? ` <em style="color:var(--muted);">(e.g. "${tip.example}")</em>` : ''}`;
+                container.appendChild(tipEl);
+            }
+
             const steps = [
                 // Introduction
-                { num: 1, title: 'Hook / Background', hint: 'Open with a general statement about the topic', chipTexts: ['In recent years,...', 'It is widely acknowledged that...', 'The question of whether...'], draftKey: 'hook', section: 'Introduction' },
+                { num: 1, title: 'Hook / Background', hint: 'Open with a general statement about the topic', chipTexts: getDatasetCues('intro') || ['In recent years,...', 'It is widely acknowledged that...', 'The question of whether...'], draftKey: 'hook', section: 'Introduction' },
                 { num: 2, title: 'Thesis Statement', hint: 'State your position clearly', chipTexts: ['I believe that...', 'In my view,...', 'While both perspectives have merit,...'], draftKey: 'thesis', section: 'Introduction' },
                 // Body 1
-                { num: 3, title: 'Body 1 — Topic Sentence', hint: 'State your first main argument', chipTexts: ['Firstly,...', 'The primary reason is that...', 'One compelling argument is...'], draftKey: 'b1topic', section: 'Body 1' },
-                { num: 4, title: 'Body 1 — Explanation', hint: 'Explain why this point matters', chipTexts: ['This is because...', 'The reason for this is...', 'This matters since...'], draftKey: 'b1explain', section: 'Body 1' },
-                { num: 5, title: 'Body 1 — Example', hint: 'Provide a specific example', chipTexts: ['For instance,...', 'A clear example of this is...', 'Research has shown that...'], draftKey: 'b1example', section: 'Body 1' },
+                { num: 3, title: 'Body 1 — Topic Sentence', hint: 'State your first main argument', chipTexts: getDatasetCues('body_topic') || ['Firstly,...', 'The primary reason is that...', 'One compelling argument is...'], draftKey: 'b1topic', section: 'Body 1' },
+                { num: 4, title: 'Body 1 — Explanation', hint: 'Explain why this point matters', chipTexts: getDatasetCues('body_detail') || ['This is because...', 'The reason for this is...', 'This matters since...'], draftKey: 'b1explain', section: 'Body 1' },
+                { num: 5, title: 'Body 1 — Example', hint: 'Provide a specific example', chipTexts: getDatasetCues('body_example') || ['For instance,...', 'A clear example of this is...', 'Research has shown that...'], draftKey: 'b1example', section: 'Body 1' },
                 // Body 2
-                { num: 6, title: 'Body 2 — Topic Sentence', hint: 'Introduce your second argument or the opposing view', chipTexts: ['Furthermore,...', 'On the other hand,...', 'Another important consideration...'], draftKey: 'b2topic', section: 'Body 2' },
-                { num: 7, title: 'Body 2 — Explanation', hint: 'Develop this argument in detail', chipTexts: ['This can be attributed to...', 'The significance of this lies in...', 'It follows that...'], draftKey: 'b2explain', section: 'Body 2' },
-                { num: 8, title: 'Body 2 — Example', hint: 'Support with evidence or example', chipTexts: ['To illustrate,...', 'A case in point is...', 'Statistics indicate that...'], draftKey: 'b2example', section: 'Body 2' },
-                // Body 3 (optional / concession)
-                { num: 9, title: 'Body 3 — Topic Sentence', hint: 'Third point, concession, or rebuttal', chipTexts: ['Additionally,...', 'Admittedly,...', 'Some might argue that...'], draftKey: 'b3topic', section: 'Body 3' },
-                { num: 10, title: 'Body 3 — Explanation', hint: 'Develop or counter the argument', chipTexts: ['However,...', 'Despite this,...', 'Nevertheless,...'], draftKey: 'b3explain', section: 'Body 3' },
-                { num: 11, title: 'Body 3 — Example', hint: 'Final supporting example', chipTexts: ['For example,...', 'This is evident in...', 'In practice,...'], draftKey: 'b3example', section: 'Body 3' },
+                { num: 6, title: 'Body 2 — Topic Sentence', hint: 'Second argument or opposing view', chipTexts: getDatasetCues('body_topic') || ['Furthermore,...', 'On the other hand,...', 'Another important consideration...'], draftKey: 'b2topic', section: 'Body 2' },
+                { num: 7, title: 'Body 2 — Explanation', hint: 'Develop this argument in detail', chipTexts: getDatasetCues('body_detail') || ['This can be attributed to...', 'The significance of this lies in...', 'It follows that...'], draftKey: 'b2explain', section: 'Body 2' },
+                { num: 8, title: 'Body 2 — Example', hint: 'Support with evidence or example', chipTexts: getDatasetCues('body_example') || ['To illustrate,...', 'A case in point is...', 'Statistics indicate that...'], draftKey: 'b2example', section: 'Body 2' },
+                // Body 3
+                { num: 9, title: 'Body 3 — Topic Sentence', hint: 'Third point, concession, or rebuttal', chipTexts: getDatasetCues('concession') || ['Additionally,...', 'Admittedly,...', 'Some might argue that...'], draftKey: 'b3topic', section: 'Body 3' },
+                { num: 10, title: 'Body 3 — Explanation', hint: 'Develop or counter the argument', chipTexts: getDatasetCues('body_detail') || ['However,...', 'Despite this,...', 'Nevertheless,...'], draftKey: 'b3explain', section: 'Body 3' },
+                { num: 11, title: 'Body 3 — Example', hint: 'Final supporting example', chipTexts: getDatasetCues('body_example') || ['For example,...', 'This is evident in...', 'In practice,...'], draftKey: 'b3example', section: 'Body 3' },
                 // Conclusion
-                { num: 12, title: 'Conclusion — Restate Position', hint: 'Summarise your main argument', chipTexts: ['In conclusion,...', 'To summarise,...', 'All things considered,...'], draftKey: 'conc_restate', section: 'Conclusion' },
+                { num: 12, title: 'Conclusion — Restate Position', hint: 'Summarise your main argument', chipTexts: getDatasetCues('conclusion') || ['In conclusion,...', 'To summarise,...', 'All things considered,...'], draftKey: 'conc_restate', section: 'Conclusion' },
                 { num: 13, title: 'Conclusion — Final Thought', hint: 'End with a recommendation or prediction', chipTexts: ['It is therefore recommended...', 'Looking ahead,...', 'Ultimately,...'], draftKey: 'conc_final', section: 'Conclusion' }
             ];
 
@@ -2030,6 +2307,13 @@
                 updateWordCount(ta.id);
                 saveDraft(ta.id, ta.value);
             });
+
+            // Restore saved draft value
+            const savedValue = (appState.drafts[task] || {})[step.draftKey];
+            if (savedValue) {
+                ta.value = savedValue;
+                updateWordCount(ta.id);
+            }
 
             return el;
         }
@@ -2202,50 +2486,75 @@
         }
 
         function renderPieCharts(visual, colors) {
-            const width = 600;
-            const height = 300;
-            const radius = 80;
-            const centerY = height / 2;
-
-            let svg = `<svg viewBox="0 0 ${width} ${height}" style="max-width: 100%; height: auto;">`;
-
-            // Assuming visual.series has two datasets for comparison
             const datasets = visual.series || [];
-            const positions = [150, 450];
+            const categories = visual.categories || [];
+            const numPies = datasets.length;
+
+            // Layout: pies on top, category legend below
+            const radius = 75;
+            const pieCenterY = radius + 20;
+            const pieAreaHeight = pieCenterY + radius + 30; // pie body + year label
+
+            // Legend: 2 columns
+            const cols = 2;
+            const legendRowH = 20;
+            const legendRows = Math.ceil(categories.length / cols);
+            const legendHeight = categories.length > 0 ? legendRows * legendRowH + 10 : 0;
+
+            const width = 580;
+            const totalHeight = pieAreaHeight + legendHeight + 10;
+
+            // Pie centre X positions
+            const positions = numPies === 1 ? [width / 2]
+                : numPies === 2 ? [width * 0.27, width * 0.73]
+                : [width * 0.2, width * 0.5, width * 0.8];
+
+            let svg = `<svg viewBox="0 0 ${width} ${totalHeight}" style="max-width:100%;height:auto;">`;
 
             datasets.forEach((dataset, datasetIdx) => {
                 const centerX = positions[datasetIdx];
                 let currentAngle = -Math.PI / 2;
-
                 const total = dataset.values.reduce((a, b) => a + b, 0);
 
                 dataset.values.forEach((val, idx) => {
+                    if (val <= 0) return;
                     const sliceAngle = (val / total) * 2 * Math.PI;
                     const endAngle = currentAngle + sliceAngle;
-
                     const x1 = centerX + radius * Math.cos(currentAngle);
-                    const y1 = centerY + radius * Math.sin(currentAngle);
+                    const y1 = pieCenterY + radius * Math.sin(currentAngle);
                     const x2 = centerX + radius * Math.cos(endAngle);
-                    const y2 = centerY + radius * Math.sin(endAngle);
-
+                    const y2 = pieCenterY + radius * Math.sin(endAngle);
                     const largeArc = sliceAngle > Math.PI ? 1 : 0;
-                    const pathD = `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`;
 
-                    svg += `<path d="${pathD}" fill="${colors[idx % colors.length]}" stroke="white" stroke-width="2"/>`;
+                    svg += `<path d="M ${centerX} ${pieCenterY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z" fill="${colors[idx % colors.length]}" stroke="white" stroke-width="2"/>`;
 
-                    // Percentage label
-                    const labelAngle = currentAngle + sliceAngle / 2;
-                    const labelX = centerX + (radius * 0.65) * Math.cos(labelAngle);
-                    const labelY = centerY + (radius * 0.65) * Math.sin(labelAngle);
-                    const percent = Math.round((val / total) * 100);
-                    svg += `<text x="${labelX}" y="${labelY}" font-size="12" font-weight="600" fill="white" text-anchor="middle" dominant-baseline="middle">${percent}%</text>`;
-
+                    // Percentage label — only if slice wide enough
+                    if (val / total > 0.05) {
+                        const midAngle = currentAngle + sliceAngle / 2;
+                        const lx = centerX + radius * 0.62 * Math.cos(midAngle);
+                        const ly = pieCenterY + radius * 0.62 * Math.sin(midAngle);
+                        svg += `<text x="${lx}" y="${ly}" font-size="11" font-weight="600" fill="white" text-anchor="middle" dominant-baseline="middle">${Math.round((val/total)*100)}%</text>`;
+                    }
                     currentAngle = endAngle;
                 });
 
-                // Label below pie
-                svg += `<text x="${centerX}" y="${centerY + radius + 25}" font-size="13" font-weight="600" text-anchor="middle" fill="#333">${dataset.label || 'Dataset ' + (datasetIdx + 1)}</text>`;
+                // Year / dataset label below each pie
+                svg += `<text x="${centerX}" y="${pieCenterY + radius + 18}" font-size="13" font-weight="600" text-anchor="middle" fill="#333">${dataset.label || ''}</text>`;
             });
+
+            // Category colour legend — two columns, centred under the pies
+            if (categories.length > 0) {
+                const legendTop = pieAreaHeight + 8;
+                const colWidth = width / cols;
+                categories.forEach((cat, idx) => {
+                    const col = idx % cols;
+                    const row = Math.floor(idx / cols);
+                    const lx = col * colWidth + 20;
+                    const ly = legendTop + row * legendRowH;
+                    svg += `<rect x="${lx}" y="${ly}" width="12" height="12" fill="${colors[idx % colors.length]}" rx="2"/>`;
+                    svg += `<text x="${lx + 17}" y="${ly + 10}" font-size="12" fill="#444">${cat}</text>`;
+                });
+            }
 
             svg += '</svg>';
             return svg;
@@ -2429,6 +2738,15 @@
 
             appState.selectedPrompts[taskType] = newPrompt;
 
+            // Clear drafts for this task type (new topic = fresh start)
+            appState.drafts[taskType] = {};
+
+            // Clear analysis results for this task type
+            appState.analysisResults[taskType] = null;
+            document.getElementById('analysisPanel').style.display = 'none';
+            document.getElementById('sentenceAnalysis').style.display = 'none';
+            document.getElementById('referencePanel').style.display = 'none';
+
             if (taskType === 'task1') updateTask1Display(newPrompt);
             else if (taskType === 'task2') updateTask2Display(newPrompt);
             else if (taskType === 'speaking') updateSpeakingDisplay(newPrompt);
@@ -2477,12 +2795,8 @@
                 ];
             } else if (tab === 'speaking') {
                 steps = [
-                    { section: 'Prep', key: 'opening', label: 'Opening' },
-                    { section: 'Prep', key: 'point1', label: 'Main Point 1' },
-                    { section: 'Prep', key: 'point2', label: 'Main Point 2' },
-                    { section: 'Prep', key: 'example', label: 'Example / Story' },
-                    { section: 'Prep', key: 'closing', label: 'Closing' },
-                    { section: 'Speaking', key: 'response', label: 'Full Response' },
+                    { section: 'Part 2', key: 'response', label: 'Speaking Response' },
+                    { section: 'Part 3', key: 'part3', label: 'Discussion Response' },
                 ];
             } else {
                 container.innerHTML = '<div style="text-align:center;color:var(--muted);padding:1rem;font-size:13px;">Select a practice tab to see your progress map.</div>';
@@ -2575,7 +2889,13 @@
 
             // Hide/show analysis panels and load data
             if (tabName === 'task1' || tabName === 'task2' || tabName === 'speaking') {
-                document.getElementById('analysisPanel').style.display = appState.analysisResults ? 'block' : 'none';
+                const tabResults = appState.analysisResults[tabName];
+                document.getElementById('analysisPanel').style.display = tabResults ? 'block' : 'none';
+                if (tabResults) displayAnalysisResults(tabResults, false);
+                else {
+                    document.getElementById('sentenceAnalysis').style.display = 'none';
+                    document.getElementById('referencePanel').style.display = 'none';
+                }
             } else {
                 document.getElementById('analysisPanel').style.display = 'none';
                 document.getElementById('sentenceAnalysis').style.display = 'none';
@@ -2587,9 +2907,20 @@
 
         // ===== INITIALIZATION =====
 
-        function initializeApp() {
+        async function initializeApp() {
             loadState();
+
+            // Load book prompts first (fast local call) so daily selection prioritises book prompts
+            await loadBookPrompts();
+
             setDailyPrompts();
+
+            // Load dataset in background — rebuild steps when ready so cues populate
+            loadIeltsDataset().then(() => {
+                // Rebuild steps with dataset cues (non-blocking, safe to call after UI is up)
+                if (appState.selectedPrompts.task1) updateTask1Display(appState.selectedPrompts.task1);
+                if (appState.selectedPrompts.task2) updateTask2Display(appState.selectedPrompts.task2);
+            });
 
             // Set up date display
             const now = new Date();
@@ -2638,6 +2969,10 @@
             document.getElementById('task2Submit').addEventListener('click', () => submitTask('task2'));
             document.getElementById('speakingSubmit').addEventListener('click', () => submitTask('speaking'));
 
+            // Preview buttons
+            document.getElementById('task1Preview').addEventListener('click', () => previewFullEssay('task1'));
+            document.getElementById('task2Preview').addEventListener('click', () => previewFullEssay('task2'));
+
             // Error bank filters
             document.getElementById('errorTypeFilter').addEventListener('change', filterErrors);
             document.getElementById('taskTypeFilter').addEventListener('change', filterErrors);
@@ -2650,10 +2985,69 @@
             switchTab('task1');
         }
 
+        // ===== PREVIEW =====
+
+        function previewFullEssay(taskType) {
+            const draftData = appState.drafts[taskType] || {};
+            const prompt = appState.selectedPrompts[taskType];
+
+            // Determine step order based on task type
+            let stepKeys = [];
+            if (taskType === 'task1') {
+                stepKeys = ['intro', 'overview1', 'overview2', 'body1topic', 'body1a', 'body1b', 'body2topic', 'body2a', 'body2b'];
+            } else if (taskType === 'task2') {
+                stepKeys = ['hook', 'thesis', 'b1topic', 'b1explain', 'b1example', 'b2topic', 'b2explain', 'b2example', 'b3topic', 'b3explain', 'b3example', 'conc_restate', 'conc_final'];
+            }
+
+            const parts = stepKeys.map(key => (draftData[key] || '').trim()).filter(Boolean);
+            const wordCount = parts.join(' ').split(/\s+/).filter(w => w).length;
+
+            if (parts.length === 0) {
+                alert('No content written yet. Start writing to preview your essay.');
+                return;
+            }
+
+            // Build preview HTML
+            const essayText = parts.join('\n\n');
+            const target = taskType === 'task1' ? 150 : 250;
+            const wordColor = wordCount >= target ? 'var(--teal)' : 'var(--burnt)';
+
+            // Show in a modal overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;';
+            overlay.innerHTML = `
+                <div style="background:white;border-radius:12px;max-width:700px;width:100%;max-height:80vh;overflow-y:auto;padding:24px;position:relative;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                        <h2 style="margin:0;font-size:18px;color:var(--heading);">${prompt?.title || 'Essay'} — Full Preview</h2>
+                        <div>
+                            <span style="font-size:13px;color:${wordColor};font-weight:600;">${wordCount} words</span>
+                            <span style="font-size:12px;color:var(--muted);margin-left:8px;">(target: ${target}+)</span>
+                        </div>
+                    </div>
+                    <div style="white-space:pre-wrap;line-height:1.8;font-size:14px;color:var(--text);border:1px solid #e5e0db;border-radius:8px;padding:16px;background:#faf9f7;">${essayText}</div>
+                    <div style="margin-top:16px;display:flex;gap:8px;justify-content:flex-end;">
+                        <button onclick="navigator.clipboard.writeText(this.closest('div').parentElement.querySelector('div[style*=pre-wrap]').textContent).then(() => this.textContent = 'Copied!')" style="padding:6px 14px;border:1px solid #ccc;border-radius:6px;background:white;cursor:pointer;font-size:13px;">Copy to Clipboard</button>
+                        <button onclick="this.closest('div[style*=position\\:fixed]').remove()" style="padding:6px 14px;border:none;border-radius:6px;background:var(--teal);color:white;cursor:pointer;font-size:13px;">Close</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+        }
+
         // ===== SUBMIT HANDLERS =====
 
         async function submitTask(taskType) {
-            const draftData = appState.drafts[taskType] || {};
+            let draftData = appState.drafts[taskType] || {};
+
+            // For speaking: also check the textarea directly in case saveDraft hasn't fired
+            if (taskType === 'speaking') {
+                const speakingTA = document.getElementById('speaking_response');
+                if (speakingTA && speakingTA.value.trim()) {
+                    if (!draftData.response) draftData.response = speakingTA.value;
+                }
+            }
+
             const contentParts = Object.values(draftData).filter(v => v && v.trim());
             if (contentParts.length === 0) {
                 alert('Please write something before submitting.');
@@ -2684,18 +3078,22 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error('Server returned ' + response.status);
+                    const errData = await response.json().catch(() => ({}));
+                    throw new Error(errData.error || 'Server returned ' + response.status);
                 }
 
                 const result = await response.json();
                 const analysis = result.analysis || result;
-                appState.analysisResults = analysis;
-                displayAnalysisResults(analysis);
+                appState.analysisResults[taskType] = analysis;
+                displayAnalysisResults(analysis, false);
+
+                // Reload error bank after successful analysis
+                if (document.getElementById('errorBankList')) filterErrors();
             } catch (error) {
                 console.error('Analysis request failed:', error);
                 const mockResult = generateMockAnalysis(taskType, draftData);
-                appState.analysisResults = mockResult;
-                displayAnalysisResults(mockResult);
+                appState.analysisResults[taskType] = mockResult;
+                displayAnalysisResults(mockResult, true, error.message);
             } finally {
                 submitBtn.textContent = origText;
                 submitBtn.disabled = false;
@@ -2725,9 +3123,26 @@
             };
         }
 
-        function displayAnalysisResults(result) {
+        function displayAnalysisResults(result, isMock = false, errorMsg = '') {
             const panel = document.getElementById('analysisPanel');
             panel.style.display = 'block';
+
+            // Update score dimension labels based on current tab
+            const isSpeaking = appState.currentTab === 'speaking';
+            document.getElementById('dimCoherence').textContent = isSpeaking ? 'Pronunciation' : 'Coherence';
+            document.getElementById('dimVocabulary').textContent = 'Vocabulary';
+            document.getElementById('dimGrammar').textContent = 'Grammar';
+            document.getElementById('dimFluency').textContent = isSpeaking ? 'Fluency' : 'Task Ach.';
+
+            // Show warning if mock data
+            let warningHtml = '';
+            if (isMock) {
+                warningHtml = `<div style="background:#ff4444;color:white;padding:10px 14px;border-radius:8px;margin-bottom:12px;font-size:13px;">
+                    <strong>LLM 分析失敗 — 顯示的是假資料 (Mock Data)</strong><br>
+                    Error: ${errorMsg || 'Unknown'}<br>
+                    請確認 server.py 有正確啟動，且 .env 中的 API Key 有效。
+                </div>`;
+            }
 
             // Handle both real API format and mock format
             const band = result.overallBand || result.bandScore || 0;
@@ -2740,39 +3155,57 @@
 
             // Feedback
             const feedback = result.overallFeedback || result.feedback || '';
-            document.getElementById('overallFeedback').textContent = feedback;
+            const feedbackEl = document.getElementById('overallFeedback');
+            feedbackEl.innerHTML = warningHtml + `<div style="white-space:pre-wrap;line-height:1.7;">${feedback}</div>`;
 
             // Priority issues
             const priorities = result.priorities || result.issues || [];
             const issuesList = document.getElementById('issuesList');
-            issuesList.innerHTML = priorities.map(issue => `<li class="issue-item">${typeof issue === 'string' ? issue : issue.title || issue}</li>`).join('');
+            issuesList.innerHTML = priorities.map(issue => {
+                const text = typeof issue === 'string' ? issue : issue.title || JSON.stringify(issue);
+                return `<li class="issue-item" style="margin-bottom:8px;line-height:1.5;">${text}</li>`;
+            }).join('');
 
-            // Sentence-by-sentence analysis (from real API)
+            // Sentence-by-sentence analysis
             const sentences = result.sentenceAnalysis || result.errors || [];
+            const sentencePanel = document.getElementById('sentenceAnalysis');
+            sentencePanel.style.display = 'block';
+            const sentenceCards = document.getElementById('sentenceCards');
+
             if (sentences.length > 0) {
-                const sentencePanel = document.getElementById('sentenceAnalysis');
-                sentencePanel.style.display = 'block';
-                const sentenceCards = document.getElementById('sentenceCards');
-                sentenceCards.innerHTML = sentences.map(s => `
-                    <div class="error-card">
-                        <div class="error-original">${s.original || ''}</div>
-                        <div class="error-corrected">${s.corrected || ''}</div>
-                        <div style="margin-bottom: 0.5rem;">
+                sentenceCards.innerHTML = sentences.map((s, idx) => `
+                    <div class="error-card" style="border-left:3px solid ${s.errorType === 'no_error' ? 'var(--teal)' : 'var(--gold)'};margin-bottom:10px;">
+                        <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">Sentence ${idx + 1}</div>
+                        <div class="error-original" style="font-size:14px;line-height:1.6;">${s.original || ''}</div>
+                        <div class="error-corrected" style="font-size:14px;line-height:1.6;color:var(--teal);">${s.corrected || ''}</div>
+                        <div style="margin:6px 0;">
                             <span class="error-type ${s.errorType || s.type || ''}">${(s.errorType || s.type || 'feedback').toUpperCase()}</span>
                             ${s.sentenceScore ? `<span style="margin-left:8px;font-weight:600;color:var(--teal);">Band ${s.sentenceScore}</span>` : ''}
                         </div>
-                        <div class="error-explanation">${s.errorDescription || s.explanation || s.suggestion || ''}</div>
-                        ${s.cue ? `<div style="margin-top:6px;font-size:12px;color:var(--gold);font-style:italic;">Cue: "${s.cue}"</div>` : ''}
+                        <div class="error-explanation" style="line-height:1.6;">${s.errorDescription || s.explanation || ''}</div>
+                        ${s.suggestion ? `<div style="margin-top:6px;font-size:13px;color:var(--gold);line-height:1.5;">💡 ${s.suggestion}</div>` : ''}
+                        ${s.cue ? `<div style="margin-top:4px;font-size:12px;color:var(--muted);font-style:italic;">Cue: "${s.cue}"</div>` : ''}
                     </div>
                 `).join('');
+            } else {
+                sentenceCards.innerHTML = `<div style="color:var(--muted);text-align:center;padding:1rem;">
+                    ${isMock ? 'LLM 未連接，無法提供逐句分析。' : '未收到逐句分析結果。'}
+                </div>`;
             }
 
             // Band 7.5 reference
             const ref = result.band75Version || result.reference || '';
-            if (ref) {
-                const refPanel = document.getElementById('referencePanel');
-                refPanel.style.display = 'block';
-                document.getElementById('referenceEssay').textContent = ref;
+            const refPanel = document.getElementById('referencePanel');
+            refPanel.style.display = 'block';
+            const refEssay = document.getElementById('referenceEssay');
+            if (ref && ref.length > 50) {
+                refEssay.style.whiteSpace = 'pre-wrap';
+                refEssay.style.lineHeight = '1.8';
+                refEssay.textContent = ref;
+            } else {
+                refEssay.innerHTML = `<div style="color:var(--muted);text-align:center;padding:1rem;">
+                    ${isMock ? 'LLM 未連接，無法生成 Band 7.5 範文。' : '未收到 Band 7.5 範文。'}
+                </div>`;
             }
         }
 

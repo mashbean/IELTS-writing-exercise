@@ -1,0 +1,1787 @@
+{
+  "meta": {
+    "version": "1.0",
+    "generated": "2026-03-26",
+    "extraction_date": "2026-03-26",
+    "total_items": 288
+  },
+  "writing_tips": [
+    {
+      "id": "tip_1",
+      "category": "task1",
+      "tip": "Employ accurate language when describing numbers and trends",
+      "example": ""
+    },
+    {
+      "id": "tip_2",
+      "category": "task1",
+      "tip": "Start with an overview statement before providing specific details",
+      "example": ""
+    },
+    {
+      "id": "tip_3",
+      "category": "task1",
+      "tip": "Organize information logically: outline each element separately",
+      "example": ""
+    },
+    {
+      "id": "tip_4",
+      "category": "task1",
+      "tip": "Employ comparative language: compare figures across time periods",
+      "example": ""
+    },
+    {
+      "id": "tip_5",
+      "category": "task1",
+      "tip": "Employ passive voice appropriately in formal descriptions",
+      "example": ""
+    },
+    {
+      "id": "tip_6",
+      "category": "task1",
+      "tip": "Incorporate keywords from the visual: graph, chart, table, diagram",
+      "example": ""
+    },
+    {
+      "id": "tip_7",
+      "category": "task1",
+      "tip": "outline major changes and key observations",
+      "example": ""
+    },
+    {
+      "id": "tip_8",
+      "category": "task1",
+      "tip": "Employ superlatives carefully: 'the highest', 'the most'",
+      "example": ""
+    },
+    {
+      "id": "tip_9",
+      "category": "task1",
+      "tip": "Group similar information together in paragraphs",
+      "example": ""
+    },
+    {
+      "id": "tip_10",
+      "category": "task1",
+      "tip": "Mention units of measurement when describing data",
+      "example": ""
+    },
+    {
+      "id": "tip_11",
+      "category": "task2",
+      "tip": "Read the question twice to understand what is being asked",
+      "example": ""
+    },
+    {
+      "id": "tip_12",
+      "category": "task2",
+      "tip": "Identify if it's asking for opinion, discussion, or analysis",
+      "example": ""
+    },
+    {
+      "id": "tip_13",
+      "category": "task2",
+      "tip": "Create a concise argument with supporting points",
+      "example": ""
+    },
+    {
+      "id": "tip_14",
+      "category": "task2",
+      "tip": "Employ a variety of sentence structures in your essay",
+      "example": ""
+    },
+    {
+      "id": "tip_15",
+      "category": "task2",
+      "tip": "Refrain from using making absolute statements without qualification",
+      "example": ""
+    },
+    {
+      "id": "tip_16",
+      "category": "task2",
+      "tip": "Employ signposting language to guide the reader",
+      "example": ""
+    },
+    {
+      "id": "tip_17",
+      "category": "task2",
+      "tip": "Supply examples that directly support your points",
+      "example": ""
+    },
+    {
+      "id": "tip_18",
+      "category": "task2",
+      "tip": "Maintain a formal, academic tone throughout",
+      "example": ""
+    },
+    {
+      "id": "tip_19",
+      "category": "task2",
+      "tip": "Refrain from using using contractions in formal writing",
+      "example": ""
+    },
+    {
+      "id": "tip_20",
+      "category": "task2",
+      "tip": "Review that your conclusion summarizes your main points",
+      "example": ""
+    },
+    {
+      "id": "tip_21",
+      "category": "vocabulary",
+      "tip": "Learn words in context, not in isolation",
+      "example": ""
+    },
+    {
+      "id": "tip_22",
+      "category": "vocabulary",
+      "tip": "Understand word families: verb, noun, adjective, adverb forms",
+      "example": ""
+    },
+    {
+      "id": "tip_23",
+      "category": "vocabulary",
+      "tip": "Practice using new words in clauses",
+      "example": ""
+    },
+    {
+      "id": "tip_24",
+      "category": "vocabulary",
+      "tip": "Learn collocations with each new word",
+      "example": ""
+    },
+    {
+      "id": "tip_25",
+      "category": "vocabulary",
+      "tip": "Review your writing for repeated lexical range",
+      "example": ""
+    },
+    {
+      "id": "tip_26",
+      "category": "vocabulary",
+      "tip": "Employ synonyms to avoid repetition",
+      "example": ""
+    },
+    {
+      "id": "tip_27",
+      "category": "vocabulary",
+      "tip": "Understand shades of meaning between similar words",
+      "example": ""
+    },
+    {
+      "id": "tip_28",
+      "category": "vocabulary",
+      "tip": "Record example clauses with new lexical range",
+      "example": ""
+    },
+    {
+      "id": "tip_29",
+      "category": "vocabulary",
+      "tip": "Employ academic words appropriately in formal writing",
+      "example": ""
+    },
+    {
+      "id": "tip_30",
+      "category": "vocabulary",
+      "tip": "Review pronunciation of new academic terms",
+      "example": ""
+    },
+    {
+      "id": "tip_31",
+      "category": "grammar",
+      "tip": "Subject and verb must agree in number",
+      "example": ""
+    },
+    {
+      "id": "tip_32",
+      "category": "grammar",
+      "tip": "Employ consistent verb tenses within a paragraph",
+      "example": ""
+    },
+    {
+      "id": "tip_33",
+      "category": "grammar",
+      "tip": "Place commas correctly in complex clauses",
+      "example": ""
+    },
+    {
+      "id": "tip_34",
+      "category": "grammar",
+      "tip": "Employ relative pronouns correctly: who, which, that",
+      "example": ""
+    },
+    {
+      "id": "tip_35",
+      "category": "grammar",
+      "tip": "Maintain parallel structure in lists",
+      "example": ""
+    },
+    {
+      "id": "tip_36",
+      "category": "grammar",
+      "tip": "Employ appropriate articles: a, an, the, or none",
+      "example": ""
+    },
+    {
+      "id": "tip_37",
+      "category": "grammar",
+      "tip": "Form questions correctly in formal writing",
+      "example": ""
+    },
+    {
+      "id": "tip_38",
+      "category": "grammar",
+      "tip": "Employ correct word order in English clauses",
+      "example": ""
+    },
+    {
+      "id": "tip_39",
+      "category": "grammar",
+      "tip": "Employ modal verbs appropriately: can, could, should, would",
+      "example": ""
+    },
+    {
+      "id": "tip_40",
+      "category": "grammar",
+      "tip": "Form conditionals correctly for hypothetical situations",
+      "example": ""
+    },
+    {
+      "id": "tip_41",
+      "category": "general",
+      "tip": "Compose regularly to improve your skills",
+      "example": ""
+    },
+    {
+      "id": "tip_42",
+      "category": "general",
+      "tip": "Get feedback on your writing from others",
+      "example": ""
+    },
+    {
+      "id": "tip_43",
+      "category": "general",
+      "tip": "Study sample essays to understand structure",
+      "example": ""
+    },
+    {
+      "id": "tip_44",
+      "category": "general",
+      "tip": "Practice time management during writing exams",
+      "example": ""
+    },
+    {
+      "id": "tip_45",
+      "category": "general",
+      "tip": "Proofread your work carefully before submitting",
+      "example": ""
+    },
+    {
+      "id": "tip_46",
+      "category": "general",
+      "tip": "Know the time limits for each task",
+      "example": ""
+    },
+    {
+      "id": "tip_47",
+      "category": "general",
+      "tip": "Understand the band scoring criteria",
+      "example": ""
+    },
+    {
+      "id": "tip_48",
+      "category": "general",
+      "tip": "Concentrate on coherence and cohesion in writing",
+      "example": ""
+    },
+    {
+      "id": "tip_49",
+      "category": "general",
+      "tip": "Vary your lexical range and sentence structures",
+      "example": ""
+    },
+    {
+      "id": "tip_50",
+      "category": "general",
+      "tip": "Plan your essay before you start writing",
+      "example": ""
+    }
+  ],
+  "sentence_cues": [
+    {
+      "id": "cue_1",
+      "position": "intro",
+      "cue": "In the contemporary world",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_2",
+      "position": "intro",
+      "cue": "In modern society",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_3",
+      "position": "intro",
+      "cue": "It is widely believed that",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_4",
+      "position": "intro",
+      "cue": "Some argue that",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_5",
+      "position": "intro",
+      "cue": "It is evident that",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_6",
+      "position": "intro",
+      "cue": "One might argue that",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_7",
+      "position": "intro",
+      "cue": "Currently",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_8",
+      "position": "intro",
+      "cue": "These days",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_9",
+      "position": "intro",
+      "cue": "in the present day",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_10",
+      "position": "intro",
+      "cue": "According to many",
+      "usage": "Used to start intro sections"
+    },
+    {
+      "id": "cue_11",
+      "position": "overview",
+      "cue": "The chart shows",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_12",
+      "position": "overview",
+      "cue": "The graph illustrates",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_13",
+      "position": "overview",
+      "cue": "The table demonstrates",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_14",
+      "position": "overview",
+      "cue": "The diagram depicts",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_15",
+      "position": "overview",
+      "cue": "It can be seen that",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_16",
+      "position": "overview",
+      "cue": "The data reveals",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_17",
+      "position": "overview",
+      "cue": "In general, it is clear",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_18",
+      "position": "overview",
+      "cue": "As can be observed",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_19",
+      "position": "overview",
+      "cue": "The information indicates",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_20",
+      "position": "overview",
+      "cue": "Looking at the data",
+      "usage": "Used to start overview sections"
+    },
+    {
+      "id": "cue_21",
+      "position": "body_topic",
+      "cue": "First and foremost",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_22",
+      "position": "body_topic",
+      "cue": "The primary reason",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_23",
+      "position": "body_topic",
+      "cue": "To begin with",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_24",
+      "position": "body_topic",
+      "cue": "To begin with, it is important",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_25",
+      "position": "body_topic",
+      "cue": "One significant factor",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_26",
+      "position": "body_topic",
+      "cue": "Importantly",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_27",
+      "position": "body_topic",
+      "cue": "The main argument",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_28",
+      "position": "body_topic",
+      "cue": "In the first place",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_29",
+      "position": "body_topic",
+      "cue": "Above all",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_30",
+      "position": "body_topic",
+      "cue": "Significantly",
+      "usage": "Used to start body topic sections"
+    },
+    {
+      "id": "cue_31",
+      "position": "body_detail",
+      "cue": "To illustrate",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_32",
+      "position": "body_detail",
+      "cue": "In particular",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_33",
+      "position": "body_detail",
+      "cue": "Specifically",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_34",
+      "position": "body_detail",
+      "cue": "Such as",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_35",
+      "position": "body_detail",
+      "cue": "To illustrate",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_36",
+      "position": "body_detail",
+      "cue": "More specifically",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_37",
+      "position": "body_detail",
+      "cue": "In this case",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_38",
+      "position": "body_detail",
+      "cue": "Consider the fact that",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_39",
+      "position": "body_detail",
+      "cue": "Notice that",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_40",
+      "position": "body_detail",
+      "cue": "Take the case of",
+      "usage": "Used to start body detail sections"
+    },
+    {
+      "id": "cue_41",
+      "position": "body_example",
+      "cue": "A case in point",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_42",
+      "position": "body_example",
+      "cue": "An example of this",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_43",
+      "position": "body_example",
+      "cue": "To exemplify",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_44",
+      "position": "body_example",
+      "cue": "This is evident in",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_45",
+      "position": "body_example",
+      "cue": "Evidence for this",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_46",
+      "position": "body_example",
+      "cue": "This can be seen in",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_47",
+      "position": "body_example",
+      "cue": "An instance of",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_48",
+      "position": "body_example",
+      "cue": "A prime example",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_49",
+      "position": "body_example",
+      "cue": "Clearly",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_50",
+      "position": "body_example",
+      "cue": "As an illustration",
+      "usage": "Used to start body example sections"
+    },
+    {
+      "id": "cue_51",
+      "position": "concession",
+      "cue": "Although",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_52",
+      "position": "concession",
+      "cue": "Even though",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_53",
+      "position": "concession",
+      "cue": "While it is true that",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_54",
+      "position": "concession",
+      "cue": "Admittedly",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_55",
+      "position": "concession",
+      "cue": "It is true that",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_56",
+      "position": "concession",
+      "cue": "Nevertheless",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_57",
+      "position": "concession",
+      "cue": "Nonetheless",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_58",
+      "position": "concession",
+      "cue": "Nonetheless",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_59",
+      "position": "concession",
+      "cue": "Despite this",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_60",
+      "position": "concession",
+      "cue": "In contrast",
+      "usage": "Used to start concession sections"
+    },
+    {
+      "id": "cue_61",
+      "position": "conclusion",
+      "cue": "To summarise",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_62",
+      "position": "conclusion",
+      "cue": "To summarize",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_63",
+      "position": "conclusion",
+      "cue": "In summary",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_64",
+      "position": "conclusion",
+      "cue": "To sum up",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_65",
+      "position": "conclusion",
+      "cue": "In brief",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_66",
+      "position": "conclusion",
+      "cue": "Finally",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_67",
+      "position": "conclusion",
+      "cue": "In short",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_68",
+      "position": "conclusion",
+      "cue": "Therefore",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_69",
+      "position": "conclusion",
+      "cue": "Thus",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_70",
+      "position": "conclusion",
+      "cue": "In light of this",
+      "usage": "Used to start conclusion sections"
+    },
+    {
+      "id": "cue_71",
+      "position": "comparison",
+      "cue": "Similarly",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_72",
+      "position": "comparison",
+      "cue": "In the same way",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_73",
+      "position": "comparison",
+      "cue": "Likewise",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_74",
+      "position": "comparison",
+      "cue": "Like",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_75",
+      "position": "comparison",
+      "cue": "Just as",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_76",
+      "position": "comparison",
+      "cue": "Compared to",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_77",
+      "position": "comparison",
+      "cue": "In comparison",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_78",
+      "position": "comparison",
+      "cue": "Equally",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_79",
+      "position": "comparison",
+      "cue": "Correspondingly",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_80",
+      "position": "comparison",
+      "cue": "In parallel",
+      "usage": "Used to start comparison sections"
+    },
+    {
+      "id": "cue_81",
+      "position": "trend_up",
+      "cue": "increased",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_82",
+      "position": "trend_up",
+      "cue": "rose",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_83",
+      "position": "trend_up",
+      "cue": "climbed",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_84",
+      "position": "trend_up",
+      "cue": "surged",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_85",
+      "position": "trend_up",
+      "cue": "jumped",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_86",
+      "position": "trend_up",
+      "cue": "grew",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_87",
+      "position": "trend_up",
+      "cue": "expanded",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_88",
+      "position": "trend_up",
+      "cue": "escalated",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_89",
+      "position": "trend_up",
+      "cue": "peaked",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_90",
+      "position": "trend_up",
+      "cue": "soared",
+      "usage": "Used to start trend up sections"
+    },
+    {
+      "id": "cue_91",
+      "position": "trend_down",
+      "cue": "decreased",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_92",
+      "position": "trend_down",
+      "cue": "fell",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_93",
+      "position": "trend_down",
+      "cue": "dropped",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_94",
+      "position": "trend_down",
+      "cue": "declined",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_95",
+      "position": "trend_down",
+      "cue": "plummeted",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_96",
+      "position": "trend_down",
+      "cue": "reduced",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_97",
+      "position": "trend_down",
+      "cue": "contracted",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_98",
+      "position": "trend_down",
+      "cue": "dipped",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_99",
+      "position": "trend_down",
+      "cue": "slumped",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_100",
+      "position": "trend_down",
+      "cue": "diminished",
+      "usage": "Used to start trend down sections"
+    },
+    {
+      "id": "cue_101",
+      "position": "trend_stable",
+      "cue": "stayed constant",
+      "usage": "Used to start trend stable sections"
+    },
+    {
+      "id": "cue_102",
+      "position": "trend_stable",
+      "cue": "stayed constant",
+      "usage": "Used to start trend stable sections"
+    },
+    {
+      "id": "cue_103",
+      "position": "trend_stable",
+      "cue": "held steady",
+      "usage": "Used to start trend stable sections"
+    },
+    {
+      "id": "cue_104",
+      "position": "trend_stable",
+      "cue": "remained unchanged",
+      "usage": "Used to start trend stable sections"
+    },
+    {
+      "id": "cue_105",
+      "position": "trend_stable",
+      "cue": "plateaued",
+      "usage": "Used to start trend stable sections"
+    },
+    {
+      "id": "cue_106",
+      "position": "trend_stable",
+      "cue": "leveled off",
+      "usage": "Used to start trend stable sections"
+    },
+    {
+      "id": "cue_107",
+      "position": "trend_stable",
+      "cue": "stagnated",
+      "usage": "Used to start trend stable sections"
+    },
+    {
+      "id": "cue_108",
+      "position": "process",
+      "cue": "Initially",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_109",
+      "position": "process",
+      "cue": "First",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_110",
+      "position": "process",
+      "cue": "Subsequently",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_111",
+      "position": "process",
+      "cue": "Then",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_112",
+      "position": "process",
+      "cue": "Next",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_113",
+      "position": "process",
+      "cue": "Following this",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_114",
+      "position": "process",
+      "cue": "Later",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_115",
+      "position": "process",
+      "cue": "Eventually",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_116",
+      "position": "process",
+      "cue": "Finally",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_117",
+      "position": "process",
+      "cue": "To summarise",
+      "usage": "Used to start process sections"
+    },
+    {
+      "id": "cue_118",
+      "position": "map",
+      "cue": "is located",
+      "usage": "Used to start map sections"
+    },
+    {
+      "id": "cue_119",
+      "position": "map",
+      "cue": "is situated",
+      "usage": "Used to start map sections"
+    },
+    {
+      "id": "cue_120",
+      "position": "map",
+      "cue": "is positioned",
+      "usage": "Used to start map sections"
+    },
+    {
+      "id": "cue_121",
+      "position": "map",
+      "cue": "can be found",
+      "usage": "Used to start map sections"
+    },
+    {
+      "id": "cue_122",
+      "position": "map",
+      "cue": "lies",
+      "usage": "Used to start map sections"
+    },
+    {
+      "id": "cue_123",
+      "position": "map",
+      "cue": "stands",
+      "usage": "Used to start map sections"
+    },
+    {
+      "id": "cue_124",
+      "position": "map",
+      "cue": "is placed",
+      "usage": "Used to start map sections"
+    },
+    {
+      "id": "cue_125",
+      "position": "map",
+      "cue": "is marked",
+      "usage": "Used to start map sections"
+    },
+    {
+      "id": "cue_126",
+      "position": "emphasis",
+      "cue": "Notably",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_127",
+      "position": "emphasis",
+      "cue": "Remarkably",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_128",
+      "position": "emphasis",
+      "cue": "Significantly",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_129",
+      "position": "emphasis",
+      "cue": "Importantly",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_130",
+      "position": "emphasis",
+      "cue": "Crucially",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_131",
+      "position": "emphasis",
+      "cue": "Particularly",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_132",
+      "position": "emphasis",
+      "cue": "Especially",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_133",
+      "position": "emphasis",
+      "cue": "Essentially",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_134",
+      "position": "emphasis",
+      "cue": "Fundamentally",
+      "usage": "Used to start emphasis sections"
+    },
+    {
+      "id": "cue_135",
+      "position": "emphasis",
+      "cue": "Decidedly",
+      "usage": "Used to start emphasis sections"
+    }
+  ],
+  "sample_essays": [
+    {
+      "id": "essay_1",
+      "task_type": "task2",
+      "question": "How far do you agree with the following statement: Digital innovation has transformed modern society for the better.",
+      "band_score": "7.5",
+      "essay": "Digital innovation has unquestionably revolutionized modern life in numerous ways, making significant contributions to human progress and well-being. I firmly agree that Digital innovation has made our lives better in multiple dimensions.\n\nAbove all, Digital innovation has dramatically improved healthcare outcomes. Medical innovations such as advanced diagnostic tools, medications, and surgical techniques have extended life expectancy and reduced mortality rates globally. People now have access to information about health conditions and treatment options previously unavailable to them, enabling better informed health decisions.\n\nFurthermore, Digital innovation has transformed communication and connectivity. The internet and mobile devices have eliminated geographical barriers, allowing people to maintain relationships across continents, collaborate on projects globally, and access information instantaneously. This has fostered cultural exchange and global understanding.\n\nIn addition, Digital innovation has enhanced productivity and created new employment opportunities. Automation and digital tools have made work more efficient, reducing manual labor and allowing workers to focus on creative and strategic tasks. New industries have emerged, generating employment in fields that did not exist previously.\n\nBesides this, Digital innovation has improved access to education. Online courses, educational platforms, and digital resources have democratized learning, enabling students from disadvantaged backgrounds to access quality education regardless of geographical location. This has broadened opportunities for personal and professional development.\n\nTo summarise, while technology presents certain challenges such as environmental concerns and digital dependency, its overall impact has been considerably positive. Digital innovation has enhanced health, communication, productivity, and education, substantially improving the quality of human life. Therefore, I fully agree with the view that Digital innovation has made our lives better.",
+      "topic": "Technology",
+      "chart_type": null
+    },
+    {
+      "id": "essay_2",
+      "task_type": "task1",
+      "question": "The line graph below shows the consumption of fast food over a ten-year period in Europe.",
+      "band_score": "7.0",
+      "essay": "The line graph presents data on fast food consumption trends in Europe over a decade. The graph illustrates three categories: takeaway meals, delivery services, and dining in fast food restaurants.\n\nOverall, all three categories showed an upward trend during the period, with takeaway meals demonstrating the most significant growth. In 2005, takeaway meals accounted for approximately 40% of fast food consumption, increasing steadily to reach 70% by 2015. This represents a 30 percentage point increase over the ten-year period.\n\nDelivery services experienced moderate growth throughout the decade. Starting at roughly 15% in 2005, delivery consumption gradually increased to approximately 35% by 2015. The growth was relatively consistent, with no significant fluctuations observed during this period.\n\nDining in fast food restaurants showed the least dramatic change. Beginning at 45% in 2005, consumption declined slightly to approximately 35% by 2015. This downward trend suggests that consumers increasingly preferred consuming fast food at home rather than dining in establishments.\n\nTo summarise, European fast food consumption patterns underwent significant changes between 2005 and 2015. The most notable finding is the substantial increase in takeaway meals, reflecting changing consumer preferences toward convenience and home-based dining. Meanwhile, traditional restaurant dining declined, indicating a shift toward more flexible consumption habits.",
+      "topic": null,
+      "chart_type": "line"
+    },
+    {
+      "id": "essay_3",
+      "task_type": "task2",
+      "question": "Some believe that government funding should prioritize universities, while others argue it should support vocational training. Discuss both views and give your opinion.",
+      "band_score": "8.0",
+      "essay": "Educational funding is a critical policy issue facing governments worldwide. While some argue that universities should receive priority funding, others contend that vocational training deserves equal investment. Both perspectives have merit, though I believe governments should allocate funding equitably to both sectors.\n\nProponents of university funding emphasize the importance of higher education for producing researchers, professionals, and leaders. Universities generate knowledge through research, contribute to technological advancement, and prepare graduates for complex professional roles. A well-educated population drives innovation and economic competitiveness. Furthermore, university education provides long-term career advantages and higher earning potential.\n\nConversely, advocates for vocational training argue that practical skills training is equally valuable and often more accessible to disadvantaged populations. Vocational programs produce skilled workers needed for essential sectors such as healthcare, construction, and manufacturing. These programs typically have lower costs than university education and provide faster entry into employment. Besides this, vocational training addresses labor market demands more directly.\n\nIn my opinion, both educational pathways are essential for societal development. Different individuals have different aptitudes and aspirations; some excel in academic environments while others thrive in practical training settings. A balanced approach where governments fund both universities and vocational programs ensures that all citizens can pursue educational paths suited to their abilities and career goals. This inclusive strategy maximizes human capital development and addresses diverse labor market needs.\n\nTo summarise, rather than prioritizing one sector over another, governments should recognize that universities and vocational training serve complementary roles in education. Equitable funding for both ensures a skilled, knowledgeable workforce capable of driving innovation and economic growth.",
+      "topic": "Education and Training",
+      "chart_type": null
+    },
+    {
+      "id": "essay_4",
+      "task_type": "task1",
+      "question": "The pie chart shows the percentage distribution of household expenditures across different categories.",
+      "band_score": "6.5",
+      "essay": "The pie chart illustrates how household income is distributed across various expenditure categories. Five main categories are represented: housing, transportation, food, entertainment, and savings.\n\nHousing constitutes the largest expenditure category, accounting for 35% of total household spending. This includes rent or mortgage payments, utilities, and maintenance costs. Transportation represents the second-largest category at 25%, encompassing vehicle payments, fuel, and public transportation costs.\n\nFood expenditure accounts for 20% of household spending, reflecting the necessity of nutritional needs. Entertainment and leisure activities comprise 15% of expenditures, including dining out, hobbies, and recreational activities. Notably, savings constitute only 5% of household budgets, suggesting limited financial planning for future needs.\n\nThe data reveals important patterns about household financial priorities. The emphasis on housing and transportation combined accounts for 60% of expenditure, indicating that essential services dominate family budgets. The relatively low percentage allocated to savings raises concerns about long-term financial security and emergency preparedness.\n\nTo summarise, this distribution reveals that households prioritize essential expenses such as housing and transportation, with entertainment comprising a meaningful but smaller portion. The limited savings allocation suggests that many households operate with minimal financial cushions. Policymakers might consider encouraging improved financial literacy to increase savings rates and promote household financial stability.",
+      "topic": null,
+      "chart_type": "pie"
+    }
+  ],
+  "vocabulary": [
+    {
+      "id": "vocab_1",
+      "word": "analyze",
+      "usage_context": "to study something in detail",
+      "example_sentence": "Scientists analyze information from multiple sources."
+    },
+    {
+      "id": "vocab_2",
+      "word": "assessment",
+      "usage_context": "an evaluation or judgment",
+      "example_sentence": "The assessment shows mixed results."
+    },
+    {
+      "id": "vocab_3",
+      "word": "attribute",
+      "usage_context": "a quality or feature; to regard as caused by",
+      "example_sentence": "This success is attributed to hard work."
+    },
+    {
+      "id": "vocab_4",
+      "word": "category",
+      "usage_context": "a group of things classified together",
+      "example_sentence": "Items in this category include..."
+    },
+    {
+      "id": "vocab_5",
+      "word": "conclude",
+      "usage_context": "to reach a judgment or decision",
+      "example_sentence": "We conclude that further research is needed."
+    },
+    {
+      "id": "vocab_6",
+      "word": "correlation",
+      "usage_context": "a mutual relationship or connection",
+      "example_sentence": "research show a correlation between variables."
+    },
+    {
+      "id": "vocab_7",
+      "word": "data",
+      "usage_context": "facts and figures collected for analysis",
+      "example_sentence": "The information indicates a trend."
+    },
+    {
+      "id": "vocab_8",
+      "word": "derive",
+      "usage_context": "to obtain from a source; to develop",
+      "example_sentence": "These conclusions are derived from evidence."
+    },
+    {
+      "id": "vocab_9",
+      "word": "determine",
+      "usage_context": "to establish the facts of; to decide",
+      "example_sentence": "The study determines the main factors."
+    },
+    {
+      "id": "vocab_10",
+      "word": "distribute",
+      "usage_context": "to give out; to spread throughout",
+      "example_sentence": "These services are distributed unevenly."
+    },
+    {
+      "id": "vocab_11",
+      "word": "accelerate",
+      "usage_context": "to increase in speed or rate",
+      "example_sentence": "Economic growth is accelerating."
+    },
+    {
+      "id": "vocab_12",
+      "word": "advance",
+      "usage_context": "to move forward; progress or improvement",
+      "example_sentence": "Technology has advanced significantly."
+    },
+    {
+      "id": "vocab_13",
+      "word": "alter",
+      "usage_context": "to change or modify",
+      "example_sentence": "Policies were altered to improve outcomes."
+    },
+    {
+      "id": "vocab_14",
+      "word": "augment",
+      "usage_context": "to make greater; to increase",
+      "example_sentence": "Funding will augment the program's reach."
+    },
+    {
+      "id": "vocab_15",
+      "word": "commence",
+      "usage_context": "to begin or start",
+      "example_sentence": "The project commences next month."
+    },
+    {
+      "id": "vocab_16",
+      "word": "decline",
+      "usage_context": "to decrease; to refuse politely",
+      "example_sentence": "Interest in this area has declined."
+    },
+    {
+      "id": "vocab_17",
+      "word": "diminish",
+      "usage_context": "to reduce in size or importance",
+      "example_sentence": "Support has diminished over time."
+    },
+    {
+      "id": "vocab_18",
+      "word": "evolve",
+      "usage_context": "to develop gradually; to change over time",
+      "example_sentence": "The system has evolved considerably."
+    },
+    {
+      "id": "vocab_19",
+      "word": "expand",
+      "usage_context": "to increase in size or extent",
+      "example_sentence": "The company is expanding internationally."
+    },
+    {
+      "id": "vocab_20",
+      "word": "fluctuate",
+      "usage_context": "to change frequently; to rise and fall",
+      "example_sentence": "Prices fluctuate with market conditions."
+    },
+    {
+      "id": "vocab_21",
+      "word": "essential",
+      "usage_context": "absolutely necessary; of supreme importance",
+      "example_sentence": "Clean water is essential for health."
+    },
+    {
+      "id": "vocab_22",
+      "word": "critical",
+      "usage_context": "of great importance; at a crucial point",
+      "example_sentence": "Environmental protection is critical."
+    },
+    {
+      "id": "vocab_23",
+      "word": "fundamental",
+      "usage_context": "serving as a base; essential",
+      "example_sentence": "These are fundamental principles."
+    },
+    {
+      "id": "vocab_24",
+      "word": "paramount",
+      "usage_context": "of supreme importance; dominant",
+      "example_sentence": "Safety is of paramount importance."
+    },
+    {
+      "id": "vocab_25",
+      "word": "pivotal",
+      "usage_context": "of great importance; central",
+      "example_sentence": "This is a pivotal moment."
+    },
+    {
+      "id": "vocab_26",
+      "word": "prominent",
+      "usage_context": "important or famous; easily noticed",
+      "example_sentence": "A prominent feature of the study."
+    },
+    {
+      "id": "vocab_27",
+      "word": "salient",
+      "usage_context": "most noticeable or important",
+      "example_sentence": "The salient points are outlined below."
+    },
+    {
+      "id": "vocab_28",
+      "word": "secondary",
+      "usage_context": "of less importance; subordinate",
+      "example_sentence": "Secondary effects were also observed."
+    },
+    {
+      "id": "vocab_29",
+      "word": "substantial",
+      "usage_context": "large in amount or importance; solid",
+      "example_sentence": "There has been substantial growth."
+    },
+    {
+      "id": "vocab_30",
+      "word": "trivial",
+      "usage_context": "of little importance; insignificant",
+      "example_sentence": "These issues are trivial compared to..."
+    },
+    {
+      "id": "vocab_31",
+      "word": "adjacent",
+      "usage_context": "next to or adjoining something",
+      "example_sentence": "The adjacent region has similar features."
+    },
+    {
+      "id": "vocab_32",
+      "word": "analogous",
+      "usage_context": "comparable in certain respects",
+      "example_sentence": "This situation is analogous to..."
+    },
+    {
+      "id": "vocab_33",
+      "word": "complement",
+      "usage_context": "to add to something to enhance it; something that completes",
+      "example_sentence": "This policy complements existing programs."
+    },
+    {
+      "id": "vocab_34",
+      "word": "concurrent",
+      "usage_context": "occurring at the same time",
+      "example_sentence": "Several concurrent research examined this."
+    },
+    {
+      "id": "vocab_35",
+      "word": "conducive",
+      "usage_context": "making a particular situation likely",
+      "example_sentence": "An environment conducive to learning."
+    },
+    {
+      "id": "vocab_36",
+      "word": "congruent",
+      "usage_context": "corresponding in form; congruous",
+      "example_sentence": "Goals should be congruent with values."
+    },
+    {
+      "id": "vocab_37",
+      "word": "correspond",
+      "usage_context": "to match or agree; to communicate",
+      "example_sentence": "Results correspond to theoretical predictions."
+    },
+    {
+      "id": "vocab_38",
+      "word": "facilitate",
+      "usage_context": "to make easier; to help enable",
+      "example_sentence": "Technology facilitates remote work."
+    },
+    {
+      "id": "vocab_39",
+      "word": "inherent",
+      "usage_context": "existing naturally; built-in",
+      "example_sentence": "The risks inherent in this approach."
+    },
+    {
+      "id": "vocab_40",
+      "word": "inherently",
+      "usage_context": "in a way that is natural or essential",
+      "example_sentence": "This method is inherently flawed."
+    },
+    {
+      "id": "vocab_41",
+      "word": "abundance",
+      "usage_context": "a large or plentiful amount",
+      "example_sentence": "An abundance of resources."
+    },
+    {
+      "id": "vocab_42",
+      "word": "accumulate",
+      "usage_context": "to gather or collect; to increase gradually",
+      "example_sentence": "Evidence accumulates over time."
+    },
+    {
+      "id": "vocab_43",
+      "word": "aggregate",
+      "usage_context": "total or combined; to combine into a whole",
+      "example_sentence": "Aggregate information from all sources."
+    },
+    {
+      "id": "vocab_44",
+      "word": "amplitude",
+      "usage_context": "the extent or range of something",
+      "example_sentence": "The amplitude of the oscillation."
+    },
+    {
+      "id": "vocab_45",
+      "word": "bulk",
+      "usage_context": "the main or greater part; large size",
+      "example_sentence": "The bulk of research shows..."
+    },
+    {
+      "id": "vocab_46",
+      "word": "capacity",
+      "usage_context": "the ability to hold or contain; maximum output",
+      "example_sentence": "Production capacity is increasing."
+    },
+    {
+      "id": "vocab_47",
+      "word": "concentration",
+      "usage_context": "the relative amount of a substance; focused attention",
+      "example_sentence": "High concentration of pollutants."
+    },
+    {
+      "id": "vocab_48",
+      "word": "density",
+      "usage_context": "the degree of compactness; thickness",
+      "example_sentence": "Population density varies greatly."
+    },
+    {
+      "id": "vocab_49",
+      "word": "diminish",
+      "usage_context": "to make or become smaller",
+      "example_sentence": "Support has diminished."
+    },
+    {
+      "id": "vocab_50",
+      "word": "magnitude",
+      "usage_context": "great size or extent; degree of importance",
+      "example_sentence": "The magnitude of the problem."
+    },
+    {
+      "id": "vocab_51",
+      "word": "authenticity",
+      "usage_context": "the quality of being genuine",
+      "example_sentence": "The authenticity of the findings."
+    },
+    {
+      "id": "vocab_52",
+      "word": "coherent",
+      "usage_context": "logical and consistent; forming a unified whole",
+      "example_sentence": "A coherent argument requires..."
+    },
+    {
+      "id": "vocab_53",
+      "word": "comparable",
+      "usage_context": "able to be compared; of similar quality",
+      "example_sentence": "Results are comparable to..."
+    },
+    {
+      "id": "vocab_54",
+      "word": "competent",
+      "usage_context": "having the skill or knowledge to do something",
+      "example_sentence": "Competent professionals conducted the study."
+    },
+    {
+      "id": "vocab_55",
+      "word": "comprehensive",
+      "usage_context": "complete; covering all areas",
+      "example_sentence": "A comprehensive review of literature."
+    },
+    {
+      "id": "vocab_56",
+      "word": "consistent",
+      "usage_context": "occurring regularly; in agreement with",
+      "example_sentence": "Results are consistent with..."
+    },
+    {
+      "id": "vocab_57",
+      "word": "credible",
+      "usage_context": "believable; worthy of trust",
+      "example_sentence": "A credible source of information."
+    },
+    {
+      "id": "vocab_58",
+      "word": "equivalent",
+      "usage_context": "equal in value or meaning",
+      "example_sentence": "This qualification is equivalent to..."
+    },
+    {
+      "id": "vocab_59",
+      "word": "explicit",
+      "usage_context": "clearly stated or shown; leaving nothing implied",
+      "example_sentence": "Explicit instructions were provided."
+    },
+    {
+      "id": "vocab_60",
+      "word": "implicit",
+      "usage_context": "implied without being directly stated",
+      "example_sentence": "Implicit assumptions underlie this theory."
+    },
+    {
+      "id": "vocab_61",
+      "word": "cause",
+      "usage_context": "to make something happen; a reason for something",
+      "example_sentence": "Pollution causes environmental damage."
+    },
+    {
+      "id": "vocab_62",
+      "word": "catalyst",
+      "usage_context": "something that precipitates a change",
+      "example_sentence": "A catalyst for reform."
+    },
+    {
+      "id": "vocab_63",
+      "word": "consequence",
+      "usage_context": "a result or effect of an action",
+      "example_sentence": "Consequences of climate change."
+    },
+    {
+      "id": "vocab_64",
+      "word": "induce",
+      "usage_context": "to bring about; to persuade",
+      "example_sentence": "Evidence induced a change in policy."
+    },
+    {
+      "id": "vocab_65",
+      "word": "originate",
+      "usage_context": "to have origin; to begin or start",
+      "example_sentence": "The idea originated from research."
+    },
+    {
+      "id": "vocab_66",
+      "word": "precipitate",
+      "usage_context": "to cause to happen suddenly; to happen abruptly",
+      "example_sentence": "Events precipitated a crisis."
+    },
+    {
+      "id": "vocab_67",
+      "word": "prompt",
+      "usage_context": "to cause or trigger; without delay",
+      "example_sentence": "This prompted further investigation."
+    },
+    {
+      "id": "vocab_68",
+      "word": "provoke",
+      "usage_context": "to cause a reaction; to incite",
+      "example_sentence": "The proposal provoked strong debate."
+    },
+    {
+      "id": "vocab_69",
+      "word": "result",
+      "usage_context": "a consequence of an action; to follow as effect",
+      "example_sentence": "This resulted in significant changes."
+    },
+    {
+      "id": "vocab_70",
+      "word": "stem",
+      "usage_context": "to have origin; to stop or obstruct",
+      "example_sentence": "This issue stems from poor planning."
+    }
+  ],
+  "error_patterns": [
+    {
+      "id": "error_1",
+      "error_type": "grammar",
+      "error_example": "I have been to Paris last year",
+      "correction": "I went to Paris last year",
+      "explanation": "Employ simple past for completed actions at a specific time"
+    },
+    {
+      "id": "error_2",
+      "error_type": "grammar",
+      "error_example": "The electricity is expensive",
+      "correction": "Electricity is expensive",
+      "explanation": "Abstract nouns don't need articles in general statements"
+    },
+    {
+      "id": "error_3",
+      "error_type": "grammar",
+      "error_example": "The data show that",
+      "correction": "The data shows that",
+      "explanation": "Check if noun is singular or plural"
+    },
+    {
+      "id": "error_4",
+      "error_type": "grammar",
+      "error_example": "I enjoy to read",
+      "correction": "I enjoy reading",
+      "explanation": "Some verbs take gerunds, not infinitives"
+    },
+    {
+      "id": "error_5",
+      "error_type": "grammar",
+      "error_example": "This is more better",
+      "correction": "This is better",
+      "explanation": "Don't use 'more' with one-syllable comparatives"
+    },
+    {
+      "id": "error_6",
+      "error_type": "grammar",
+      "error_example": "according to my opinion",
+      "correction": "in my opinion",
+      "explanation": "Different prepositions are used with different phrases"
+    },
+    {
+      "id": "error_7",
+      "error_type": "grammar",
+      "error_example": "The study which I conducted showed...",
+      "correction": "The study that I conducted showed...",
+      "explanation": "Both are acceptable, but 'that' is more common"
+    },
+    {
+      "id": "error_8",
+      "error_type": "grammar",
+      "error_example": "The report shows data that indicated trends",
+      "correction": "The report shows data that indicate trends",
+      "explanation": "Maintain consistent tense within a sentence"
+    },
+    {
+      "id": "error_9",
+      "error_type": "collocation",
+      "error_example": "make a decision",
+      "correction": "decide/make a choice (in context)",
+      "explanation": "Different verbs pair with different nouns"
+    },
+    {
+      "id": "error_10",
+      "error_type": "collocation",
+      "error_example": "arrive at the station",
+      "correction": "arrive in the city (different prepositions)",
+      "explanation": "Learn which prepositions follow specific verbs"
+    },
+    {
+      "id": "error_11",
+      "error_type": "collocation",
+      "error_example": "strong suggestion",
+      "correction": "strong recommendation/suggestion",
+      "explanation": "Some adjectives are preferred with certain nouns"
+    },
+    {
+      "id": "error_12",
+      "error_type": "collocation",
+      "error_example": "high standard",
+      "correction": "high/low standards / high/low quality",
+      "explanation": "Specific collocations are preferred in academic writing"
+    },
+    {
+      "id": "error_13",
+      "error_type": "collocation",
+      "error_example": "look for (search)",
+      "correction": "look into (investigate) / look at (examine)",
+      "explanation": "Different phrasal verbs have different meanings"
+    },
+    {
+      "id": "error_14",
+      "error_type": "collocation",
+      "error_example": "on my opinion",
+      "correction": "in my opinion",
+      "explanation": "Correct collocation is required"
+    },
+    {
+      "id": "error_15",
+      "error_type": "task_response",
+      "error_example": "Only discussing one side of 'discuss both'",
+      "correction": "Must address all parts: both views AND own opinion",
+      "explanation": "Failing to complete all parts reduces task response band"
+    },
+    {
+      "id": "error_16",
+      "error_type": "task_response",
+      "error_example": "Many people think this is good",
+      "correction": "Studies show that 75% of people prefer.../ Research demonstrates...",
+      "explanation": "Claims must be supported with examples or reasoning"
+    },
+    {
+      "id": "error_17",
+      "error_type": "task_response",
+      "error_example": "Including information not requested in prompt",
+      "correction": "Stick to the specific requirements of the question",
+      "explanation": "Extra content doesn't improve score if off-topic"
+    },
+    {
+      "id": "error_18",
+      "error_type": "task_response",
+      "error_example": "The government should do something about it",
+      "correction": "The government should implement stricter environmental regulations to reduce carbon emissions, which would decrease air pollution",
+      "explanation": "Ideas must be explained and developed"
+    },
+    {
+      "id": "error_19",
+      "error_type": "task_response",
+      "error_example": "Stating both agree and disagree equally",
+      "correction": "Take a clear position supported by reasoning",
+      "explanation": "Unclear position on opinion essays reduces band score"
+    },
+    {
+      "id": "error_20",
+      "error_type": "coherence",
+      "error_example": "Jumping from education to health without connection",
+      "correction": "Use linking phrases: Additionally, Furthermore, However...",
+      "explanation": "Transitions guide readers through your ideas"
+    },
+    {
+      "id": "error_21",
+      "error_type": "coherence",
+      "error_example": "Mixing multiple unrelated ideas in one paragraph",
+      "correction": "One main idea per paragraph with supporting details",
+      "explanation": "Each paragraph should focus on one central point"
+    },
+    {
+      "id": "error_22",
+      "error_type": "coherence",
+      "error_example": "Not indicating essay structure or relationships",
+      "correction": "Use: Firstly..., Secondly..., In conclusion...",
+      "explanation": "Signposting helps readers follow your argument"
+    },
+    {
+      "id": "error_23",
+      "error_type": "coherence",
+      "error_example": "Using pronouns when antecedent is unclear",
+      "correction": "This issue (be specific about which issue)",
+      "explanation": "Clear referencing improves coherence"
+    },
+    {
+      "id": "error_24",
+      "error_type": "lexical",
+      "error_example": "Good, good, good throughout essay",
+      "correction": "excellent, outstanding, exceptional",
+      "explanation": "Vary vocabulary and use advanced synonyms"
+    },
+    {
+      "id": "error_25",
+      "error_type": "lexical",
+      "error_example": "develop (noun form: development)",
+      "correction": "The development of technology",
+      "explanation": "Employ correct word form for context"
+    },
+    {
+      "id": "error_26",
+      "error_type": "lexical",
+      "error_example": "affect/effect (affect=influence, effect=result)",
+      "correction": "This change will affect (verb) the outcome",
+      "explanation": "Learn distinctions between commonly confused words"
+    },
+    {
+      "id": "error_27",
+      "error_type": "lexical",
+      "error_example": "very very very important",
+      "correction": "critically important, paramount",
+      "explanation": "Vary intensification methods"
+    },
+    {
+      "id": "error_28",
+      "error_type": "lexical",
+      "error_example": "Kids can do this",
+      "correction": "Children are able to accomplish this",
+      "explanation": "Employ formal alternatives in academic writing"
+    },
+    {
+      "id": "error_29",
+      "error_type": "lexical",
+      "error_example": "stuff, things, area, factor without specificity",
+      "correction": "technology, equipment, region, element (more specific)",
+      "explanation": "Be precise and specific in academic writing"
+    }
+  ]
+}

@@ -1,0 +1,4473 @@
+{
+  "meta": {
+    "total_task1": 21,
+    "total_task2": 400
+  },
+  "task1_prompts": [
+    {
+      "id": "t1-0001",
+      "type": "line",
+      "title": "Library Loans Trend",
+      "prompt": "The line graph shows the number of books borrowed from three public libraries in a city between 2010 and 2022.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "line",
+        "categories": [
+          "2010",
+          "2013",
+          "2016",
+          "2019",
+          "2022"
+        ],
+        "series": [
+          {
+            "label": "Central Library",
+            "color": "#1f6d67",
+            "values": [
+              42000,
+              45000,
+              41000,
+              38000,
+              35000
+            ]
+          },
+          {
+            "label": "Westside Library",
+            "color": "#bd5d38",
+            "values": [
+              28000,
+              31000,
+              33000,
+              30000,
+              29000
+            ]
+          },
+          {
+            "label": "Eastpark Library",
+            "color": "#bd8a2e",
+            "values": [
+              19000,
+              22000,
+              26000,
+              28000,
+              31000
+            ]
+          }
+        ],
+        "unit": "books borrowed"
+      }
+    },
+    {
+      "id": "t1-0002",
+      "type": "line",
+      "title": "Cycling Journeys Over Time",
+      "prompt": "The line graph illustrates the number of cycling journeys made per week in four European cities from 2005 to 2020.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "line",
+        "categories": [
+          "2005",
+          "2008",
+          "2011",
+          "2014",
+          "2017",
+          "2020"
+        ],
+        "series": [
+          {
+            "label": "Amsterdam",
+            "color": "#1f6d67",
+            "values": [
+              820,
+              870,
+              910,
+              940,
+              980,
+              1020
+            ]
+          },
+          {
+            "label": "Copenhagen",
+            "color": "#bd5d38",
+            "values": [
+              610,
+              650,
+              700,
+              750,
+              800,
+              860
+            ]
+          },
+          {
+            "label": "Berlin",
+            "color": "#bd8a2e",
+            "values": [
+              380,
+              420,
+              460,
+              510,
+              560,
+              620
+            ]
+          },
+          {
+            "label": "London",
+            "color": "#6f5d4d",
+            "values": [
+              140,
+              170,
+              210,
+              270,
+              330,
+              400
+            ]
+          }
+        ],
+        "unit": "thousand journeys/week"
+      }
+    },
+    {
+      "id": "t1-0003",
+      "type": "line",
+      "title": "Birth and Death Rate Trends",
+      "prompt": "The line graph compares the birth rate and death rate per thousand people in a developing country from 1950 to 2020, with projections to 2040.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "line",
+        "categories": [
+          "1950",
+          "1970",
+          "1990",
+          "2010",
+          "2020",
+          "2040*"
+        ],
+        "series": [
+          {
+            "label": "Birth rate",
+            "color": "#bd5d38",
+            "values": [
+              42,
+              36,
+              28,
+              22,
+              18,
+              14
+            ]
+          },
+          {
+            "label": "Death rate",
+            "color": "#1f6d67",
+            "values": [
+              18,
+              14,
+              10,
+              8,
+              7,
+              9
+            ]
+          }
+        ],
+        "unit": "per 1,000 people"
+      }
+    },
+    {
+      "id": "t1-0004",
+      "type": "pie",
+      "title": "Household Energy Use",
+      "prompt": "The pie charts show the proportion of household energy consumed by different appliances in a northern European country in 1990 and 2020.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "pie",
+        "categories": [
+          "Heating",
+          "Water heating",
+          "Appliances",
+          "Lighting",
+          "Cooking",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "1990",
+            "values": [
+              38,
+              18,
+              14,
+              12,
+              11,
+              7
+            ]
+          },
+          {
+            "label": "2020",
+            "values": [
+              28,
+              16,
+              24,
+              10,
+              9,
+              13
+            ]
+          }
+        ],
+        "unit": "percent"
+      }
+    },
+    {
+      "id": "t1-0005",
+      "type": "pie",
+      "title": "Reasons for Urban Migration",
+      "prompt": "The pie charts compare the main reasons why people moved from rural areas to cities in two different decades: 1980 and 2010.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "pie",
+        "categories": [
+          "Employment",
+          "Education",
+          "Better services",
+          "Family",
+          "Housing",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "1980",
+            "values": [
+              40,
+              18,
+              15,
+              12,
+              9,
+              6
+            ]
+          },
+          {
+            "label": "2010",
+            "values": [
+              32,
+              24,
+              18,
+              10,
+              8,
+              8
+            ]
+          }
+        ],
+        "unit": "percent"
+      }
+    },
+    {
+      "id": "t1-0006",
+      "type": "table",
+      "title": "Science Museum Visitor Survey",
+      "prompt": "The table shows the results of a survey conducted with visitors to a national science museum, asking about their satisfaction with different aspects of their visit.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "table",
+        "headers": [
+          "Aspect",
+          "Excellent",
+          "Good",
+          "Poor"
+        ],
+        "data": [
+          [
+            "Exhibits",
+            "48%",
+            "38%",
+            "14%"
+          ],
+          [
+            "Staff helpfulness",
+            "52%",
+            "33%",
+            "15%"
+          ],
+          [
+            "Facilities",
+            "35%",
+            "42%",
+            "23%"
+          ],
+          [
+            "Value for money",
+            "29%",
+            "40%",
+            "31%"
+          ],
+          [
+            "Café / restaurant",
+            "31%",
+            "37%",
+            "32%"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "t1-0007",
+      "type": "table",
+      "title": "Visitor Satisfaction Ratings",
+      "prompt": "The table presents visitor satisfaction scores across five categories at four different museums in the same city in 2023.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "table",
+        "headers": [
+          "Museum",
+          "Exhibits",
+          "Facilities",
+          "Staff",
+          "Overall"
+        ],
+        "data": [
+          [
+            "National Museum",
+            "4.6",
+            "4.2",
+            "4.5",
+            "4.5"
+          ],
+          [
+            "Science Centre",
+            "4.4",
+            "4.0",
+            "4.3",
+            "4.2"
+          ],
+          [
+            "Art Gallery",
+            "4.5",
+            "3.8",
+            "4.1",
+            "4.2"
+          ],
+          [
+            "History Museum",
+            "4.1",
+            "3.9",
+            "4.2",
+            "4.1"
+          ]
+        ],
+        "unit": "out of 5"
+      }
+    },
+    {
+      "id": "t1-0008",
+      "type": "table",
+      "title": "Annual Museum Attendance",
+      "prompt": "The table shows the number of visitors to three national museums over a five-year period from 2018 to 2022.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "table",
+        "headers": [
+          "Museum",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022"
+        ],
+        "data": [
+          [
+            "National Museum",
+            "1.8M",
+            "2.1M",
+            "0.4M",
+            "0.9M",
+            "1.6M"
+          ],
+          [
+            "Science Centre",
+            "1.2M",
+            "1.3M",
+            "0.3M",
+            "0.7M",
+            "1.1M"
+          ],
+          [
+            "Contemporary Art",
+            "0.9M",
+            "1.0M",
+            "0.2M",
+            "0.5M",
+            "0.8M"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "t1-0009",
+      "type": "pie",
+      "title": "Causes of Water Shortage",
+      "prompt": "The pie chart illustrates the main causes of freshwater shortage in five regions of the world, based on data collected in 2021.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "pie",
+        "categories": [
+          "Agriculture",
+          "Population growth",
+          "Climate change",
+          "Industrial use",
+          "Pollution",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "2021",
+            "values": [
+              38,
+              24,
+              18,
+              12,
+              5,
+              3
+            ]
+          }
+        ],
+        "unit": "percent"
+      }
+    },
+    {
+      "id": "t1-0010",
+      "type": "table",
+      "title": "Forest Loss by Cause",
+      "prompt": "The table shows the percentage of forest area lost due to different causes in four South American countries between 2000 and 2020.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "table",
+        "headers": [
+          "Country",
+          "Agriculture",
+          "Logging",
+          "Mining",
+          "Infrastructure",
+          "Total"
+        ],
+        "data": [
+          [
+            "Brazil",
+            "52%",
+            "21%",
+            "8%",
+            "19%",
+            "3.2M ha"
+          ],
+          [
+            "Colombia",
+            "45%",
+            "28%",
+            "12%",
+            "15%",
+            "1.1M ha"
+          ],
+          [
+            "Peru",
+            "41%",
+            "32%",
+            "16%",
+            "11%",
+            "0.8M ha"
+          ],
+          [
+            "Ecuador",
+            "48%",
+            "25%",
+            "10%",
+            "17%",
+            "0.5M ha"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "t1-0011",
+      "type": "table",
+      "title": "Renewable Energy Capacity",
+      "prompt": "The table displays the total renewable energy capacity (in gigawatts) installed in six countries in 2010, 2015, and 2022.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "table",
+        "headers": [
+          "Country",
+          "2010 (GW)",
+          "2015 (GW)",
+          "2022 (GW)"
+        ],
+        "data": [
+          [
+            "China",
+            "252",
+            "495",
+            "1,161"
+          ],
+          [
+            "USA",
+            "200",
+            "280",
+            "390"
+          ],
+          [
+            "Germany",
+            "58",
+            "104",
+            "132"
+          ],
+          [
+            "India",
+            "60",
+            "132",
+            "310"
+          ],
+          [
+            "Brazil",
+            "85",
+            "120",
+            "180"
+          ],
+          [
+            "UK",
+            "22",
+            "52",
+            "79"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "t1-0012",
+      "type": "table",
+      "title": "Commuting Times by City",
+      "prompt": "The table compares average daily commuting times and the main modes of transport used by workers in five major cities in 2023.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "table",
+        "headers": [
+          "City",
+          "Avg time (min)",
+          "Main mode",
+          "% using transit"
+        ],
+        "data": [
+          [
+            "Tokyo",
+            "48",
+            "Rail",
+            "75%"
+          ],
+          [
+            "New York",
+            "41",
+            "Subway",
+            "58%"
+          ],
+          [
+            "London",
+            "44",
+            "Underground",
+            "55%"
+          ],
+          [
+            "São Paulo",
+            "56",
+            "Bus",
+            "47%"
+          ],
+          [
+            "Sydney",
+            "38",
+            "Car",
+            "42%"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "t1-0013",
+      "type": "pie",
+      "title": "Plastic Waste by Sector",
+      "prompt": "The pie chart shows the proportion of plastic waste generated by different industry sectors globally in 2022.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "pie",
+        "categories": [
+          "Packaging",
+          "Consumer goods",
+          "Textiles",
+          "Transport",
+          "Construction",
+          "Other"
+        ],
+        "series": [
+          {
+            "label": "2022",
+            "values": [
+              36,
+              22,
+              16,
+              10,
+              8,
+              8
+            ]
+          }
+        ],
+        "unit": "percent"
+      }
+    },
+    {
+      "id": "t1-0014",
+      "type": "mixed",
+      "title": "Coffee Production and Export",
+      "prompt": "The bar chart shows the volume of coffee produced by the top five producing countries in 2022, while the pie chart illustrates each country's share of global coffee exports.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "mixed",
+        "series": [
+          {
+            "label": "Production (million bags)",
+            "values": [
+              69,
+              43,
+              32,
+              19,
+              15
+            ],
+            "categories": [
+              "Brazil",
+              "Vietnam",
+              "Colombia",
+              "Indonesia",
+              "Ethiopia"
+            ]
+          },
+          {
+            "label": "Export share",
+            "values": [
+              36,
+              16,
+              12,
+              7,
+              5
+            ],
+            "categories": [
+              "Brazil",
+              "Vietnam",
+              "Colombia",
+              "Indonesia",
+              "Ethiopia"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "t1-0015",
+      "type": "process",
+      "title": "Solar Panel Manufacturing",
+      "prompt": "The diagram shows the process by which solar panels are manufactured and installed in residential properties.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "process",
+        "steps": [
+          "Mine silicon",
+          "Purify silicon",
+          "Melt into ingots",
+          "Slice into wafers",
+          "Add conductive layers",
+          "Assemble into panels",
+          "Quality testing",
+          "Install on roof"
+        ]
+      }
+    },
+    {
+      "id": "t1-0016",
+      "type": "process",
+      "title": "Wastewater Treatment Process",
+      "prompt": "The diagram illustrates the stages involved in treating wastewater at a municipal treatment facility before it is returned to the natural water cycle.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "process",
+        "steps": [
+          "Collect wastewater",
+          "Screen solids",
+          "Primary settling",
+          "Biological treatment",
+          "Secondary settling",
+          "Disinfection",
+          "Treated water released",
+          "Sludge processed"
+        ]
+      }
+    },
+    {
+      "id": "t1-0017",
+      "type": "line",
+      "title": "Electricity Generation by Source",
+      "prompt": "The area chart shows how the share of electricity generated from coal, natural gas, nuclear power, and renewables changed in one country between 2000 and 2023.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "line",
+        "categories": [
+          "2000",
+          "2005",
+          "2010",
+          "2015",
+          "2020",
+          "2023"
+        ],
+        "series": [
+          {
+            "label": "Coal",
+            "color": "#6f5d4d",
+            "values": [
+              52,
+              49,
+              44,
+              37,
+              24,
+              15
+            ]
+          },
+          {
+            "label": "Natural gas",
+            "color": "#bd8a2e",
+            "values": [
+              22,
+              25,
+              28,
+              30,
+              31,
+              30
+            ]
+          },
+          {
+            "label": "Nuclear",
+            "color": "#7a6abf",
+            "values": [
+              16,
+              15,
+              14,
+              13,
+              12,
+              12
+            ]
+          },
+          {
+            "label": "Renewables",
+            "color": "#1f6d67",
+            "values": [
+              10,
+              11,
+              14,
+              20,
+              33,
+              43
+            ]
+          }
+        ],
+        "unit": "percent"
+      }
+    },
+    {
+      "id": "t1-0018",
+      "type": "map",
+      "title": "Riverside District Changes",
+      "prompt": "The maps show the layout of a riverside district in a small town in 2000 and how it has been redeveloped in 2024.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "map",
+        "features": [
+          "industrial",
+          "warehouses",
+          "residential",
+          "park",
+          "promenade",
+          "retail"
+        ],
+        "label": "Riverside District: 2000 vs 2024"
+      }
+    },
+    {
+      "id": "t1-0019",
+      "type": "map",
+      "title": "University Campus Expansion",
+      "prompt": "The maps illustrate how a university campus changed between 1990 and the present day, including planned future developments.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "map",
+        "features": [
+          "lecture halls",
+          "library",
+          "sports centre",
+          "student housing",
+          "research labs",
+          "car park"
+        ],
+        "label": "University Campus: 1990 vs Present"
+      }
+    },
+    {
+      "id": "t1-0020",
+      "type": "map",
+      "title": "Industrial Zone Transformation",
+      "prompt": "The maps compare an industrial zone on the outskirts of a city in 1985 with the mixed-use residential and commercial area that now occupies the same site.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "map",
+        "features": [
+          "factory",
+          "residential",
+          "park",
+          "shopping centre",
+          "offices",
+          "cycle paths"
+        ],
+        "label": "Industrial Zone: 1985 vs Present"
+      }
+    },
+    {
+      "id": "t1-0021",
+      "type": "map",
+      "title": "National Park Facilities",
+      "prompt": "The maps show the facilities available to visitors at a national park in 2005 and the changes that have been made by 2025.",
+      "band_score": null,
+      "sample_essay": null,
+      "visual": {
+        "kind": "map",
+        "features": [
+          "visitor centre",
+          "car park",
+          "hiking trails",
+          "campsite",
+          "wildlife area",
+          "cafe"
+        ],
+        "label": "National Park Facilities: 2005 vs 2025"
+      }
+    }
+  ],
+  "task2_prompts": [
+    {
+      "id": "t2-0001",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "Many individuals argue that it should be",
+      "prompt": "Many individuals argue that it should be illegal to use it comparing with other drugs. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0002",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many individuals argue that young people should",
+      "prompt": "Many individuals argue that young people should learn how to compete, but others think that young people should be taught to cooperate to become more useful adults. Express some reasons for both views and give your own opinions.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0003",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Many individuals argue that educators do not",
+      "prompt": "Many individuals argue that educators do not play an significant role in the classroom. To what extent do you agree? It is irrefutable that computers have become an indispensable part of education but I disagree that educators do not play a significant role in the classroom.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0004",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Many individuals argue that charity organizations should",
+      "prompt": "Many individuals argue that charity organizations should only offer help to people of their own nation. But others believe that these organizations should give aid to people in great need wherever they live.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0005",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "It is widely argued that tourists should",
+      "prompt": "It is widely argued that tourists should accept social and environmental responsibility while others believe that tourists should not accept any responsibility at all. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0006",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Many individuals argue that paying taxes is",
+      "prompt": "Many individuals argue that paying taxes is enough to contribute to the the community. Others argue that being a citizen involves more responsibilities.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0007",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Many commentators claim that subjects like arts",
+      "prompt": "Many commentators claim that subjects like arts, music, drama and creative writing are more advantageous to young individuals and therefore they need more of these subjects to be included in the timetable. How far do you agree with this opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0008",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0009",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Many individuals argue that cultural traditions may",
+      "prompt": "Many individuals argue that cultural traditions may be destroyed when they are used as money- making attractions aimed at tourists. Others believe it is the only way to save these traditions.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0010",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Some individuals think we should encourage our",
+      "prompt": "Some individuals think we should encourage our learners to evaluate and criticise their educators. Others believe that it will result in a loss of respect and discipline in the classroom.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0011",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "Some individuals believe new buildings should be",
+      "prompt": "Some individuals believe new buildings should be built in traditional styles. To what extent do you agree or disagree with this opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0012",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "Many individuals argue that people moving to",
+      "prompt": "Many individuals argue that people moving to a new nation should accept new culture in the foreign nation rather than living as a separate minority group with different lifestyle. How far do you agree with this opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0013",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Many individuals argue that using animals for",
+      "prompt": "Many individuals argue that using animals for experimentation purpose is cruel, but other people think that is necessary for the development of science. Consider both perspectives and present your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0014",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "individuals have a greater responsibility than national",
+      "prompt": "Many experts argue that individuals have a greater responsibility than national authorities to protect the natural world. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0015",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Some individuals think new educators and doctors",
+      "prompt": "Some individuals think new educators and doctors should employment in rural areas for a few years, but others think everyone should be free to choose where they employment. Discuss and give your own opinion.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0016",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "It is widely argued that air travel",
+      "prompt": "It is widely argued that air travel should be restricted because it causes serious environmental contamination and uses up the world's fuel resources.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0017",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many individuals argue that educators should be",
+      "prompt": "Many individuals argue that educators should be responsible for teaching learners to judge what is right and wrong so that they can behave well. Others say that educators should only teach learners academic subjects.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0018",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "Many individuals argue that we should discourage",
+      "prompt": "Many individuals argue that we should discourage non- essential flights, such as tourist travel, rather than to limit the use of private vehicles. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0019",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "Some individuals think it makes little difference",
+      "prompt": "Some individuals think it makes little difference to our daily life. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0020",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Some individuals think history has nothing or",
+      "prompt": "Some individuals think history has nothing or little to tell us, but others think that studying the past history can help us better understand the present. Please discuss the two views and give your own opinion.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0021",
+      "essay_type": "discussion",
+      "topic": "government",
+      "title": "Many individuals argue that national sports teams",
+      "prompt": "Many individuals argue that national sports teams and individual men and women who represent their nation should be financially supported by the authorities. However, others argue that they should be funded by non-the state sources (e.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0022",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "Some individuals think only authorities action can",
+      "prompt": "Some individuals think only authorities action can solve this issue. To what extent do you agree or disagree? Big cities act as magnets for everyone.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0023",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many people argue that learners benefit from",
+      "prompt": "Many people argue that learners benefit from going to private secondary educational institutions. Others, however, feel that private secondary schools can have a negative effect on the community as a whole.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0024",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Some individuals think museums should be enjoyable",
+      "prompt": "Some individuals think museums should be enjoyable places to attract and entertain young people, while others think the purpose of museums should be to educate, not entertain. Discuss both sides and give your own opinion.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0025",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "Many individuals argue that good wellbeing is",
+      "prompt": "Many individuals argue that good wellbeing is a basic human need, so the medical service should not be run by profit-making organisations. Do you think the disadvantages of the private wellbeing care outweigh the advantages?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0026",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Some individuals think secondary school learners should",
+      "prompt": "Some individuals think secondary school learners should study international news as one of their subjects. Other people say this is a waste of valuable school time.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0027",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "Many individuals argue that if a the",
+      "prompt": "Many individuals argue that if a the community were governed by female leaders, it would be more peaceful. However, if we look into the past history we can get numerous examples when there have been wars and conflicts even during the rule of women rulers.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0028",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Many individuals argue that personal happiness is",
+      "prompt": "Many individuals argue that personal happiness is directly related to economic success. Others argue that happiness depends on different factors.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0029",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many individuals argue that educational institutions should",
+      "prompt": "Many individuals argue that educational institutions should select learners according to their academic abilities, while others believe that it is better to have pupils with different abilities study together. Discuss both views and give your own opinion.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0030",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "It is widely argued that some unpaid",
+      "prompt": "It is widely argued that some unpaid community service should be a compulsory part of high school programmes (e.g.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0031",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "Some individuals claim that public museums and",
+      "prompt": "Some individuals claim that public museums and art galleries will not be needed because people can see historical objects and works of art by using a computer. Do you agree or disagree with this opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0032",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "Many individuals argue that we should invent",
+      "prompt": "Many individuals argue that we should invent a new language for international communication. Do the benefits of this outweigh the challenges?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0033",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many individuals argue that studying in a",
+      "prompt": "Many individuals argue that studying in a college or university is the best way for learners to prepare for their future career. But others think they should leave school as soon as possible to develop their career through employment experience.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0034",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Some individuals think investment in art is",
+      "prompt": "Some individuals think investment in art is necessary, but others say money is better spent on improving wellbeing and education. Discuss both these views and give your own opinion.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0035",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0036",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "Many individuals argue that offenders should be",
+      "prompt": "Many individuals argue that offenders should be given longer terms in prison, so as to reduce the criminal behaviour rate. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0037",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0038",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Some individuals argue that learners only need",
+      "prompt": "Some individuals argue that learners only need to receive primary education, while others believe secondary education is necessary. Before presenting my opinion, it is necessary for me to probe into both sides of the issue.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0039",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Some individuals think people can exploit animals",
+      "prompt": "Some individuals think people can exploit animals for any purpose they need, while others do not think so. What is your opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0040",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "Some individuals think individuals and the community",
+      "prompt": "Some individuals think individuals and the community should pay more attention to the future than to the present. How far do you agree with this opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0041",
+      "essay_type": "opinion",
+      "topic": "food",
+      "title": "Some individuals think imported food exerts positive",
+      "prompt": "Some individuals think imported food exerts positive impacts on our lives. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0042",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Many individuals argue that educational institutions should",
+      "prompt": "Many individuals argue that educational institutions should concentrate on academic classes, because they are helpful for future career. And they think music and sports classes are not useful.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0043",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many individuals argue that university learners should",
+      "prompt": "Many individuals argue that university learners should specialize in one subject, while others think higher education institutions should encourage learners to learn a range of subjects. Consider both perspectives and present your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0044",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many individuals argue that young people should",
+      "prompt": "Many individuals argue that young people should obey rules or do what their parents and educators want them to do, but others think that young people controlled too much cannot deal with challenges well by themselves. Discuss both views and give your own opinion.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0045",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Some individuals think learners should learn more",
+      "prompt": "Some individuals think learners should learn more practical courses like computer, but others think they should learn more about theoretical courses like geography and mathematics. Consider both perspectives and present your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0046",
+      "essay_type": "opinion",
+      "topic": "media",
+      "title": "Many individuals argue that media should not",
+      "prompt": "Many individuals argue that media should not report detail of crimes to the public. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0047",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "Many individuals argue that offenders should not",
+      "prompt": "Many individuals argue that offenders should not be imprisoned. Instead, education and positions training should replace the former to deal with criminals.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0048",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Some individuals think higher education institutions should",
+      "prompt": "Some individuals think higher education institutions should make it easier for them to study at. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0049",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Some individuals think music plays an significant",
+      "prompt": "Some individuals think music plays an significant role in the community. Others think it is it is simply a form of entertainment.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0050",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "Many commentators claim that if humans stop",
+      "prompt": "Many commentators claim that if humans stop using modern modern technology and lead a simple way of life then only we can save the natural world. They argue that it is the luxuries individuals use which damages the natural world.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0051",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "Some individuals think authorities should come ahead",
+      "prompt": "Some individuals think authorities should come ahead and do some constructive works. Many eco- friendly laws can be made like one private vehicle per family.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0052",
+      "essay_type": "discussion",
+      "topic": "health",
+      "title": "It is widely argued that improve public",
+      "prompt": "It is widely argued that improve public wellbeing should rise the number of sports facilities; others believe that it has little effects and need other measures to improve it. Consider both perspectives and present your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0053",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "It is widely argued that teenagers should",
+      "prompt": "It is widely argued that teenagers should concentrate on all school subjects. But, others believe that teenagers should focus on the subject that they are best at or that they find the most interest.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0054",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "Some individuals argue that organisations and private",
+      "prompt": "Some individuals argue that organisations and private individuals, rather than authorities, should pay the bill of pollution. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0055",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "Some individuals think it would be better",
+      "prompt": "Some individuals think it would be better to our natural world and economy if people only ate local produced food. What extend does the advantage outweigh disadvantage?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0056",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "Many individuals argue that financial support from",
+      "prompt": "Many individuals argue that financial support from authorities should be only provided for scientific research rather than research for less useful subjects. How far do you agree with this opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0057",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many individuals argue that learners should go",
+      "prompt": "Many individuals argue that learners should go to college for further education. However, some others claim that learners should go to learn the skills such as fixing private vehicles or construction.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0058",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Many individuals argue that family life and",
+      "prompt": "Many individuals argue that family life and parents have great influence on young people's development, while others consider that external influence plays a more significant role in young people's life, discuss both views and give your own opinion.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0059",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "Many commentators claim that professional workers such",
+      "prompt": "Many commentators claim that professional workers such as doctors, nurses and educators who make greater contribution to the the community should be paid more than those individuals in the field of sports and entertainment. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0060",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Many individuals argue that introducing new modern",
+      "prompt": "Many individuals argue that introducing new modern modern technology can improve people's quality of life in the developing nations. However, others believe that free education should be offered.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0061",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "Some individuals think parents should read or",
+      "prompt": "Some individuals think parents should read or tell stories to young people, while others think parents need not do that, as young people can read books, watch TV or movies by themselves. Consider both perspectives and present your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0062",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "academic examinations are not the most effective",
+      "prompt": "Many experts argue that academic examinations are not the most effective way to assess a learner's true abilities. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0063",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "Some individuals think foreign visitors should be",
+      "prompt": "Some individuals think foreign visitors should be charged more than local people when they visit the cultural and historical attractions in a nation. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0064",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "Some individuals claim that individual action is",
+      "prompt": "Some individuals claim that individual action is irrelevant in the face of massive, wide- scale prevention policies set and controlled by authorities. On the other hand, it is also a fact that individual action combined with governmental action can do a lot more to prevent global warming than if individual citizens were not involved.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0065",
+      "essay_type": "discussion",
+      "topic": "work",
+      "title": "a shorter working week would benefit both",
+      "prompt": "Many experts argue that a shorter working week would benefit both employees and their employers. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0066",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "Many commentators claim that women lack physical",
+      "prompt": "Many commentators claim that women lack physical strength and therefore they are not fit to be in the army or police as these positions require physical strength. I would however, argue that it would be wrong to say that women are less able than men in certain positions.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0067",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "Many individuals argue that men and women",
+      "prompt": "Many individuals argue that men and women have different qualities. Therefore, some certain positions are suitable for men and some positions are suitable for women.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0068",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Many commentators claim that individuals should be",
+      "prompt": "Many commentators claim that individuals should be educated and made aware of its detrimental effects. However, others opine that education does not help in making people eat less junk food.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0069",
+      "essay_type": "discussion",
+      "topic": "technology",
+      "title": "modern technology has made individuals more socially",
+      "prompt": "Some people maintain that modern technology has made individuals more socially isolated, while others argue that it has strengthened human connections. Examine both perspectives.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0070",
+      "essay_type": "discussion",
+      "topic": "government",
+      "title": "Some individuals think authorities should spend money",
+      "prompt": "Some individuals think authorities should spend money on measures to save languages with few speakers from dying out completely. Others think this is a waste of financial resources.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0071",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "Many individuals argue that too much money",
+      "prompt": "Many individuals argue that too much money has been spent looking after and repairing old buildings, so we should knock down old buildings and build modern ones instead. How far do you agree with this view? It has been a matter of intense debate for quite some time now as to what should be done with old buildings.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0072",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Some individuals say public speaking should be",
+      "prompt": "Some individuals say public speaking should be taught at school. How far do you agree with this opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0073",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Many commentators claim that higher education institutions",
+      "prompt": "Many commentators claim that higher education institutions should have equal numbers of both genders in all subjects is that they want to remove discrimination against women who have lesser chances of higher education in many societies. However, taking such a step could lead to negative discrimination against the men.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0074",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "It is widely argued that individuals can",
+      "prompt": "It is widely argued that individuals can achieve more egalitarian societies. Others believe that high levels of personal achievement are possible only if individuals are free to succeed or fail according to their individual merits.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0076",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "It is widely argued that tourists should",
+      "prompt": "It is widely argued that tourists should accept ndia social and environmental responsibility while others believe that tourists should not accept any responsibility at all. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0077",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "Many commentators claim that subjects like arts",
+      "prompt": "Many commentators claim that subjects like arts, music, drama GT and creative writing are more advantageous to young individuals and therefore they need more of these subjects to be included in the timetable. How far do you agree with this opinion?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0078",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0079",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0080",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many experts argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0081",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0082",
+      "essay_type": "problem-solution",
+      "topic": "environment",
+      "title": "individuals have a greater responsibility than national",
+      "prompt": "Many experts argue that individuals have a greater responsibility than national authorities to protect the natural world. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0083",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0084",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "Many individuals argue that we should discourage",
+      "prompt": "Many individuals argue that we should discourage non-essential flights, such as tourist travel, rather than to limit the use of private vehicles. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0086",
+      "essay_type": "discussion",
+      "topic": "government",
+      "title": "national authorities should spend more on public",
+      "prompt": "Many experts argue that national authorities should spend more on public wellbeing than on defence. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0088",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0089",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0090",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "people believe that online learning will eventually",
+      "prompt": "A considerable number of people believe that online learning will eventually replace traditional classroom education. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0091",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0092",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0093",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "suggested that all learners should be taught",
+      "prompt": "It has frequently been suggested that all learners should be taught in mixed-ability classes rather than being grouped by academic performance. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0094",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "artificial intelligence will eventually replace most forms",
+      "prompt": "Many experts argue that artificial intelligence will eventually replace most forms of human employment. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0095",
+      "essay_type": "opinion",
+      "topic": "transport",
+      "title": "private vehicle use should be heavily taxed",
+      "prompt": "Many experts argue that private vehicle use should be heavily taxed in cities to reduce congestion and environmental contamination. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0096",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0097",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0098",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "prevention is more effective than punishment in",
+      "prompt": "Many experts argue that prevention is more effective than punishment in reducing criminal activity in society. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0099",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "belief that young people are spending too",
+      "prompt": "There is a growing belief that young people are spending too much time using digital devices and that this is damaging their wellbeing. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0100",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "public speaking skills should be taught as",
+      "prompt": "Many experts argue that public speaking skills should be taught as a core subject in all secondary schools. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0101",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "academic examinations are not the most effective",
+      "prompt": "Many experts argue that academic examinations are not the most effective way to assess a learner's true abilities. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0102",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0103",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0104",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0105",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "people believe that rehabilitation, rather than punishment",
+      "prompt": "A considerable number of people believe that rehabilitation, rather than punishment, should be the primary goal of the criminal justice system. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0106",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "prevention is more effective than punishment in",
+      "prompt": "Many experts argue that prevention is more effective than punishment in reducing criminal activity in society. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0107",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "Some individuals think higher education institutions should",
+      "prompt": "Some individuals think higher education institutions should make it easier for them to study at . How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0108",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0109",
+      "essay_type": "discussion",
+      "topic": "health",
+      "title": "national authorities have a duty to fund",
+      "prompt": "Many experts argue that national authorities have a duty to fund universal healthcare for all citizens. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0110",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "people believe that online learning will eventually",
+      "prompt": "A considerable number of people believe that online learning will eventually replace traditional classroom education. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0111",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "belief that economic development should never be",
+      "prompt": "There is a growing belief that economic development should never be prioritised over environmental conservation. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0112",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "people believe that personal data collected by",
+      "prompt": "A considerable number of people believe that personal data collected by technology companies poses a serious threat to individual privacy. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0113",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0114",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0115",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "a shorter working week would benefit both",
+      "prompt": "Many experts argue that a shorter working week would benefit both employees and their employers. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0116",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0117",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "suggested that all learners should be taught",
+      "prompt": "It has frequently been suggested that all learners should be taught in mixed-ability classes rather than being grouped by academic performance. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0118",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "Some individuals think foreign visitors should be",
+      "prompt": "Some individuals think foreign visitors should be h charged more than local people when they visit the cultural and historical attractions in a nation. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0119",
+      "essay_type": "discussion",
+      "topic": "work",
+      "title": "belief that remote working has fundamentally changed",
+      "prompt": "There is a growing belief that remote working has fundamentally changed the nature of employment for the better. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0120",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "Many individuals argue that men and women",
+      "prompt": "Many individuals argue that men and women have h different qualities. Therefore, some certain positions are suitable for men and some positions are suitable for women.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0121",
+      "essay_type": "discussion",
+      "topic": "technology",
+      "title": "modern technology has made individuals more socially",
+      "prompt": "Some people maintain that modern technology has made individuals more socially isolated, while others argue that it has strengthened human connections. Examine both perspectives.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0122",
+      "essay_type": "discussion",
+      "topic": "government",
+      "title": "Some individuals think authorities should spend money",
+      "prompt": "Some individuals think authorities should spend money h on measures to save languages with few speakers from dying out completely. Others think this is a waste of financial resources.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0123",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "Many individuals argue that too much money",
+      "prompt": "Many individuals argue that too much money has been h spent looking after and repairing old buildings, so we should knock down old buildings and build modern ones instead. How far do you agree with this view? esearch indicates that the characteristics we are GT old essay born with have much more influence on our personality and development than any experiences we may have in our life ost high level positions are done by men.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0125",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0126",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0127",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0128",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "academic examinations are not the most effective",
+      "prompt": "Many experts argue that academic examinations are not the most effective way to assess a student's true abilities. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0129",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0130",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0131",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "that people in developed nations consume far",
+      "prompt": "It is increasingly argued that people in developed nations consume far more than they need, and that this is damaging the planet. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0132",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "urban living offers more advantages than rural",
+      "prompt": "Many experts maintain that urban living offers more advantages than rural life in the modern era. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0133",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "national authorities should spend more on public",
+      "prompt": "Many experts argue that national authorities should spend more on public health than on defence. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0134",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "To what extent do you agree with",
+      "prompt": "To what extent do you agree with this opinion and what measures can you recommend reducing this issue?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0135",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "decades, it has been argued that family",
+      "prompt": "Over the last few decades, it has been argued that family bonds have weakened as a result of modern lifestyles. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0136",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "belief that citizens should have more direct",
+      "prompt": "There is a growing belief that citizens should have more direct say in government decisions through referendums. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0137",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "public spaces should be restricted to non-smoking",
+      "prompt": "Many experts argue that public spaces should be restricted to non-smoking to protect public health. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0138",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "individuals have a greater responsibility than governments",
+      "prompt": "Many experts argue that individuals have a greater responsibility than governments to protect the natural world. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0139",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that national identity is more",
+      "prompt": "A considerable number of people believe that national identity is more important than a global one. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0140",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "To what extent do you agree or",
+      "prompt": "To what extent do you agree or disagree? Big cities act as magnets for everyone.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0141",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "belief that economic development should never be",
+      "prompt": "There is a growing belief that economic development should never be prioritised over environmental conservation. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0142",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "belief that physical education should be given",
+      "prompt": "There is a growing belief that physical education should be given equal time to academic subjects in schools. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0143",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "participation in community service should be encouraged",
+      "prompt": "Many experts argue that participation in community service should be encouraged but never made obligatory. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0144",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0145",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "suggested that national authorities should provide free",
+      "prompt": "It has frequently been suggested that national authorities should provide free internet access to all citizens. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0146",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "suggested that all learners should be taught",
+      "prompt": "It has frequently been suggested that all learners should be taught in mixed-ability classes rather than being grouped by academic performance. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0148",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "prevention is more effective than punishment in",
+      "prompt": "Many experts argue that prevention is more effective than punishment in reducing criminal activity in society. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0149",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0150",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "suggested that a global tax on carbon",
+      "prompt": "It has frequently been suggested that a global tax on carbon emissions is the most effective way to address climate change. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0151",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0152",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "artificial intelligence will eventually replace most forms",
+      "prompt": "Many experts argue that artificial intelligence will eventually replace most forms of human employment. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0153",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "belief that children are spending too much",
+      "prompt": "There is a growing belief that children are spending too much time using digital devices and that this is having a negative effect on their development. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0154",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "suggested that the rise of online social",
+      "prompt": "It has frequently been suggested that the rise of online social platforms has had a more negative than positive effect on society. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0155",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "people believe that personal data collected by",
+      "prompt": "A considerable number of people believe that personal data collected by technology companies poses a serious threat to individual privacy. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0156",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "a shorter working week would benefit both",
+      "prompt": "Many experts argue that a shorter working week would benefit both employees and their employers. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0157",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0158",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0159",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "that people in developed nations consume far",
+      "prompt": "It is increasingly argued that people in developed nations consume far more than they need, and that this is damaging the planet. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0160",
+      "essay_type": "opinion",
+      "topic": "food",
+      "title": "people in wealthier nations have a responsibility",
+      "prompt": "Many experts argue that people in wealthier nations have a responsibility to reduce meat consumption for the sake of the planet. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0161",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "national authorities have a duty to fund",
+      "prompt": "Many experts argue that national authorities have a duty to fund universal healthcare for all citizens. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0162",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "people believe that online learning will eventually",
+      "prompt": "A considerable number of people believe that online learning will eventually replace traditional classroom education. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0163",
+      "essay_type": "opinion",
+      "topic": "media",
+      "title": "the mainstream media has too much influence",
+      "prompt": "Many experts argue that the mainstream media has too much influence over public opinion. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0165",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "parents, rather than educators, bear the primary",
+      "prompt": "Many experts argue that parents, rather than educators, bear the primary responsibility for a child's moral education. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0166",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "people believe that arts and culture should",
+      "prompt": "A considerable number of people believe that arts and culture should be funded by the state rather than by private enterprise. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0167",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "self-driving vehicles will make roads safer and",
+      "prompt": "Many experts argue that self-driving vehicles will make roads safer and should be adopted as widely as possible. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0168",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "urban living offers more advantages than rural",
+      "prompt": "Many experts maintain that urban living offers more advantages than rural life in the modern era. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0169",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "decades, it has been argued that family",
+      "prompt": "Over the last few decades, it has been argued that family bonds have weakened as a result of modern lifestyles. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0170",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "To what extent do you agree? In",
+      "prompt": "To what extent do you agree? In many production-oriented factories, machinery has evolved to such a degree that the demand for physical labour has considerably reduced, leading to the suggestion of a reduced working week.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0171",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "decades, it has been argued that dependence",
+      "prompt": "Over the last few decades, it has been argued that dependence on modern technology is reducing people's ability to think critically. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0172",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "people believe that individuals who cause environmental",
+      "prompt": "A considerable number of people believe that individuals who cause environmental damage should face severe legal penalties. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0173",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "public spaces should be restricted to non-smoking",
+      "prompt": "Many experts argue that public spaces should be restricted to non-smoking to protect public health. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0174",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "mass tourism causes more harm than good",
+      "prompt": "Many experts argue that mass tourism causes more harm than good to local communities and environments. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0175",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "sustainable farming practices should be made compulsory",
+      "prompt": "Many experts argue that sustainable farming practices should be made compulsory worldwide to protect the natural world. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0176",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "national authorities should impose strict limits on",
+      "prompt": "Many experts argue that national authorities should impose strict limits on advertising directed at young people. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0177",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that national identity is more",
+      "prompt": "A considerable number of people believe that national identity is more important than a global one. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0178",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "decades, it has been suggested that early",
+      "prompt": "Over the last few decades, it has been suggested that early childhood education has a more lasting impact on a person's development than later schooling. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0179",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "governments should regulate the content available on",
+      "prompt": "Many experts argue that governments should regulate the content available on the internet to protect citizens. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0180",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "How far do you agree with this",
+      "prompt": "How far do you agree with this view? It has been a matter of intense debate for quite some time now as to what should be done with old buildings.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0181",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "held view that learners who study abroad",
+      "prompt": "There is a widely held view that learners who study abroad gain significant advantages over those who remain in their home country. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0182",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that the authorities should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0183",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "participation in community service should be encouraged",
+      "prompt": "Many experts argue that participation in community service should be encouraged but never made obligatory. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0184",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0185",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "artificial intelligence will eventually replace most forms",
+      "prompt": "Many experts argue that artificial intelligence will eventually replace most forms of human employment. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0186",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "belief that children are spending too much",
+      "prompt": "There is a growing belief that children are spending too much time using digital devices and that this is having a negative effect on their development. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0187",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "creative subjects such as art, music, and",
+      "prompt": "Many experts argue that creative subjects such as art, music, and drama are as valuable as science and mathematics in a school curriculum. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0188",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "belief that longer prison sentences are the",
+      "prompt": "There is a growing belief that longer prison sentences are the most effective way to deter offenders. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0189",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "that educators should use technology in every",
+      "prompt": "It is increasingly argued that educators should use technology in every lesson to prepare students for the modern workforce. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0191",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0192",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "belief that remote working has fundamentally changed",
+      "prompt": "There is a growing belief that remote working has fundamentally changed the nature of employment for the better. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0193",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "national authorities should spend more on public",
+      "prompt": "Many experts argue that national authorities should spend more on public health than on defence. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0194",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0195",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0196",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0197",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "mass tourism causes more harm than good",
+      "prompt": "Many experts argue that mass tourism causes more harm than good to local communities and the natural world. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0198",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "the purpose of higher education should be",
+      "prompt": "Many experts argue that the purpose of higher education should be to develop well-rounded individuals rather than to prepare them solely for employment. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0199",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "belief that citizens should have more direct",
+      "prompt": "There is a growing belief that citizens should have more direct say in government decisions through referendums. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0200",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the poor is widening in most societies, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0201",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0202",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "that people in developed nations consume far",
+      "prompt": "It is increasingly argued that people in developed nations consume far more than they need, and that this is damaging the planet. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0203",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "suggested that all workers, regardless of their",
+      "prompt": "It has frequently been suggested that all workers, regardless of their role, should receive the same basic wage. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0204",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "urban living offers more advantages than rural",
+      "prompt": "Many experts maintain that urban living offers more advantages than rural life in the modern era. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0205",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "decades, it has been argued that family",
+      "prompt": "Over the last few decades, it has been argued that family bonds have weakened as a result of modern lifestyles. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0206",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "suggested that the rise of online social",
+      "prompt": "It has frequently been suggested that the rise of online social platforms has had a more negative than positive effect on society. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0207",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "higher education institutions should be free for",
+      "prompt": "Certain commentators maintain that higher education institutions should be free for all students, while others argue that individuals should contribute to the cost. Discuss both views.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0209",
+      "essay_type": "opinion",
+      "topic": "media",
+      "title": "belief that online news sources are less",
+      "prompt": "There is a growing belief that online news sources are less reliable than traditional print journalism. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0210",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "academic examinations are not the most effective",
+      "prompt": "Many experts argue that academic examinations are not the most effective way to assess a student's true abilities. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0211",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "public spaces should be restricted to non-smoking",
+      "prompt": "Many experts argue that public spaces should be restricted to non-smoking to protect public health. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0212",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "belief that physical education should be given",
+      "prompt": "There is a growing belief that physical education should be given equal time to academic subjects in schools. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0213",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "suggested that all learners should be taught",
+      "prompt": "It has frequently been suggested that all learners should be taught in mixed-ability classes rather than being grouped by academic performance. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0214",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that national identity is more",
+      "prompt": "A considerable number of people believe that national identity is more important than a global one. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0215",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "participation in community service should be encouraged",
+      "prompt": "Many experts argue that participation in community service should be encouraged but never made obligatory. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0216",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0217",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0218",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "people believe that online learning will eventually",
+      "prompt": "A considerable number of people believe that online learning will eventually replace traditional classroom education. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0219",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "belief that unhealthy lifestyle choices are the",
+      "prompt": "There is a growing belief that unhealthy lifestyle choices are the leading cause of most preventable illnesses. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0220",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "parents, rather than educators, bear the primary",
+      "prompt": "Many experts argue that parents, rather than educators, bear the primary responsibility for a child's moral education. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0221",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "discipline and structure are essential to effective",
+      "prompt": "Some people believe that discipline and structure are essential to effective learning, while others argue that learners thrive in more flexible environments. Examine both sides.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0222",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0223",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "individuals have a greater responsibility than governments",
+      "prompt": "Many experts argue that individuals have a greater responsibility than governments to protect the natural world. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0224",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "decades, it has been suggested that early",
+      "prompt": "Over the last few decades, it has been suggested that early childhood education has a more lasting impact on a person's development than later schooling. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0225",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "suggested that surveillance cameras in public places",
+      "prompt": "It has frequently been suggested that surveillance cameras in public places are an unjustified invasion of privacy. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0226",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "held view that learners who study abroad",
+      "prompt": "There is a widely held view that learners who study abroad gain significant advantages over those who remain in their home country. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0227",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "cultural traditions and customs are being lost",
+      "prompt": "Certain commentators maintain that cultural traditions and customs are being lost as a result of globalisation, while others believe that cultural exchange enriches all societies. Consider both views and state your own position.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0228",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0229",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0230",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "people believe that rehabilitation, rather than punishment",
+      "prompt": "A considerable number of people believe that rehabilitation, rather than punishment, should be the primary goal of the criminal justice system. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0231",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "public speaking skills should be taught as",
+      "prompt": "Many experts argue that public speaking skills should be taught as a core subject in all secondary schools. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0232",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "belief that economic development should never be",
+      "prompt": "There is a growing belief that economic development should never be prioritised over environmental conservation. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0233",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "people believe that personal data collected by",
+      "prompt": "A considerable number of people believe that personal data collected by technology companies poses a serious threat to individual privacy. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0234",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "belief that tourists have a responsibility to",
+      "prompt": "There is a growing belief that tourists have a responsibility to learn about and respect the customs of their destinations. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0235",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "creative subjects such as art, music, and",
+      "prompt": "Many experts argue that creative subjects such as art, music, and drama are as valuable as science and mathematics in a school curriculum. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0236",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "that people in developed nations consume far",
+      "prompt": "It is increasingly argued that people in developed nations consume far more than they need, and that this is damaging the planet. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0237",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "suggested that adventure tourism and extreme sports",
+      "prompt": "It has frequently been suggested that adventure tourism and extreme sports pose unacceptable risks to participants and should be more strictly regulated. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0238",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "urban living offers more advantages than rural",
+      "prompt": "Many experts maintain that urban living offers more advantages than rural life in the modern era. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0239",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "people believe that companies have a moral",
+      "prompt": "A considerable number of people believe that companies have a moral duty to prioritise the wellbeing of their employees over profit. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0240",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "suggested that national authorities should impose higher",
+      "prompt": "It has frequently been suggested that national authorities should impose higher taxes on unhealthy foods to discourage poor dietary habits. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0241",
+      "essay_type": "discussion",
+      "topic": "technology",
+      "title": "modern technology has made people more socially",
+      "prompt": "Some people maintain that modern technology has made people more socially isolated, while others argue that it has strengthened human connections. Examine both perspectives.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0242",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "decades, it has been argued that family",
+      "prompt": "Over the last few decades, it has been argued that family bonds have weakened as a result of modern lifestyles. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0243",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "How far do you agree with this",
+      "prompt": "How far do you agree with this view? esearch indicates that the characteristics we are GT old essay born with have much more influence on our personality and development than any experiences we may have in our life ost high level positions are done by men.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0244",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "public spaces should be restricted to non-smoking",
+      "prompt": "Many experts argue that public spaces should be restricted to non-smoking to protect public health. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0245",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "held view that older generations have more",
+      "prompt": "There is a widely held view that older generations have more wisdom to offer society than younger generations. Others disagree. Examine both sides and give your own perspective.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0246",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "charities should focus their support exclusively on",
+      "prompt": "Some people think that charities should focus their support exclusively on their home country, while others feel that aid should be distributed globally. Examine both viewpoints and present your own position.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0247",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "that immigration brings significant economic benefits, while",
+      "prompt": "There is a belief that immigration brings significant economic benefits, while others argue it places excessive pressure on public services. Discuss both views and give your own opinion.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0248",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "it is the responsibility of the individual",
+      "prompt": "Some people maintain that it is the responsibility of the individual to stay informed about current affairs, while others believe the media should make news more accessible. Examine both sides.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0249",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the poor is widening in most societies, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0250",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "the gap between the wealthy and the",
+      "prompt": "Some people maintain that the gap between the wealthy and the disadvantaged is widening in most nations, while others argue that living standards are rising for everyone. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0251",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "What do you think? Young young individuals",
+      "prompt": "What do you think? Young young individuals are buildings under construction and educators are the builders.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0252",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "What do you think of this case",
+      "prompt": "What do you think of this case? What to be done to solve this issue? criminal behaviour is a big challenge all over the world and there are many different opinions on the best way to reduce criminal activity.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0253",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "What do you think? ome individuals think",
+      "prompt": "What do you think? ome individuals think if learners are afraid of the GT teacher it is better.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0254",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "What do you think of this case",
+      "prompt": "What do you think of this case? What to be done to solve this issue? oney for postgraduate research is limited.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0255",
+      "essay_type": "opinion",
+      "topic": "transport",
+      "title": "private vehicle use should be heavily taxed",
+      "prompt": "Many experts argue that private vehicle use should be heavily taxed in cities to reduce congestion and environmental contamination. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0256",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that national identity is more",
+      "prompt": "A considerable number of people believe that national identity is more important than a global one. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0257",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "participation in community service should be encouraged",
+      "prompt": "Many experts argue that participation in community service should be encouraged but never made obligatory. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0258",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "that educators should use technology in every",
+      "prompt": "It is increasingly argued that educators should use technology in every lesson to prepare students for the modern workforce. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0259",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "the purpose of higher education should be",
+      "prompt": "Many experts argue that the purpose of higher education should be to develop well-rounded individuals rather than to prepare them solely for employment. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0260",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that online social platforms have",
+      "prompt": "A considerable number of people believe that online social platforms have done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0261",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "Do you agree or that improvements in",
+      "prompt": "Do you agree or that improvements in modern modern technology reduce the role of Olympic Games.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0262",
+      "essay_type": "opinion",
+      "topic": "transport",
+      "title": "belief that investing in public transportation is",
+      "prompt": "There is a growing belief that investing in public transportation is more beneficial to society than building more roads. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0263",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0264",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0265",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0266",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0267",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "academic examinations are not the most effective",
+      "prompt": "Many experts argue that academic examinations are not the most effective way to assess a student's true abilities. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0268",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "self-driving vehicles will make roads safer and",
+      "prompt": "Many experts argue that self-driving vehicles will make roads safer and should be adopted as widely as possible. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0269",
+      "essay_type": "opinion",
+      "topic": "media",
+      "title": "suggested that advertising targeted at young people",
+      "prompt": "It has frequently been suggested that advertising targeted at young people should be banned on social media platforms. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0270",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "Do you agree with this opinion and",
+      "prompt": "Do you agree with this opinion and what measures can you recommend reducing this issue?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0271",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0272",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "suggested that national authorities should provide free",
+      "prompt": "It has frequently been suggested that national authorities should provide free internet access to all citizens. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0273",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "that people in developed nations consume far",
+      "prompt": "It is increasingly argued that people in developed nations consume far more than they need, and that this is damaging the planet. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0274",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "large cities offer more opportunities",
+      "prompt": "Many experts argue that large cities offer significantly more opportunities for personal and professional development than smaller towns or rural areas. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0275",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "suggested that a global tax on carbon",
+      "prompt": "It has frequently been suggested that a global tax on carbon emissions is the most effective way to address climate change. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0276",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "belief that physical education should be given",
+      "prompt": "There is a growing belief that physical education should be given equal time to academic subjects in schools. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0277",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "urban living offers more advantages than rural",
+      "prompt": "Many experts maintain that urban living offers more advantages than rural life in the modern era. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0278",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "decades, it has been argued that family",
+      "prompt": "Over the last few decades, it has been argued that family bonds have weakened as a result of modern lifestyles. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0279",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "people believe that arts and culture should",
+      "prompt": "A considerable number of people believe that arts and culture should be funded by the state rather than by private enterprise. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0280",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "suggested that all learners should be taught",
+      "prompt": "It has frequently been suggested that all learners should be taught in mixed-ability classes rather than being grouped by academic performance. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0282",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "public spaces should be restricted to non-smoking",
+      "prompt": "Many experts argue that public spaces should be restricted to non-smoking to protect public health. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0283",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "people believe that individuals who cause environmental",
+      "prompt": "A considerable number of people believe that individuals who cause environmental damage should face severe legal penalties. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0284",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that national identity is more",
+      "prompt": "A considerable number of people believe that national identity is more important than a global one. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0285",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "decades, it has been argued that dependence",
+      "prompt": "Over the last few decades, it has been argued that dependence on modern technology is reducing people's ability to think critically. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0286",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "governments should regulate the content available on",
+      "prompt": "Many experts argue that governments should regulate the content available on the internet to protect citizens. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0287",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "artificial intelligence will eventually replace most forms",
+      "prompt": "Many experts argue that artificial intelligence will eventually replace most forms of human employment. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0288",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "employees who work flexibly are more productive",
+      "prompt": "Many experts argue that employees who work flexibly are more productive than those who follow fixed schedules. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0289",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "participation in community service should be encouraged",
+      "prompt": "Many experts argue that participation in community service should be encouraged but never made obligatory. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0290",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0291",
+      "essay_type": "opinion",
+      "topic": "food",
+      "title": "belief that governments should subsidise the production",
+      "prompt": "There is a growing belief that governments should subsidise the production of locally grown food to reduce dependence on imports. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0292",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "people believe that physical exercise should be",
+      "prompt": "A considerable number of people believe that physical exercise should be made a compulsory part of every adult's working week. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0293",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "people believe that online learning will eventually",
+      "prompt": "A considerable number of people believe that online learning will eventually replace traditional classroom education. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0294",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "parents, rather than educators, bear the primary",
+      "prompt": "Many experts argue that parents, rather than educators, bear the primary responsibility for a child's moral education. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0295",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "belief that children are spending too much",
+      "prompt": "There is a growing belief that children are spending too much time using digital devices and that this is having a negative effect on their development. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0296",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0297",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0298",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0299",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "Do you agree? In many production-oriented factories",
+      "prompt": "Do you agree? In many production-oriented factories, machinery has evolved to such a degree that the demand for physical labour has considerably reduced, leading to the suggestion of a reduced working week.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0300",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "suggested that the rise of online social",
+      "prompt": "It has frequently been suggested that the rise of online social platforms has had a more negative than positive effect on society. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0301",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "sustainable farming practices should be made compulsory",
+      "prompt": "Many experts argue that sustainable farming practices should be made compulsory worldwide to protect the natural world. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0302",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "decades, it has been suggested that early",
+      "prompt": "Over the last few decades, it has been suggested that early childhood education has a more lasting impact on a person's development than later schooling. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0303",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0304",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "individuals have a greater responsibility than governments",
+      "prompt": "Many experts argue that individuals have a greater responsibility than governments to protect the natural world. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0305",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "held view that learners who study abroad",
+      "prompt": "There is a widely held view that learners who study abroad gain significant advantages over those who remain in their home country. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0306",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "people believe that space tourism should be",
+      "prompt": "A considerable number of people believe that space tourism should be developed as the next frontier of the travel industry. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0307",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "belief that economic development should never be",
+      "prompt": "There is a growing belief that economic development should never be prioritised over environmental conservation. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0308",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "that people in developed nations consume far",
+      "prompt": "It is increasingly argued that people in developed nations consume far more than they need, and that this is damaging the planet. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0309",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "creative subjects such as art, music, and",
+      "prompt": "Many experts argue that creative subjects such as art, music, and drama are as valuable as science and mathematics in a school curriculum. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0310",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "people believe that personal data collected by",
+      "prompt": "A considerable number of people believe that personal data collected by technology companies poses a serious threat to individual privacy. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0311",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "How far do you agree with this",
+      "prompt": "How far do you agree with this opinion? It has been a matter of intense debate for quite some time now as to what should be done with old buildings.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0312",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "urban living offers more advantages than rural",
+      "prompt": "Many experts maintain that urban living offers more advantages than rural life in the modern era. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0313",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "that educators should use technology in every",
+      "prompt": "It is increasingly argued that educators should use technology in every lesson to prepare students for the modern workforce. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0314",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "decades, it has been argued that family",
+      "prompt": "Over the last few decades, it has been argued that family bonds have weakened as a result of modern lifestyles. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0315",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "preventive medicine is more cost-effective than treating",
+      "prompt": "Many experts argue that preventive medicine is more cost-effective than treating illness after it occurs. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0316",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "public spaces should be restricted to non-smoking",
+      "prompt": "Many experts argue that public spaces should be restricted to non-smoking to protect public health. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0317",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "self-driving vehicles will make roads safer and",
+      "prompt": "Many experts argue that self-driving vehicles will make roads safer and should be adopted as widely as possible. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0318",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "Do you agree or that improvements in",
+      "prompt": "Do you agree or that improvements in GT modern modern technology reduce the role of Olympic Games.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0319",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "national authorities should impose strict limits on",
+      "prompt": "Many experts argue that national authorities should impose strict limits on advertising directed at young people. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0320",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "decades, it has been argued that dependence",
+      "prompt": "Over the last few decades, it has been argued that dependence on modern technology is reducing people's ability to think critically. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0321",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "a shorter working week would benefit both",
+      "prompt": "Many experts argue that a shorter working week would benefit both employees and their employers. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0322",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "the purpose of higher education should be",
+      "prompt": "Many experts argue that the purpose of higher education should be to develop well-rounded individuals rather than to prepare them solely for employment. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0323",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "the media coverage of criminal activity makes",
+      "prompt": "Many experts argue that the media coverage of criminal activity makes society less safe by glamorising offenders. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0324",
+      "essay_type": "opinion",
+      "topic": "media",
+      "title": "people believe that celebrities should not use",
+      "prompt": "A considerable number of people believe that celebrities should not use their platform to promote political views. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0325",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "belief that remote working has fundamentally changed",
+      "prompt": "There is a growing belief that remote working has fundamentally changed the nature of employment for the better. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0326",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that national identity is more",
+      "prompt": "A considerable number of people believe that national identity is more important than a global one. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0328",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "participation in community service should be encouraged",
+      "prompt": "Many experts argue that participation in community service should be encouraged but never made obligatory. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0329",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0330",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "national authorities should spend more on public",
+      "prompt": "Many experts argue that national authorities should spend more on public health than on defence. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0331",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0332",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "belief that citizens should have more direct",
+      "prompt": "There is a growing belief that citizens should have more direct say in government decisions through referendums. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0333",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0334",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "single-sex schools produce better academic outcomes, while",
+      "prompt": "Some people maintain that single-sex schools produce better academic outcomes, while others argue that mixed schools better prepare young people for adult life. Discuss both views.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0335",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "belief that tourists have a responsibility to",
+      "prompt": "There is a growing belief that tourists have a responsibility to learn about and respect the customs of their destinations. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0336",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "academic examinations are not the most effective",
+      "prompt": "Many experts argue that academic examinations are not the most effective way to assess a student's true abilities. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0337",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "suggested that national authorities should provide free",
+      "prompt": "It has frequently been suggested that national authorities should provide free internet access to all citizens. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0338",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "cultural traditions and customs are being lost",
+      "prompt": "Certain commentators maintain that cultural traditions and customs are being lost as a result of globalisation, while others believe that cultural exchange enriches all societies. Consider both views and state your own position.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0339",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0340",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0341",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "suggested that all workers, regardless of their",
+      "prompt": "It has frequently been suggested that all workers, regardless of their role, should receive the same basic wage. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0342",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "that people in developed nations consume far",
+      "prompt": "It is increasingly argued that people in developed nations consume far more than they need, and that this is damaging the planet. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0343",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "urban living offers more advantages than rural",
+      "prompt": "Many experts maintain that urban living offers more advantages than rural life in the modern era. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0344",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "governments should regulate the content available on",
+      "prompt": "Many experts argue that governments should regulate the content available on the internet to protect citizens. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0345",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "learners benefit more from studying in groups",
+      "prompt": "Some people maintain that learners benefit more from studying in groups, while others argue that individual study produces better results. Examine both perspectives and give your own view.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0346",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "people believe that arts and culture should",
+      "prompt": "A considerable number of people believe that arts and culture should be funded by the state rather than by private enterprise. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0347",
+      "essay_type": "opinion",
+      "topic": "media",
+      "title": "the mainstream media has too much influence",
+      "prompt": "Many experts argue that the mainstream media has too much influence over public opinion. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0348",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "belief that physical education should be given",
+      "prompt": "There is a growing belief that physical education should be given equal time to academic subjects in schools. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0349",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "decades, it has been argued that family",
+      "prompt": "Over the last few decades, it has been argued that family bonds have weakened as a result of modern lifestyles. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0350",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "public spaces should be restricted to non-smoking",
+      "prompt": "Many experts argue that public spaces should be restricted to non-smoking to protect public health. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0351",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that national identity is more",
+      "prompt": "A considerable number of people believe that national identity is more important than a global one. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0352",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "suggested that all learners should be taught",
+      "prompt": "It has frequently been suggested that all learners should be taught in mixed-ability classes rather than being grouped by academic performance. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0353",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "people believe that online learning will eventually",
+      "prompt": "A considerable number of people believe that online learning will eventually replace traditional classroom education. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0354",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "participation in community service should be encouraged",
+      "prompt": "Many experts argue that participation in community service should be encouraged but never made obligatory. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0355",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0356",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0357",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0358",
+      "essay_type": "opinion",
+      "topic": "food",
+      "title": "suggested that food labelling regulations should be",
+      "prompt": "It has frequently been suggested that food labelling regulations should be made stricter to help consumers make healthier choices. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0359",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "parents, rather than educators, bear the primary",
+      "prompt": "Many experts argue that parents, rather than educators, bear the primary responsibility for a child's moral education. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0360",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "national authorities have a duty to fund",
+      "prompt": "Many experts argue that national authorities have a duty to fund universal healthcare for all citizens. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0361",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0362",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "decades, it has been suggested that early",
+      "prompt": "Over the last few decades, it has been suggested that early childhood education has a more lasting impact on a person's development than later schooling. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0363",
+      "essay_type": "discussion",
+      "topic": "education",
+      "title": "higher education institutions should be free for",
+      "prompt": "Certain commentators maintain that higher education institutions should be free for all students, while others argue that individuals should contribute to the cost. Discuss both views.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0364",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0365",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "suggested that a global tax on carbon",
+      "prompt": "It has frequently been suggested that a global tax on carbon emissions is the most effective way to address climate change. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0366",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "held view that learners who study abroad",
+      "prompt": "There is a widely held view that learners who study abroad gain significant advantages over those who remain in their home country. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0367",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "prevention is more effective than punishment in",
+      "prompt": "Many experts argue that prevention is more effective than punishment in reducing criminal activity in society. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0368",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "creative subjects such as art, music, and",
+      "prompt": "Many experts argue that creative subjects such as art, music, and drama are as valuable as science and mathematics in a school curriculum. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0369",
+      "essay_type": "discussion",
+      "topic": "society",
+      "title": "held view that older generations have more",
+      "prompt": "There is a widely held view that older generations have more wisdom to offer society than younger generations. Others disagree. Examine both sides and give your own perspective.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0370",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "that people in developed nations consume far",
+      "prompt": "It is increasingly argued that people in developed nations consume far more than they need, and that this is damaging the planet. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0371",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "urban living offers more advantages than rural",
+      "prompt": "Many experts maintain that urban living offers more advantages than rural life in the modern era. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0372",
+      "essay_type": "opinion",
+      "topic": "crime",
+      "title": "belief that longer prison sentences are the",
+      "prompt": "There is a growing belief that longer prison sentences are the most effective way to deter offenders. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0373",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "academic examinations are not the most effective",
+      "prompt": "Many experts argue that academic examinations are not the most effective way to assess a learner's true abilities. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0374",
+      "essay_type": "opinion",
+      "topic": "environment",
+      "title": "people believe that individuals who cause environmental",
+      "prompt": "A considerable number of people believe that individuals who cause environmental damage should face severe legal penalties. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0375",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "that educators should use technology in every",
+      "prompt": "It is increasingly argued that educators should use technology in every lesson to prepare students for the modern workforce. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0376",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "the purpose of higher education should be",
+      "prompt": "Many experts argue that the purpose of higher education should be to develop well-rounded individuals rather than to prepare them solely for employment. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0377",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "academic examinations are not the most effective",
+      "prompt": "Many experts argue that academic examinations are not the most effective way to assess a student's true abilities. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0378",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "people believe that companies have a moral",
+      "prompt": "A considerable number of people believe that companies have a moral duty to prioritise the wellbeing of their employees over profit. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0379",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "artificial intelligence will eventually replace most forms",
+      "prompt": "Many experts argue that artificial intelligence will eventually replace most forms of human employment. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0380",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "airlines should face higher taxes to discourage",
+      "prompt": "Many experts argue that airlines should face higher taxes to discourage excessive air travel and reduce carbon emissions. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0381",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "belief that physical education should be given",
+      "prompt": "There is a growing belief that physical education should be given equal time to academic subjects in schools. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0382",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "decades, it has been argued that family",
+      "prompt": "Over the last few decades, it has been argued that family bonds have weakened as a result of modern lifestyles. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0383",
+      "essay_type": "opinion",
+      "topic": "tourism",
+      "title": "mass tourism causes more harm than good",
+      "prompt": "Many experts argue that mass tourism causes more harm than good to local communities and environments. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0384",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "public spaces should be restricted to non-smoking",
+      "prompt": "Many experts argue that public spaces should be restricted to non-smoking to protect public health. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0385",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "employees who work flexibly are more productive",
+      "prompt": "Many experts argue that employees who work flexibly are more productive than those who follow fixed schedules. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0386",
+      "essay_type": "opinion",
+      "topic": "health",
+      "title": "belief that unhealthy lifestyle choices are the",
+      "prompt": "There is a growing belief that unhealthy lifestyle choices are the leading cause of most preventable illnesses. To what extent do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0387",
+      "essay_type": "discussion",
+      "topic": "technology",
+      "title": "held view that online shopping has brought",
+      "prompt": "There is a widely held view that online shopping has brought significant advantages to consumers, while others argue that it is damaging local businesses and communities. Discuss both views.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0388",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that national identity is more",
+      "prompt": "A considerable number of people believe that national identity is more important than a global one. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0389",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "participation in community service should be encouraged",
+      "prompt": "Many experts argue that participation in community service should be encouraged but never made obligatory. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0390",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "How far do you agree with this",
+      "prompt": "How far do you agree with this opinion? esearch indicates that the characteristics we are GT old essay born with have much more influence on our personality and development than any experiences we may have in our life ost high level positions are done by men.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0391",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individuals have a greater responsibility to help",
+      "prompt": "Many people argue that individuals have a greater responsibility to help their local communities than to contribute to global causes. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0392",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "belief that modern life is becoming increasingly",
+      "prompt": "There is a growing belief that modern life is becoming increasingly stressful, and that governments should take steps to improve citizens' quality of life. To what degree do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0393",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "suggested that all learners should be taught",
+      "prompt": "It has frequently been suggested that all learners should be taught in mixed-ability classes rather than being grouped by academic performance. How far do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0394",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "Do you agree or disagree？ - n",
+      "prompt": "Do you agree or disagree? - n recent years, there has been growing interest in the relationship between inequality and personal achievement.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0395",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "It is widely argued that more funds",
+      "prompt": "It is widely argued that more funds should be invested in space exploration, as it is a vital form of investigation for the future of humanity. In contrast, others believe it is a waste of vital funding that could otherwise be used towards more essential projects here on earth.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0396",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "It is widely argued that more funds",
+      "prompt": "It is widely argued that more funds should be invested into space exploration as it is a vital form of investigation for the future of humanity, while others believe it is a waste of vital funding that could otherwise be used towards more essential projects here on earth. OR Space exploration is much too expensive, and the money should be spent on more significant things.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0397",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "It is widely argued that violence on",
+      "prompt": "It is widely argued that violence on TV, in films, and in computer games has a damaging effect on the community. Others deny that these factors have any significant influence on individuals's behavior.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0399",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "It is widely argued that single-sex educational",
+      "prompt": "It is widely argued that single-sex educational institutions are more advantageous to learners because they achieve better academic results. Others, however, argue that mixed schools are better since learners can develop better social skills.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0400",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "individual freedom should never be restricted, even",
+      "prompt": "Many experts argue that individual freedom should never be restricted, even in the interests of public safety. How far do you agree with this statement?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0401",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "artificial intelligence will eventually replace most forms",
+      "prompt": "Many experts argue that artificial intelligence will eventually replace most forms of human employment. How far do you agree with this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0402",
+      "essay_type": "opinion",
+      "topic": "transport",
+      "title": "What do you think is driving this",
+      "prompt": "What do you think is driving this habit? Is this a good or bad development? Support your view with relevant reasons and examples from your knowledge or experience.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0403",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "belief that young people are spending too",
+      "prompt": "There is a growing belief that young people are spending too much time using digital devices and that this is damaging their wellbeing. Do you agree?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0404",
+      "essay_type": "opinion",
+      "topic": "transport",
+      "title": "What do you think is driving this",
+      "prompt": "What do you think is driving this habit? Do you believe this is positive or negative? Support your view with relevant reasons and examples from your knowledge or experience.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0405",
+      "essay_type": "opinion",
+      "topic": "technology",
+      "title": "people believe that personal data collected by",
+      "prompt": "A considerable number of people believe that personal data collected by technology companies poses a serious threat to individual privacy. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0406",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "suggested that volunteering should be made a",
+      "prompt": "It has frequently been suggested that volunteering should be made a compulsory part of life for young adults. How far do you agree with this position?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0407",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "people believe that social media has done",
+      "prompt": "A considerable number of people believe that social media has done more harm than good to modern society. To what extent do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0408",
+      "essay_type": "opinion",
+      "topic": "society",
+      "title": "Do you disagree/ agree or have an",
+      "prompt": "Do you disagree/ agree or have an impartial view? Take a minute to PLAN what you are going to say in your answer.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0409",
+      "essay_type": "opinion",
+      "topic": "government",
+      "title": "national authorities should impose strict limits on",
+      "prompt": "Many experts argue that national authorities should impose strict limits on advertising directed at young people. How far do you share this view?",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0410",
+      "essay_type": "opinion",
+      "topic": "work",
+      "title": "Do you agree? International tourism is a",
+      "prompt": "Do you agree? International tourism is a huge industry that provides millions of positions worldwide.",
+      "band_score": null,
+      "sample_essay": null
+    },
+    {
+      "id": "t2-0411",
+      "essay_type": "opinion",
+      "topic": "education",
+      "title": "people believe that online learning will eventually",
+      "prompt": "A considerable number of people believe that online learning will eventually replace traditional classroom education. Do you agree or disagree?",
+      "band_score": null,
+      "sample_essay": null
+    }
+  ]
+}
