@@ -1791,7 +1791,9 @@
 
         async function loadBookPrompts() {
             try {
-                const resp = await fetch('/api/prompts');
+                // Try API endpoint first, fall back to static file
+                let resp = await fetch('/api/prompts');
+                if (!resp.ok) resp = await fetch('/ielts-prompts.json');
                 if (!resp.ok) return;
                 const data = await resp.json();
 
